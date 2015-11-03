@@ -1,0 +1,141 @@
+hr {display: block; height: 1px; border: 0; border-top: 1px solid #008080; margin: 10px 0 15px 0; padding: 0; }
+#more-links{color: #253161; text-decoration: none; font-weight: bold; font-size: 11px; height: 25px;  outline-style: none;}
+.tabs a:hover {
+  color: #2863c2;
+}
+bld{font-weight:bold;}
+body {margin:0; 
+//font-family: verdana, arial, helvetica, sans-serif; font-size:11px;
+background-image: -webkit-linear-gradient(top, #189fbf, #016596);
+background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#189fbf), to(#016596));
+background-image: -moz-linear-gradient(top, #189fbf, #016596);
+background-image: -moz-linear-gradient(bottom, #ffbd08, #ffe6a5);
+background-image: linear-gradient(top, #189fbf, #016596);
+background-image: -o-linear-gradient(top, #189fbf, #016596);
+background-image: -ms-linear-gradient(top, #189fbf, #016596);
+background-image: linear-gradient(to top, #189fbf, #016596);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#189fbf', endColorstr='#016596'); }
+
+hstrip{ height:30px; width:100%; background-color:#09a0be !important; background:url(../images/admin/h2.png);  }
+
+#container{min-height:635px; width:100%; background:#003f77;  height:auto; overflow:hidden; }
+#main-container {width:98%; height:auto; margin:auto;}
+#header{width:100%; height:auto; background:url(../images/admin/icapbg.png) repeat-x;  
+margin:10px; text-align:center; overflow:hidden;}
+
+#controls-container{width: calc(100% - 261px); float:left; background:#e7f3f8;  min-height:120px; height:auto; 
+border:#00558b 1px solid; border-radius:10px; -moz-border-radius:10px; -webkit-border-radius:10px;
+box-shadow:2px 2px 6px #fff; -moz-box-shadow:2px 2px 6px #fff; -webkit-box-shadow:2px 2px 6px #fff;
+margin:15px 0px 20px 20px;  overflow:hidden !important;
+font-size:12px;
+}
+#splash-controls-container{width: 97%; background:#e7f3f8;  min-height:120px; height:auto; 
+border:#00558b 1px solid; border-radius:10px; -moz-border-radius:10px; -webkit-border-radius:10px;
+box-shadow:2px 2px 6px #fff; -moz-box-shadow:2px 2px 6px #fff; -webkit-box-shadow:2px 2px 6px #fff;
+margin:15px 0px 20px 20px;  overflow:hidden !important;
+font-size:12px;
+}
+
+#controls{width:100px; height:100px; min-height:100px; max-height:100px; max-width:100px; max-width:100px; 
+border:1px #75bada solid; 
+overflow:hidden;
+/* background: -o-linear-gradient(top,#dae9f4, #e3eff7, #edf4f9, #f5f9fb,#f7fafc, #fff, #fff,#f7fafc,#f5f9fb,#edf4f9,#e3eff7,#dae9f4); */
+background:url(../images/admin/dashboard.png) repeat-x; /*75bada hover cfdee5*/
+border-radius:10px;  -moz-border-radius:10px; -webkit-border-radius:10px;
+font-size: 11px; text-align: center; color: #2e738c; font-weight:bold; text-decoration:none; 
+float:left;
+margin:12px;
+//cursor:pointer;
+}
+#menu-accordion{height:auto;  width:231px; float:left; color:#fff; font-weight:bold;}
+#accordion-img{cursor:pointer; background:url(../images/admin/link-hover-big.png) no-repeat; padding-left:30px; font-size:12px; height:35px; line-height:35px;
+/* background: url(images/bg.jpg) no-repeat center center fixed;  */
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  }
+#toga,  #togb, #togc, #togd, #togf, #togg{min-height:25px; height:auto; width:201px; float:right; overflow:hidden;
+transition: height 1s ease-in-out;
+	-webkit-transition: height 1s ease-in-out;
+	-moz-transition: height 1s ease-in-out;
+	-ms-transition: height 1s ease-in-out;
+	-o-transition: height 1s ease-in-out;
+ }
+#toga ul, #togb ul, #togc ul, #togd ul ,  #togf ul , #togg ul {margin: 0; padding: 0; list-style: none;}
+#toga li, #togb li , #togc li, #togd li,    #togf li, #togg li {float: right; width:201px; height:25px}
+
+#controls a {font-size: 12px; text-align: center; color: #023d5b; font-weight:normal; text-decoration:none; }
+#toga a,  #togb a, #togc a, #togd a,  #togf a, #togg a{display: block; background:url(../images/admin/link-normal.png) no-repeat; height:25px; width:201px; padding-left:20px; color:#023d5b; font-size:13px; font-weight:normal; line-height:25px; text-decoration:none; font-family:Arial} 
+
+#toga a:hover,#toga a:active , #togg a:hover, #togg a:active{ background:url(../images/admin/link-hover.png) no-repeat;}
+#toga b:hover,#toga b:active , #togg b:hover, #togg b:active{ background:url(../images/admin/link-hover.png) no-repeat;}
+#toga c:hover,#toga c:active , #togg c:hover, #togg c:active{ background:url(../images/admin/link-hover.png) no-repeat;}
+#toga d:hover,#toga d:active , #togg d:hover, #togg d:active{ background:url(../images/admin/link-hover.png) no-repeat;}
+/* #toga e:hover,#toga e:active , #togg e:hover, #togg e:active{ backgroune:url(../images/admin/link-hover.png) no-repeat;}*/
+#toga f:hover,#toga f:active , #togg f:hover, #togg f:active{ background:url(../images/admin/link-hover.png) no-repeat;}
+#toga g:hover,#toga g:active , #togg g:hover, #togg g:active{ background:url(../images/admin/link-hover.png) no-repeat;}
+
+
+#spacer2{width:100%; height:20px; min-height:20px; clear:both;}
+#nlinks a:active, #nlinks a:focus, #nlinks a:hover,#nlinks  a:link , #nlinks a:visited{width:33%; height:auto; float:left; margin:auto; padding-top:15px; color:#e2fc77; font-family:Arial; font-weight:bold; font-size:12px; text-align:center;}
+#footer{background:url(../images/admin/footer.png) repeat-x; height:51px; width:100%; clear:both; margin-top:20px;
+font-size:11; font-family:sans; color:#fff; line-height:51px;">Copyright 2013 <span style="font-weight:bolder;}
+/* CSS Document */
+
+
+table {font-size:13px !important;}
+
+/******************************************************************************************************************************/
+
+#vaccordion{width:25%; height:auto;  width:100%; float:left; color:#000; font-weight:bold; overflow:hidden; margin:0px; padding:0px;}
+.accordion-toggle {
+/*background:url(../images/admin/link-hover-big.png) no-repeat; padding:0px 0px 0px 30px; font-size:14px; height:35px; line-height:35px; */
+cursor:pointer;  overflow:hidden; color:#fff; width:100%; text-transform: capitalize; text-decoration:none !important;
+}
+
+.accordion-toggle a:link {
+text-decoration:none !important;
+}
+
+.accordion-content{
+width:201px; float:right; display:block; margin-bottom:5px; margin-top:0px; display:none;
+transition: height 0.2s ease-in-out;
+	-webkit-transition: height 0.2s ease-in-out;
+	-moz-transition: height 0.2s ease-in-out;
+	-ms-transition: height 0.2s ease-in-out;
+	-o-transition: height 0.2s ease-in-out;
+	}
+	
+	.accordion-content a:active, .accordion-content a:focus, .accordion-content a:hover {display: block; background:url(../images/admin/link-hover.png) no-repeat; height:25px; width:181px; padding-left:20px; color:#023d5b; font-size:13px; font-weight:normal; line-height:25px; text-decoration:none !important; font-family:Arial; float:right;  overflow:hidden; margin:5px 0px;}
+	.accordion-content a:link, .accordion-content a:visited, .accordion-content a:active {display: block; background:url(../images/admin/link-normal.png) no-repeat; height:25px; width:181px; padding-left:20px; color:#023d5b; font-size:13px; font-weight:normal; line-height:25px; text-decoration:none !important; font-family:Arial; float:right;  overflow:hidden; margin:5px 0px;}
+
+
+#taccb{
+width:231px; height:35px; background-color:#73acc7;
+color:#fff; line-height:35px;  font-weight:bold; font-size:14px;
+border-top-right-radius:5px;  -moz-border-top-right-radius:5px; -webkit-border-top-right-radius:5px;
+background-image: -webkit-linear-gradient(top, #0f6f9f, #73acc7);
+background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0f6f9f), to(#73acc7));
+background-image: -moz-linear-gradient(top, #0f6f9f, #73acc7);
+background-image: -moz-linear-gradient(top, #0f6f9f, #73acc7);
+background-image: linear-gradient(top, #0f6f9f, #73acc7);
+background-image: -o-linear-gradient(top, #0f6f9f, #73acc7);
+background-image: -ms-linear-gradient(top, #0f6f9f, #73acc7);
+background-image: linear-gradient(to top, #0f6f9f, #73acc7);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0f6f9f', endColorstr='#73acc7');
+}
+
+#taccbi{
+width:23px; line-height:inherit; height:100%; background-color:#1072ce; float:left; text-align:center;
+font-weight:bold; font-size:18px; margin-right:10px; font-family:"Eras Bold ITC";
+background-image: -webkit-linear-gradient(top, #033661, #1072ce);
+background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#033661), to(#1072ce));
+background-image: -moz-linear-gradient(top, #033661, #1072ce);
+background-image: -moz-linear-gradient(top, #033661, #1072ce);
+background-image: linear-gradient(top, #033661, #1072ce);
+background-image: -o-linear-gradient(top, #033661, #1072ce);
+background-image: -ms-linear-gradient(top, #033661, #1072ce);
+background-image: linear-gradient(to top, #033661, #1072ce);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#033661', endColorstr='#1072ce');
+}
