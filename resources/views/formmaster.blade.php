@@ -36,7 +36,7 @@
             </table>
         </div>
 
-        <div id="hstrip" style="height:30px; width:100%; background-color:#09a0be !important; background:url(../assets/images/admin/h2.png); ">
+<!--        <div id="hstrip" style="height:30px; width:100%; background-color:#09a0be !important; background:url(../assets/images/admin/h2.png); ">-->
         <div id='cssmenu'>
             <ul>
                <li class='active'><a href='dash-board'><span>Home</span></a></li>
@@ -47,7 +47,7 @@
            <!-- {!!HTML::link('/dash-board','Home',['class'=>'btn btn-link'])!!} || {!!HTML::link('/logout','Logout',['class'=>'btn btn-link'])!!} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
 
         </div>
-        </div>
+       <!-- </div>-->
 
         <div id="main-container">
             <div id="splash-controls-container">
