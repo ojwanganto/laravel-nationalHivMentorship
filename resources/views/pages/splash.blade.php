@@ -64,7 +64,7 @@ text-transform:none; color:#fff; font-weight:bold; text-decoration:none;
                 <p> Create Person </p>
               </div>
             </a></td>
-            <td><a href="indicator-form">
+            <td><a href="indicator-setup">
               <div id="controls"> <img src="{!! asset('img/lab.png') !!}"> <br>
                 <p> Manage Session Indicators </p>
               </div>

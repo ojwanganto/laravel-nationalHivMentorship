@@ -20,7 +20,6 @@ class CreateSessionIndicatorTable extends Migration
             $table->string('name');
             $table->string('description', 100);
             $table->boolean('voided')->default(false);
-            $table->integer('indicator_number')->unique();
 			$table->timestamps();
 		});
     }

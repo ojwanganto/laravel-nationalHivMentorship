@@ -5,21 +5,13 @@
     <title>National HIV Mentorship</title>
     <link href="http://localhost/icap/assets/icons/favicon.ico" rel="shortcut icon" type="image/x-png">
     <link href="{!! asset('css/admin.css') !!}"  rel="stylesheet" type="text/css" media="all">
-    <link href="{!! asset('css/custom.css') !!}" rel="stylesheet" type="text/css" media="all">
-    <link rel="stylesheet" type="text/css" media="screen" href="{!! asset('css/jquery-ui.css') !!}" />
-    <link href="{!! asset('css/jquery-ui.css') !!}" rel="stylesheet" type="text/css" media="screen"/>
     <link href="{!! asset('css/menu.css') !!}" rel="stylesheet" type="text/css" media="all"/>
-
-    <!--<script type="text/javascript" src="js/jquery-2.1.0.js"></script> -->
-    <script type="text/javascript" src="js/datetimepicker_css.js"></script>
-    <script type="text/javascript" src="{!! asset('js/form/jquery.min.js') !!}"></script>
+    <link href="{!! asset('css/jquery.dataTables.css') !!}" rel="stylesheet" type="text/css" media="all"/>
+    <script type="text/javascript" src="{!! asset('js/jquery-2.1.0.js') !!}"></script>
     <script type="text/javascript" src="{!! asset('js/form/jquery-ui.js') !!}"></script>
-    <script type="text/javascript" src="{!! asset('js/form/form7.js') !!}"></script>
-
-   
-    <script src="{!! asset('js/jquery-ui.js') !!}" ></script> 
-
-        <style type="text/css">.fancybox-margin{margin-right:15px;}</style>
+    <script type="text/javascript" src="{!! asset('js/jquery.datatables.min.js') !!}"></script>      
+    @yield('inline-js')
+    <style type="text/css">.fancybox-margin{margin-right:15px;}</style>
 </head>
 <body>
     <div id="container">
@@ -45,14 +37,14 @@
         <div id="main-container">
             <div id="splash-controls-container">
                 <div id="cp-title" style="width:100%; height:40px; line-height:40px; font-weight:bold; color:#13749f; font-size:18px; padding-left:30px; font-style:normal; font-family:Castellar; text-shadow:008080;"><legend>@yield('form-name')</legend></div>
-	<div id="content" style="width:98%; height:auto; margin:auto; clear:both; overflow:hidden !important; position:relative; font-size:10px; ">
+	   <div id="content" style="width:98%; height:auto; margin:auto; clear:both; overflow:hidden !important; position:relative; font-size:16px; ">
         <div>
         @yield('form-design')
         </div>
     
-</div>
+    </div>
 		
-	</div>
+    </div>
 <!-- end controls-container-->
 </div> <!-- end of main container -->
 

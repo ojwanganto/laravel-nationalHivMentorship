@@ -1,20 +1,33 @@
 @extends('formlistmaster')
-@section('form-name', 'Available Indicators')
+@section('form-name', 'Indicators')
+@section('inline-js')
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        var dataTable = $("#indicatorList").dataTable();
+    });
+
+</script>
+@stop
 @section('form-design')
 <div id="result">
-    <table width="60%" class="matrix">
+    <table id="indicatorList">
+        <thead>
         <tr>
-            <th>Indicator Name</th>
-            <th colspan="2">Description</th>
-            <th>Number</th>
+            <td><b>Number</b></td>
+            <td><b>Indicator Name</b></td>
+            <td><b>Description</b></td>
+            
         </tr>
+        </thead>
+        <tbody>
         @foreach ($indicators as $indicator)
         <tr>
+            <td>{{$indicator->indicator_id}}</td>
             <td>{{$indicator->name}}</td>
-            <td colspan="2">{{$indicator->description}}</td>
-            <td>{{$indicator->indicator_number}}</td>
-        </tr>
+            <td>{{$indicator->description}}</td>
         @endforeach
+        </tbody>
     </table>
 </div>
 @stop

@@ -14,7 +14,7 @@ class MentorshipSession extends Model
      */
     public function sessionTool()
     {
-        return $this->belongsTo('App\SessionTool', 'tool_id', 'session_id');
+        return $this->hasOne('App\SessionTool', 'tool_id', 'session_tool_id');
     }
     
      /**

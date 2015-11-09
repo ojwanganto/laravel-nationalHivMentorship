@@ -28,7 +28,8 @@ class MentorshipSessionController extends Controller
      */
     public function index()
     {
-        return view('pages.session.paginatedsession');
+        $mSessions = MentorshipSession::all();
+        return view('pages.session.sessionlist', compact('mSessions', $mSessions));
     }
 
     /**
@@ -38,7 +39,7 @@ class MentorshipSessionController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.session.paginatedsession');
     }
 
     /**
@@ -50,22 +51,19 @@ class MentorshipSessionController extends Controller
     public function store(Request $request)
     {
         $mSession = new MentorshipSession();
-        $mSession -> mentor_id = 1;
-        $mSession -> mentee_id = 1;
-        $mSession -> session_tool_id = 1;
+        $mSession -> mentor_id = $request->mentor;
+        $mSession -> mentee_id = $request->mentee;
+        $mSession -> session_tool_id = $request->tool_id;
         $mSession -> facility = "Nairobi";
         $mSession -> save();
         $sessionId = $mSession->session_id;
       
-        $indicators = array(
-            'ind_1',
-            'ind_2',
-            'ind_3',
-            'ind_4',
-            'ind_5'
+        $clinicalindicators = array(
+            'ind_1','ind_2','ind_3','ind_4','ind_5','ind_6','ind_7','ind_8','ind_9','ind_10','ind_11','ind_12','ind_13','ind_14',         'ind_15','ind_16','ind_17','ind_18','ind_19','ind_20','ind_21'
+            
         );
 
-        foreach($indicators as $ind) {
+        foreach($clinicalindicators as $ind) {
             
             $indNo = explode("_", $ind)[1];
             $indScore = $request->$ind;
@@ -78,10 +76,9 @@ class MentorshipSessionController extends Controller
             $indicatorScore -> score = $indScore;
             $indicatorScore -> comment = $comment;
             $indicatorScore -> save();
-           
-            echo $ind.' :'.$request->$ind;
-            echo " Comment: ". $comment ."<br/>";
+
         }
+        return redirect('session-list');
     }
 
     /**
@@ -92,7 +89,8 @@ class MentorshipSessionController extends Controller
      */
     public function show($id)
     {
-        //
+        $mentorshipSession = MentorshipSession::find($id);
+        return view('pages.session.sessiontoolview', compact('mentorshipSession', $mentorshipSession));
     }
 
     /**

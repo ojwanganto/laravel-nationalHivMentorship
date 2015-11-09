@@ -16,4 +16,12 @@ class Mentee extends Model
     {
         return $this->hasMany('App\MentorshipSession', 'mentee_id', 'mentee_id');
     }
+    
+    /*
+        Get associated person
+    */
+    public function person()
+    {
+        return $this->hasOne('App\Person', 'person_id', 'person_id');
+    }
 }

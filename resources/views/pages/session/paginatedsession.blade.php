@@ -4,6 +4,7 @@
 
 <form method="post" id="FSForm" action="session-create">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
+<input type="hidden" name="tool_id" value="1">
 
 <!-- BEGIN_ITEMS -->
 <div class="form_table">
@@ -130,122 +131,122 @@
 </tr>
 <tr class="matrix_row_light">
 <td class="question" style="width:px;">a. Review of patient file</td>
-<td><input type="radio" name="ind_1" class="multiple_choice" id="RESULT_RadioButton-4-0-0" value="1" /></td>
-<td><input type="radio" name="ind_1" class="multiple_choice" id="RESULT_RadioButton-4-0-1" value="2" /></td>
-<td><input type="radio" name="ind_1" class="multiple_choice" id="RESULT_RadioButton-4-0-2" value="3" /></td>
-<td colspan="2"><input name="comm_1" type="text" size="30"/></td>
+<td><input type="radio" name="ind_5" class="multiple_choice" id="RESULT_RadioButton-4-0-0" value="1" /></td>
+<td><input type="radio" name="ind_5" class="multiple_choice" id="RESULT_RadioButton-4-0-1" value="2" /></td>
+<td><input type="radio" name="ind_5" class="multiple_choice" id="RESULT_RadioButton-4-0-2" value="3" /></td>
+<td colspan="2"><input name="comm_5" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_dark">
 <td class="question" style="width:px;">b. Vitals recording, interpreting & triage</td>
-<td><input type="radio" name="ind_2" class="multiple_choice" id="freedom-0" value="1" /></td>
-<td><input type="radio" name="ind_2" class="multiple_choice" id="freedom-1" value="2" /></td>
-<td><input type="radio" name="ind_2" class="multiple_choice" id="freedom-2" value="3" /></td>
-<td colspan="2"><input name="comm_2" type="text" size="30"/></td>
+<td><input type="radio" name="ind_6" class="multiple_choice" id="freedom-0" value="1" /></td>
+<td><input type="radio" name="ind_6" class="multiple_choice" id="freedom-1" value="2" /></td>
+<td><input type="radio" name="ind_6" class="multiple_choice" id="freedom-2" value="3" /></td>
+<td colspan="2"><input name="comm_6" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
 <td class="question" style="width:px;">c. Appropriate history taking</td>
-<td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-0" value="1" /></td>
-<td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-1" value="2" /></td>
-<td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-2" value="3" /></td>
-<td colspan="2"><input name="comm_3" type="text" size="30"/></td>
+<td><input type="radio" name="ind_7" class="multiple_choice" id="answer_questions-0" value="1" /></td>
+<td><input type="radio" name="ind_7" class="multiple_choice" id="answer_questions-1" value="2" /></td>
+<td><input type="radio" name="ind_7" class="multiple_choice" id="answer_questions-2" value="3" /></td>
+<td colspan="2"><input name="comm_7" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_dark">
 <td class="question" style="width:px;">d. Physical exam (routine & targeted)</td>
-<td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-0" value="1" /></td>
-<td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-1" value="2" /></td>
-<td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-2" value="3" /></td>
-<td colspan="2"><input name="comm_4" type="text" size="30"/></td>
+<td><input type="radio" name="ind_8" class="multiple_choice" id="clear_communication-0" value="1" /></td>
+<td><input type="radio" name="ind_8" class="multiple_choice" id="clear_communication-1" value="2" /></td>
+<td><input type="radio" name="ind_8" class="multiple_choice" id="clear_communication-2" value="3" /></td>
+<td colspan="2"><input name="comm_8" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
 <td class="question" style="width:px;">e. Diagnosis/differential diagnosis (based on history, physical, investigations); WHO staging</td>
-<td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-0" value="1" /></td>
-<td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-1" value="2" /></td>
-<td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-2" value="3" /></td>
-<td colspan="2"><input name="comm_3" type="text" size="30"/></td>
+<td><input type="radio" name="ind_9" class="multiple_choice" id="answer_questions-0" value="1" /></td>
+<td><input type="radio" name="ind_9" class="multiple_choice" id="answer_questions-1" value="2" /></td>
+<td><input type="radio" name="ind_9" class="multiple_choice" id="answer_questions-2" value="3" /></td>
+<td colspan="2"><input name="comm_9" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_dark">
 <td class="question" style="width:px;">f. Correct management of OIs</td>
-<td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-0" value="1" /></td>
-<td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-1" value="2" /></td>
-<td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-2" value="3" /></td>
-<td colspan="2"><input name="comm_4" type="text" size="30"/></td>
+<td><input type="radio" name="ind_10" class="multiple_choice" id="clear_communication-0" value="1" /></td>
+<td><input type="radio" name="ind_10" class="multiple_choice" id="clear_communication-1" value="2" /></td>
+<td><input type="radio" name="ind_10" class="multiple_choice" id="clear_communication-2" value="3" /></td>
+<td colspan="2"><input name="comm_10" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
 <td class="question" style="width:px;">g. TB screening, diagnosis, treatment & prevention</td>
-<td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-0" value="1" /></td>
-<td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-1" value="2" /></td>
-<td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-2" value="3" /></td>
-<td colspan="2"><input name="comm_3" type="text" size="30"/></td>
+<td><input type="radio" name="ind_11" class="multiple_choice" id="answer_questions-0" value="1" /></td>
+<td><input type="radio" name="ind_11" class="multiple_choice" id="answer_questions-1" value="2" /></td>
+<td><input type="radio" name="ind_11" class="multiple_choice" id="answer_questions-2" value="3" /></td>
+<td colspan="2"><input name="comm_11" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_dark">
 <td class="question" style="width:px;">h. Decision-making on ART eligibility</td>
-<td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-0" value="1" /></td>
-<td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-1" value="2" /></td>
-<td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-2" value="3" /></td>
-<td colspan="2"><input name="comm_4" type="text" size="30"/></td>
+<td><input type="radio" name="ind_12" class="multiple_choice" id="clear_communication-0" value="1" /></td>
+<td><input type="radio" name="ind_12" class="multiple_choice" id="clear_communication-1" value="2" /></td>
+<td><input type="radio" name="ind_12" class="multiple_choice" id="clear_communication-2" value="3" /></td>
+<td colspan="2"><input name="comm_12" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
 <td class="question" style="width:px;">i. Correct prescription of ARVs</td>
-<td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-0" value="1" /></td>
-<td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-1" value="2" /></td>
-<td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-2" value="3" /></td>
-<td colspan="2"><input name="comm_3" type="text" size="30"/></td>
+<td><input type="radio" name="ind_13" class="multiple_choice" id="answer_questions-0" value="1" /></td>
+<td><input type="radio" name="ind_13" class="multiple_choice" id="answer_questions-1" value="2" /></td>
+<td><input type="radio" name="ind_13" class="multiple_choice" id="answer_questions-2" value="3" /></td>
+<td colspan="2"><input name="comm_13" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_dark">
 <td class="question" style="width:px;">j. Monitoring of ARV therapy</td>
-<td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-0" value="1" /></td>
-<td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-1" value="2" /></td>
-<td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-2" value="3" /></td>
-<td colspan="2"><input name="comm_4" type="text" size="30"/></td>
+<td><input type="radio" name="ind_14" class="multiple_choice" id="clear_communication-0" value="1" /></td>
+<td><input type="radio" name="ind_14" class="multiple_choice" id="clear_communication-1" value="2" /></td>
+<td><input type="radio" name="ind_14" class="multiple_choice" id="clear_communication-2" value="3" /></td>
+<td colspan="2"><input name="comm_14" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
 <td class="question" style="width:px;">k. Identification & management of treatment failure</td>
-<td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-0" value="1" /></td>
-<td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-1" value="2" /></td>
-<td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-2" value="3" /></td>
-<td colspan="2"><input name="comm_3" type="text" size="30"/></td>
+<td><input type="radio" name="ind_15" class="multiple_choice" id="answer_questions-0" value="1" /></td>
+<td><input type="radio" name="ind_15" class="multiple_choice" id="answer_questions-1" value="2" /></td>
+<td><input type="radio" name="ind_15" class="multiple_choice" id="answer_questions-2" value="3" /></td>
+<td colspan="2"><input name="comm_15" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_dark">
 <td class="question" style="width:px;">l. Identification & management of ARV ADRs</td>
-<td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-0" value="1" /></td>
-<td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-1" value="2" /></td>
-<td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-2" value="3" /></td>
-<td colspan="2"><input name="comm_4" type="text" size="30"/></td>
+<td><input type="radio" name="ind_16" class="multiple_choice" id="clear_communication-0" value="1" /></td>
+<td><input type="radio" name="ind_16" class="multiple_choice" id="clear_communication-1" value="2" /></td>
+<td><input type="radio" name="ind_16" class="multiple_choice" id="clear_communication-2" value="3" /></td>
+<td colspan="2"><input name="comm_16" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
 <td class="question" style="width:px;">m. Correct use of prophylactic medications</td>
-<td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-0" value="1" /></td>
-<td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-1" value="2" /></td>
-<td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-2" value="3" /></td>
-<td colspan="2"><input name="comm_3" type="text" size="30"/></td>
+<td><input type="radio" name="ind_17" class="multiple_choice" id="answer_questions-0" value="1" /></td>
+<td><input type="radio" name="ind_17" class="multiple_choice" id="answer_questions-1" value="2" /></td>
+<td><input type="radio" name="ind_17" class="multiple_choice" id="answer_questions-2" value="3" /></td>
+<td colspan="2"><input name="comm_17" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_dark">
 <td class="question" style="width:px;">n. Assessment of adherence</td>
-<td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-0" value="1" /></td>
-<td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-1" value="2" /></td>
-<td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-2" value="3" /></td>
-<td colspan="2"><input name="comm_4" type="text" size="30"/></td>
+<td><input type="radio" name="ind_18" class="multiple_choice" id="clear_communication-0" value="1" /></td>
+<td><input type="radio" name="ind_18" class="multiple_choice" id="clear_communication-1" value="2" /></td>
+<td><input type="radio" name="ind_18" class="multiple_choice" id="clear_communication-2" value="3" /></td>
+<td colspan="2"><input name="comm_18" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
 <td class="question" style="width:px;">o. Prevention messages (PHDP)</td>
-<td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-0" value="1" /></td>
-<td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-1" value="2" /></td>
-<td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-2" value="3" /></td>
-<td colspan="2"><input name="comm_3" type="text" size="30"/></td>
+<td><input type="radio" name="ind_19" class="multiple_choice" id="answer_questions-0" value="1" /></td>
+<td><input type="radio" name="ind_19" class="multiple_choice" id="answer_questions-1" value="2" /></td>
+<td><input type="radio" name="ind_19" class="multiple_choice" id="answer_questions-2" value="3" /></td>
+<td colspan="2"><input name="comm_19" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_dark">
 <td class="question" style="width:px;">p. Proper documentation</td>
-<td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-0" value="1" /></td>
-<td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-1" value="2" /></td>
-<td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-2" value="3" /></td>
-<td colspan="2"><input name="comm_4" type="text" size="30"/></td>
+<td><input type="radio" name="ind_20" class="multiple_choice" id="clear_communication-0" value="1" /></td>
+<td><input type="radio" name="ind_20" class="multiple_choice" id="clear_communication-1" value="2" /></td>
+<td><input type="radio" name="ind_20" class="multiple_choice" id="clear_communication-2" value="3" /></td>
+<td colspan="2"><input name="comm_20" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
 <td class="question" style="width:px;">q. Referrals & linkages to other services </td>
-<td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-0" value="1" /></td>
-<td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-1" value="2" /></td>
-<td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-2" value="3" /></td>
-<td colspan="2"><input name="comm_3" type="text" size="30"/></td>
+<td><input type="radio" name="ind_21" class="multiple_choice" id="answer_questions-0" value="1" /></td>
+<td><input type="radio" name="ind_21" class="multiple_choice" id="answer_questions-1" value="2" /></td>
+<td><input type="radio" name="ind_21" class="multiple_choice" id="answer_questions-2" value="3" /></td>
+<td colspan="2"><input name="comm_21" type="text" size="30"/></td>
 </tr>
 
 </table>

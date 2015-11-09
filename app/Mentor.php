@@ -16,4 +16,11 @@ class Mentor extends Model
     {
         return $this->hasMany('App\MentorshipSession', 'mentor_id', 'mentor_id');
     }
+    /*
+        Get associated person
+    */
+    public function person()
+    {
+        return $this->belongsTo('App\Person', 'person_id', 'person_id');
+    }
 }
