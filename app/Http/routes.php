@@ -10,6 +10,7 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::get('/system-setup', 'SystemSetUpController@setUp');
 Route::get('/session/{id}', 'MentorshipSessionController@show');
 Route::get('/session-list', 'MentorshipSessionController@index');
 Route::get('/indicator-setup', 'MentorshipSessionIndicatorController@setUpOriginalIndicators');

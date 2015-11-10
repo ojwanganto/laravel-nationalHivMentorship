@@ -79,7 +79,7 @@ text-transform:none; color:#fff; font-weight:bold; text-decoration:none;
               </div>
             </a></td>
             <td> 
-		<a href="http://localhost/icap/hei/index"> 
+		<a href="system-setup"> 
 			<div id="controls">		
 			<img src="{!! asset('img/reports.png') !!}">
 			<br>
