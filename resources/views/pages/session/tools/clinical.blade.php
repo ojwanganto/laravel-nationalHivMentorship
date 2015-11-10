@@ -250,6 +250,20 @@
 </tr>
 
 </table>
+<table>
+<tr><th colspan="4" style="text-align:left">Summary of Mentee Strengths</th></tr>
+<tr><td colspan="4"><textarea cols="70"></textarea></td></tr>
+</table>
+ 
+<table>
+<tr><th colspan="4" style="text-align:left">Summary of Mentee Areas for Improvement (with specific steps to address each priority area)</th></tr>
+<tr><td colspan="4"><textarea cols="70"></textarea></td></tr>
+</table>
+
+<table>
+<tr><th colspan="4" style="text-align:left">Other Comments</th></tr>
+<tr><td colspan="4"><textarea cols="70"></textarea></td></tr>
+</table>
 </div>
 <div class="clear"></div>
 

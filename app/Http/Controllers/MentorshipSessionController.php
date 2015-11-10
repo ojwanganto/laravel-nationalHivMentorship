@@ -39,7 +39,7 @@ class MentorshipSessionController extends Controller
      */
     public function create()
     {
-        return view('pages.session.paginatedsession');
+        return view('pages.session.tools.clinical');
     }
 
     /**
