@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\MentorshipSession;
+use App\Mentor;
+use App\Mentee;
 use App\MentorshipSessionScore;
 
 class MentorshipSessionController extends Controller
@@ -29,7 +31,7 @@ class MentorshipSessionController extends Controller
     public function index()
     {
         $mSessions = MentorshipSession::all();
-        return view('pages.session.sessionlist', compact('mSessions', $mSessions));
+        return view('pages.session.sessionhome', compact('mSessions'));
     }
 
     /**
@@ -37,9 +39,23 @@ class MentorshipSessionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        return view('pages.session.tools.clinical');
+    public function create($tool) {
+        
+        $mentors = Mentor::all();
+        $mentees = Mentee::all();
+        if ($tool==1) {
+            return view('pages.session.tools.clinical', compact('mentors','mentees'));
+        } else if ($tool==2) {
+            return view('pages.session.tools.laboratory', compact('mentors','mentees'));
+        } else if ($tool==3) {
+            return view('pages.session.tools.counseling', compact('mentors','mentees'));
+        } else if ($tool==4) {
+            return view('pages.session.tools.nutrition', compact('mentors','mentees'));
+        } else if ($tool==5) {
+            return view('pages.session.tools.pharmacy', compact('mentors','mentees'));
+        } else {
+            return redirect('mentorship-session');
+        }
     }
 
     /**

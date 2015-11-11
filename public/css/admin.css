@@ -36,6 +36,13 @@ margin:15px 0px 20px 20px;  overflow:hidden !important;
 font-size:12px;
 }
 
+#form-controls-container{width: 80%; background:#e7f3f8;  min-height:120px; height:auto; 
+border:#00558b 1px solid; border-radius:10px; -moz-border-radius:10px; -webkit-border-radius:10px;
+box-shadow:2px 2px 6px #fff; -moz-box-shadow:2px 2px 6px #fff; -webkit-box-shadow:2px 2px 6px #fff;
+margin:15px 0px 20px 20px;  overflow:hidden !important;
+font-size:12px;
+}
+
 #controls{width:100px; height:100px; min-height:100px; max-height:100px; max-width:100px; max-width:100px; 
 border:1px #75bada solid; 
 overflow:hidden;

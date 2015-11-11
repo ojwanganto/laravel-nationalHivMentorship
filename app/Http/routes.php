@@ -12,7 +12,7 @@
 */
 Route::get('/system-setup', 'SystemSetUpController@setUp');
 Route::get('/session/{id}', 'MentorshipSessionController@show');
-Route::get('/session-list', 'MentorshipSessionController@index');
+Route::get('/mentorship-session', 'MentorshipSessionController@index');
 Route::get('/indicator-setup', 'MentorshipSessionIndicatorController@setUpOriginalIndicators');
 Route::post('/session-create', 'MentorshipSessionController@store');
 Route::get('/indicator-list', 'MentorshipSessionIndicatorController@index');
@@ -21,7 +21,7 @@ Route::post('/indicator-create', 'MentorshipSessionIndicatorController@store');
 Route::get('/person-list', 'PersonController@index');
 Route::get('/person-create', 'PersonController@create');
 Route::post('/person-add', 'PersonController@store');
-Route::get('/clinical-tool','MentorshipSessionController@create');
+Route::get('/session-tool/{tool}','MentorshipSessionController@create');
 Route::get('/',['as'=>'home','uses'=>'HomeController@index']);
 Route::get('/dash-board',['as'=>'dash-board','uses'=>"DashBoardController@index"]);
 Route::controller('/','Auth\AuthController');

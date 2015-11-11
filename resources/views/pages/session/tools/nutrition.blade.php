@@ -1,5 +1,32 @@
 @extends('formmaster')
 @section('form-name', 'Mentorship Session Tool')
+@section('horizontal-nav')
+    <h4 class="accordion-toggle" >
+           <div id="taccb">
+               <div id="taccbi">  &gt; </div>
+                   {!!HTML::link('/session-tool/1','Clinical')!!}
+           </div>
+       
+    </h4>
+    <h4 class="accordion-toggle" >
+           <div id="taccb">
+               <div id="taccbi">  &gt; </div>
+                   {!!HTML::link('/session-tool/2','Laboratory')!!}
+           </div>
+    </h4>
+    <h4 class="accordion-toggle" >
+           <div id="taccb">
+               <div id="taccbi">  &gt; </div>
+                   {!!HTML::link('/session-tool/3','Counseling')!!} 
+           </div>
+    </h4>
+    <h4 class="accordion-toggle" >
+           <div id="taccb">
+               <div id="taccbi">  &gt; </div>
+                   {!!HTML::link('/session-tool/5','Pharmacy')!!} 
+           </div>
+    </h4>
+@stop
 @section('form-design')
 
 <form method="post" id="FSForm" action="session-create">
@@ -22,8 +49,9 @@
 <label class="question top_question" for="mentor">Mentor&nbsp;<b class="icon_required" style="color:#FF0000">*</b></label>
 <select id="mentor" name="mentor" class="drop_down">
 <option></option>
-<option value="1">Kevin Oyowe</option>
-<option value="2">Antony Ojwang'</option>
+@foreach ($mentors as $mentor)
+<option value="{{$mentor->mentor_id}}">{{$mentor->person->first_name}} {{$mentor->person->first_name}}</option>
+@endforeach
 </select>
 </div>
 <div id="q10" class="q required">
@@ -31,8 +59,9 @@
 <label class="question top_question" for="mentee">Mentee&nbsp;<b class="icon_required" style="color:#FF0000">*</b></label>
 <select id="mentee" name="mentee" class="drop_down">
 <option></option>
-<option value="1">Makombe Kennedy</option>
-<option value="2">George Njogu Athlete</option>
+@foreach ($mentees as $mentee)
+<option value="{{$mentee->mentee_id}}">{{$mentee->person->first_name}} {{$mentee->person->first_name}}</option>
+@endforeach
 </select>
 </div>
 <div id="q11" class="q required">

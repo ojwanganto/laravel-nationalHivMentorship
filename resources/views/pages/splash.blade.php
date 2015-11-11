@@ -50,23 +50,23 @@ text-transform:none; color:#fff; font-weight:bold; text-decoration:none;
  <table border="0" width="100%" align="center" style="text-align:center">
           <tbody><tr>
             <td> 
-		<a href="clinical-tool"> 
+		<a href="mentorship-session"> 
 		  <div id="controls">		
 			<img src="{!! asset('img/dataentry.png') !!}">
 			<br>
            
-	  		Clinical Session       	  	
+	  		Mentorship Session       	  	
   		  </div>
 		  </a>
 	   </td>
             <td><a href="person-create">
               <div id="controls"> <img src="{!! asset('img/pcare.png') !!}"> <br>
-                <p> Create Person </p>
+                <p> Mentors/Mentees </p>
               </div>
             </a></td>
             <td><a href="indicator-setup">
               <div id="controls"> <img src="{!! asset('img/lab.png') !!}"> <br>
-                <p> Manage Session Indicators </p>
+                <p> Mentors/Mentees </p>
               </div>
             </a></td>
             <td><a href="http://adt.ejimbaeric.com/ADT/user_management/login" target="_blank">
