@@ -160,31 +160,31 @@
 </tr>
 <tr class="matrix_row_light">
 <td class="question" style="width:px;">a.	Prescription processing: validation, checking for drug interactions, dose verification, appropriate formulations, appropriate quantities</td>
-<td><input type="radio" name="ind_1" class="multiple_choice" id="RESULT_RadioButton-4-0-0" value="1" /></td>
-<td><input type="radio" name="ind_1" class="multiple_choice" id="RESULT_RadioButton-4-0-1" value="2" /></td>
-<td><input type="radio" name="ind_1" class="multiple_choice" id="RESULT_RadioButton-4-0-2" value="3" /></td>
-<td colspan="2"><input name="comm_1" type="text" size="30"/></td>
+<td><input type="radio" name="ind_67" class="multiple_choice" id="RESULT_RadioButton-4-0-0" value="1" /></td>
+<td><input type="radio" name="ind_67" class="multiple_choice" id="RESULT_RadioButton-4-0-1" value="2" /></td>
+<td><input type="radio" name="ind_67" class="multiple_choice" id="RESULT_RadioButton-4-0-2" value="3" /></td>
+<td colspan="2"><input name="comm_67" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_dark">
 <td class="question" style="width:px;">b.	Good dispensing practices</td>
-<td><input type="radio" name="ind_2" class="multiple_choice" id="freedom-0" value="1" /></td>
-<td><input type="radio" name="ind_2" class="multiple_choice" id="freedom-1" value="2" /></td>
-<td><input type="radio" name="ind_2" class="multiple_choice" id="freedom-2" value="3" /></td>
-<td colspan="2"><input name="comm_2" type="text" size="30"/></td>
+<td><input type="radio" name="ind_68" class="multiple_choice" id="freedom-0" value="1" /></td>
+<td><input type="radio" name="ind_68" class="multiple_choice" id="freedom-1" value="2" /></td>
+<td><input type="radio" name="ind_68" class="multiple_choice" id="freedom-2" value="3" /></td>
+<td colspan="2"><input name="comm_68" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
 <td class="question" style="width:px;">c.	Medication use counseling</td>
-<td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-0" value="1" /></td>
-<td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-1" value="2" /></td>
-<td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-2" value="3" /></td>
-<td colspan="2"><input name="comm_3" type="text" size="30"/></td>
+<td><input type="radio" name="ind_69" class="multiple_choice" id="answer_questions-0" value="1" /></td>
+<td><input type="radio" name="ind_69" class="multiple_choice" id="answer_questions-1" value="2" /></td>
+<td><input type="radio" name="ind_69" class="multiple_choice" id="answer_questions-2" value="3" /></td>
+<td colspan="2"><input name="comm_69" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_dark">
 <td class="question" style="width:px;">d.	Documentation: updating client records; updating consumption data</td>
-<td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-0" value="1" /></td>
-<td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-1" value="2" /></td>
-<td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-2" value="3" /></td>
-<td colspan="2"><input name="comm_4" type="text" size="30"/></td>
+<td><input type="radio" name="ind_70" class="multiple_choice" id="clear_communication-0" value="1" /></td>
+<td><input type="radio" name="ind_70" class="multiple_choice" id="clear_communication-1" value="2" /></td>
+<td><input type="radio" name="ind_70" class="multiple_choice" id="clear_communication-2" value="3" /></td>
+<td colspan="2"><input name="comm_70" type="text" size="30"/></td>
 </tr>
 
 
@@ -193,31 +193,31 @@
 </tr>
 <tr class="matrix_row_light">
 <td class="question" style="width:px;">a.	Detection of ADRs</td>
-<td><input type="radio" name="ind_1" class="multiple_choice" id="RESULT_RadioButton-4-0-0" value="1" /></td>
-<td><input type="radio" name="ind_1" class="multiple_choice" id="RESULT_RadioButton-4-0-1" value="2" /></td>
-<td><input type="radio" name="ind_1" class="multiple_choice" id="RESULT_RadioButton-4-0-2" value="3" /></td>
-<td colspan="2"><input name="comm_1" type="text" size="30"/></td>
+<td><input type="radio" name="ind_71" class="multiple_choice" id="RESULT_RadioButton-4-0-0" value="1" /></td>
+<td><input type="radio" name="ind_71" class="multiple_choice" id="RESULT_RadioButton-4-0-1" value="2" /></td>
+<td><input type="radio" name="ind_71" class="multiple_choice" id="RESULT_RadioButton-4-0-2" value="3" /></td>
+<td colspan="2"><input name="comm_71" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_dark">
 <td class="question" style="width:px;">b.	Proper past medication history taking;</td>
-<td><input type="radio" name="ind_2" class="multiple_choice" id="freedom-0" value="1" /></td>
-<td><input type="radio" name="ind_2" class="multiple_choice" id="freedom-1" value="2" /></td>
-<td><input type="radio" name="ind_2" class="multiple_choice" id="freedom-2" value="3" /></td>
-<td colspan="2"><input name="comm_2" type="text" size="30"/></td>
+<td><input type="radio" name="ind_72" class="multiple_choice" id="freedom-0" value="1" /></td>
+<td><input type="radio" name="ind_72" class="multiple_choice" id="freedom-1" value="2" /></td>
+<td><input type="radio" name="ind_72" class="multiple_choice" id="freedom-2" value="3" /></td>
+<td colspan="2"><input name="comm_72" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
 <td class="question" style="width:px;">c.	Management of ADRs</td>
-<td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-0" value="1" /></td>
-<td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-1" value="2" /></td>
-<td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-2" value="3" /></td>
-<td colspan="2"><input name="comm_3" type="text" size="30"/></td>
+<td><input type="radio" name="ind_73" class="multiple_choice" id="answer_questions-0" value="1" /></td>
+<td><input type="radio" name="ind_73" class="multiple_choice" id="answer_questions-1" value="2" /></td>
+<td><input type="radio" name="ind_73" class="multiple_choice" id="answer_questions-2" value="3" /></td>
+<td colspan="2"><input name="comm_73" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_dark">
 <td class="question" style="width:px;">d.	Reporting: Good knowledge on reporting forms, how, where and when to report</td>
-<td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-0" value="1" /></td>
-<td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-1" value="2" /></td>
-<td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-2" value="3" /></td>
-<td colspan="2"><input name="comm_4" type="text" size="30"/></td>
+<td><input type="radio" name="ind_74" class="multiple_choice" id="clear_communication-0" value="1" /></td>
+<td><input type="radio" name="ind_74" class="multiple_choice" id="clear_communication-1" value="2" /></td>
+<td><input type="radio" name="ind_74" class="multiple_choice" id="clear_communication-2" value="3" /></td>
+<td colspan="2"><input name="comm_74" type="text" size="30"/></td>
 </tr>
 
 
@@ -226,38 +226,38 @@
 </tr>
 <tr class="matrix_row_light">
 <td class="question" style="width:px;">a.	Quantification for resupply</td>
-<td><input type="radio" name="ind_1" class="multiple_choice" id="RESULT_RadioButton-4-0-0" value="1" /></td>
-<td><input type="radio" name="ind_1" class="multiple_choice" id="RESULT_RadioButton-4-0-1" value="2" /></td>
-<td><input type="radio" name="ind_1" class="multiple_choice" id="RESULT_RadioButton-4-0-2" value="3" /></td>
-<td colspan="2"><input name="comm_1" type="text" size="30"/></td>
+<td><input type="radio" name="ind_75" class="multiple_choice" id="RESULT_RadioButton-4-0-0" value="1" /></td>
+<td><input type="radio" name="ind_75" class="multiple_choice" id="RESULT_RadioButton-4-0-1" value="2" /></td>
+<td><input type="radio" name="ind_75" class="multiple_choice" id="RESULT_RadioButton-4-0-2" value="3" /></td>
+<td colspan="2"><input name="comm_75" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_dark">
 <td class="question" style="width:px;">b.	Requesting commodities </td>
-<td><input type="radio" name="ind_2" class="multiple_choice" id="freedom-0" value="1" /></td>
-<td><input type="radio" name="ind_2" class="multiple_choice" id="freedom-1" value="2" /></td>
-<td><input type="radio" name="ind_2" class="multiple_choice" id="freedom-2" value="3" /></td>
-<td colspan="2"><input name="comm_2" type="text" size="30"/></td>
+<td><input type="radio" name="ind_76" class="multiple_choice" id="freedom-0" value="1" /></td>
+<td><input type="radio" name="ind_76" class="multiple_choice" id="freedom-1" value="2" /></td>
+<td><input type="radio" name="ind_76" class="multiple_choice" id="freedom-2" value="3" /></td>
+<td colspan="2"><input name="comm_76" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
 <td class="question" style="width:px;">c.	Receiving commodities</td>
-<td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-0" value="1" /></td>
-<td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-1" value="2" /></td>
-<td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-2" value="3" /></td>
-<td colspan="2"><input name="comm_3" type="text" size="30"/></td>
+<td><input type="radio" name="ind_77" class="multiple_choice" id="answer_questions-0" value="1" /></td>
+<td><input type="radio" name="ind_77" class="multiple_choice" id="answer_questions-1" value="2" /></td>
+<td><input type="radio" name="ind_77" class="multiple_choice" id="answer_questions-2" value="3" /></td>
+<td colspan="2"><input name="comm_77" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_dark">
 <td class="question" style="width:px;">d.	Storing commodities</td>
-<td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-0" value="1" /></td>
-<td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-1" value="2" /></td>
-<td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-2" value="3" /></td>
-<td colspan="2"><input name="comm_4" type="text" size="30"/></td>
+<td><input type="radio" name="ind_78" class="multiple_choice" id="clear_communication-0" value="1" /></td>
+<td><input type="radio" name="ind_78" class="multiple_choice" id="clear_communication-1" value="2" /></td>
+<td><input type="radio" name="ind_78" class="multiple_choice" id="clear_communication-2" value="3" /></td>
+<td colspan="2"><input name="comm_78" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_dark">
 <td class="question" style="width:px;">e.	Issuing commodities (inter and intra)</td>
-<td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-0" value="1" /></td>
-<td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-1" value="2" /></td>
-<td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-2" value="3" /></td>
-<td colspan="2"><input name="comm_4" type="text" size="30"/></td>
+<td><input type="radio" name="ind_79" class="multiple_choice" id="clear_communication-0" value="1" /></td>
+<td><input type="radio" name="ind_79" class="multiple_choice" id="clear_communication-1" value="2" /></td>
+<td><input type="radio" name="ind_79" class="multiple_choice" id="clear_communication-2" value="3" /></td>
+<td colspan="2"><input name="comm_79" type="text" size="30"/></td>
 </tr>
 </table>
 
