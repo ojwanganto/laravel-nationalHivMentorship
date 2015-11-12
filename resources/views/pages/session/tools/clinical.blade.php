@@ -37,7 +37,7 @@
 @stop
 @section('form-design')
 
-<form method="post" id="FSForm" action="..\session-create">
+<form method="post" id="FSForm" action="../session-create">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 <input type="hidden" name="tool_id" value="1">
 
@@ -79,7 +79,12 @@
 <input type="text" name="m_date" class="text_field calendar_field" id="m_date" size="10" maxlength="10" datemax="" datemin="" value="" date="yy-mm-dd" />
 
 </div>
+<div id="q11" class="q required">
+<a class="item_anchor" name="ItemAnchor3"></a>
+<label class="question top_question" for="m_facility">Facility&nbsp;<b class="icon_required" style="color:#FF0000">*</b></label>
+<input type="text" name="m_facility" class="text_field calendar_field" id="m_date" size="10" maxlength="10"  />
 
+</div>
 <div class="clear"></div>
 
 <div id="q4" class="q required">
@@ -303,7 +308,7 @@
 <td><input type="radio" name="ind_21" class="multiple_choice" id="answer_questions-0" value="1" /></td>
 <td><input type="radio" name="ind_21" class="multiple_choice" id="answer_questions-1" value="2" /></td>
 <td><input type="radio" name="ind_21" class="multiple_choice" id="answer_questions-2" value="3" /></td>
-<td><input type="radio" name="ind_21" class="multiple_choice" id="answer_questions-2" value="3" /></td>
+<td><input type="radio" name="ind_21" class="multiple_choice" id="answer_questions-3" value="4" /></td>
 <td colspan="2"><input name="comm_21" type="text" size="30"/></td>
 </tr>
 
