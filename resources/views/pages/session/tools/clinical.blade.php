@@ -59,7 +59,7 @@
 <select id="mentor" name="mentor" class="drop_down">
 <option></option>
 @foreach ($mentors as $mentor)
-<option value="{{$mentor->mentor_id}}">{{$mentor->person->first_name}} {{$mentor->person->first_name}}</option>
+<option value="{{$mentor->mentor_id}}">{{$mentor->person->first_name}} {{$mentor->person->last_name}}</option>
 @endforeach
 </select>
 </div>
@@ -69,7 +69,7 @@
 <select id="mentee" name="mentee" class="drop_down">
 <option></option>
 @foreach ($mentees as $mentee)
-<option value="{{$mentee->mentee_id}}">{{$mentee->person->first_name}} {{$mentee->person->first_name}}</option>
+<option value="{{$mentee->mentee_id}}">{{$mentee->person->first_name}} {{$mentee->person->last_name}}</option>
 @endforeach
 </select>
 </div>
