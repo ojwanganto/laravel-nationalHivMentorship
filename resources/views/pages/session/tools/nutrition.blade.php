@@ -77,7 +77,12 @@
 <input type="text" name="m_date" class="text_field calendar_field" id="m_date" size="10" maxlength="10" datemax="" datemin="" value="" date="yy-mm-dd" />
 
 </div>
+<div id="q11" class="q required">
+<a class="item_anchor" name="ItemAnchor3"></a>
+<label class="question top_question" for="m_facility">Facility&nbsp;<b class="icon_required" style="color:#FF0000">*</b></label>
+<input type="text" name="m_facility" class="text_field calendar_field" id="m_date" size="10" maxlength="10"  />
 
+</div>
 <div class="clear"></div>
 
 <div id="q4" class="q required">

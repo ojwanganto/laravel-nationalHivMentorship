@@ -37,7 +37,7 @@
 @stop
 @section('form-design')
 
-<form method="post" id="FSForm" action="..\session-create">
+<form method="post" id="FSForm" action="">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 <input type="hidden" name="tool_id" value="1">
 
