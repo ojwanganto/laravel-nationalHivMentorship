@@ -94,7 +94,7 @@ class MentorshipSessionController extends Controller
             $indicatorScore -> save();
 
         }
-        return redirect('session-list');
+        return redirect('mentorship-session');
     }
 
     /**
@@ -106,7 +106,25 @@ class MentorshipSessionController extends Controller
     public function show($id)
     {
         $mentorshipSession = MentorshipSession::find($id);
-        return view('pages.session.sessiontoolview', compact('mentorshipSession', $mentorshipSession));
+        $sessionDate = $mentorshipSession->created_at;
+        $sessionTool = $mentorshipSession->sessionTool->name;
+        $mentor = $mentorshipSession->mentor->person->first_name ." ".$mentorshipSession->mentor->person->last_name;
+        $mentee = $mentorshipSession->mentee->person->first_name ." ".$mentorshipSession->mentee->person->last_name;
+        $facility = $mentorshipSession->facility;
+        
+        //create array to contain scores
+        $sessionScores = $mentorshipSession->sessionScore;
+        $sessionScore = array();
+        foreach ($sessionScores as $score) {
+           
+            $ind = 'ind_'.$score->indicator_id;
+            $comm = 'comm_'.$score->indicator_id;
+            $indScore = $score->score;
+            $indComment = $score->comment;
+            $sessionScore["$ind"] = $indScore;
+            $sessionScore["$comm"] = $indComment;
+        }
+        return view('pages.session.tools.viewclinical', compact('sessionDate', 'sessionTool', 'mentor', 'mentee', 'facility', 'sessionScore'));
     }
 
     /**

@@ -59,7 +59,7 @@ text-transform:none; color:#fff; font-weight:bold; text-decoration:none;
   		  </div>
 		  </a>
 	   </td>
-            <td><a href="person-create">
+            <td><a href="person-home">
               <div id="controls"> <img src="{!! asset('img/pcare.png') !!}"> <br>
                 <p> Mentors/Mentees </p>
               </div>

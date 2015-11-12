@@ -1,6 +1,13 @@
 @extends('formmaster')
 @section('form-name', 'Mentorship Session Tool')
 
+@section('main-nav')
+    <li>{!!HTML::link('dash-board','Home')!!}</li>
+    <li class='active'>{!!HTML::link('#','Mentorship Session')!!}</li>
+    <li>{!!HTML::link('person-home','Mentor/Mentee')!!}</li>
+    <li>{!!HTML::link('system-reports','Reporting')!!}</li>
+    <li class='last'>{!!HTML::link('logout','Logout')!!}</li>
+@stop
 @section('horizontal-nav')
     <h4 class="accordion-toggle" >
            <div id="taccb">

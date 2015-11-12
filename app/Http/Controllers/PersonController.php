@@ -7,6 +7,8 @@ use App\Http\Requests;
 use App\Http\Requests\PersonRequest;
 use App\Http\Controllers\Controller;
 use App\Person;
+use App\Mentor;
+use App\Mentee;
 #use Illuminate\Support\Facades\Auth;
 class PersonController extends Controller
 {
@@ -30,11 +32,25 @@ class PersonController extends Controller
     public function index()
     {
          $persons = Person::all();
-         #var_dump($persons);
-        //return view('pages.person.personlist', @persons); //redirect('/person-create'); 
-        return view('pages.person.personlist', compact('persons'));
+        return view('pages.person.personhome', compact('persons'));
     }
-
+    
+    /**
+    * returns only mentors
+    */
+    public function mentors() {
+        $mentors = Mentor::all();
+        return view('pages.person.mentorhome', compact('mentors'));
+    }
+    
+    /**
+    * returns only mentees
+    */
+    public function mentees() {
+        $mentees = Mentee::all();
+        return view('pages.person.menteehome', compact('mentees'));
+    }
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -63,7 +79,19 @@ class PersonController extends Controller
         $person -> phone = $request->phone;
         $person -> facility = $request->facility;
         $person -> save(); 
-        return redirect('person-list');
+        $personId = $person->person_id;
+        $pRole = $request->role;
+        
+        if ($pRole == 1) {
+            $mentor = new Mentor();
+            $mentor->person_id = $personId;
+            $mentor->save();
+        } else {
+            $mentee = new Mentee();
+            $mentee->person_id = $personId;
+            $mentee->save();
+        }
+        return redirect('person-home');
        
     }
 

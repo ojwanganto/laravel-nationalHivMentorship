@@ -26,10 +26,7 @@
         <div id="hstrip" style="height:30px; width:100%; background-color:#09a0be !important; background:url(../assets/images/admin/h2.png); ">
        <div id='cssmenu'>
             <ul>
-               <li class='active'>{!!HTML::link('dash-board','Home')!!}</li>
-               <li><a href='person-create'><span>Manage Person</span></a></li>
-               <li><a href='#'><span>Admin</span></a></li>
-               <li class='last'>{!!HTML::link('logout','Logout')!!}</li>
+               @yield('main-nav')
             </ul>
         </div>
         </div>

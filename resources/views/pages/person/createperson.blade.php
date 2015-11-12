@@ -1,5 +1,28 @@
 @extends('formmaster')
 @section('form-name', 'Person Registration Form')
+@section('main-nav')
+    <li>{!!HTML::link('dash-board','Home')!!}</li>
+    <li>{!!HTML::link('mentorship-session','Mentorship Session')!!}</li>
+    <li class='active'>{!!HTML::link('#','Mentor/Mentee')!!}</li>
+    <li>{!!HTML::link('system-reports','Reporting')!!}</li>
+    <li class='last'>{!!HTML::link('logout','Logout')!!}</li>
+@stop
+@section('horizontal-nav')
+    <h4 class="accordion-toggle" >
+           <div id="taccb">
+               <div id="taccbi">  &gt; </div>
+                   {!!HTML::link('/person-mentor','Mentor')!!}
+           </div>
+       
+    </h4>
+    <h4 class="accordion-toggle" >
+           <div id="taccb">
+               <div id="taccbi">  &gt; </div>
+                   {!!HTML::link('/person-mentee','Mentee')!!}
+           </div>
+    </h4>
+   
+@stop
 @section('form-design')
 
 <form method="post" id="FSForm" action="person-add">
@@ -93,13 +116,24 @@
 <label class="question left_question_first" for="facility">Facility</label>
 <div class="inline_answer"><input type="text" name="facility" class="text_field" id="facility"  size="25" maxlength="255" value="" /></div>
 </div>
+<div class="clear"></div>
 
+<div id="q23" class="q required">
+<a class="item_anchor" name="ItemAnchor6"></a>
+<span class="question left_question_first">Current Role&nbsp;<b class="icon_required" style="color:#FF0000">*</b></span>
+<table class="inline_grid inline_answer">
+<tr>
+<td><input type="radio" name="role" class="multiple_choice" id="role1" value="1" /><label for="role1" >Mentor</label></td>
+<td><input type="radio" name="role" class="multiple_choice" id="role2" value="2" /><label for="role2" >Mentee</label></td>
+</tr>
+</table>
+</div>
+ 
 <div class="clear"></div>
 
 <div style="position:relative;font-family:Helvetica,Arial,sans-serif;font-size:12px;line-height:36px;text-align:left;background-color:#fafafa;height:35px;margin-top:10px;overflow:hidden;"> </div>
 </div>
 <!-- END_ITEMS -->
-<input type="hidden" name="EParam" value="FzpUCZwnDno=" />
 <div class="outside_container">
 <div class="buttons_reverse"><input type="submit" name="Submit" value="Submit" class="submit_button" id="FSsubmit" /></div></div>
 </form>
