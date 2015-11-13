@@ -71,7 +71,7 @@ class MentorshipSessionController extends Controller
         $mSession -> mentor_id = $request->mentor;
         $mSession -> mentee_id = $request->mentee;
         $mSession -> session_tool_id = $request->tool_id;
-        $mSession -> facility = 'Nairobi';//$request->m_facility;
+        $mSession -> facility = $request->m_facility;
         $mSession -> self_reported_gap = $request->self_reported_gap;
         $mSession -> previous_session_gap = $request->previous_session_gap;
         $mSession -> other_gap = $request->other_gap;
@@ -129,6 +129,7 @@ class MentorshipSessionController extends Controller
         $mentorshipSession = MentorshipSession::find($id);
         $sessionDate = $mentorshipSession->created_at;
         $sessionTool = $mentorshipSession->sessionTool->name;
+        $sessionToolId = $mentorshipSession->sessionTool->tool_id;
         $mentor = $mentorshipSession->mentor->person->first_name ." ".$mentorshipSession->mentor->person->last_name;
         $mentee = $mentorshipSession->mentee->person->first_name ." ".$mentorshipSession->mentee->person->last_name;
         $facility = $mentorshipSession->facility;
@@ -152,8 +153,28 @@ class MentorshipSessionController extends Controller
             $sessionScore["$ind"] = $indScore;
             $sessionScore["$comm"] = $indComment;
         }
-        return view('pages.session.tools.viewclinical', 
+        
+        switch ($sessionToolId) {
+            case 1:
+                $viewPage = 'pages.session.tools.viewclinical';
+                break;
+            case 2:
+                $viewPage = 'pages.session.tools.viewlaboratory';
+                break;
+            case 3:
+                $viewPage = 'pages.session.tools.viewcounseling';
+                break;
+            case 4:
+                $viewPage = 'pages.session.tools.viewnutrition';
+                break;
+            case 5:
+                $viewPage = 'pages.session.tools.viewpharmacy';
+                break;
+        }
+
+        return view($viewPage, 
                     compact('sessionDate', 'sessionTool', 'mentor', 'mentee', 'facility', 'sessionScore','selfReportedGap', 'previousSessGap', 'otherGap', 'sessionObjectives', 'menteeStrength', 'improvementAreas', 'comments'));
+     
     }
 
     /**
