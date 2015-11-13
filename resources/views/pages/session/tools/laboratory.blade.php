@@ -86,7 +86,7 @@
 <div id="q11" class="q required">
 <a class="item_anchor" name="ItemAnchor3"></a>
 <label class="question top_question" for="m_facility">Facility&nbsp;<b class="icon_required" style="color:#FF0000">*</b></label>
-<input type="text" name="m_facility" class="text_field calendar_field" id="m_date" size="10" maxlength="10"  />
+<input type="text" name="m_facility" class="text_field" id="m_facility" size="20"  />
 
 </div>
 <div class="clear"></div>
