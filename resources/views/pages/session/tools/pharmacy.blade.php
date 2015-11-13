@@ -33,10 +33,16 @@
                    {!!HTML::link('/session-tool/4','Nutrition')!!} 
            </div>
     </h4>
+     <h4 class="accordion-toggle" >
+           <div id="taccb">
+               <div id="taccbi">  &gt; </div>
+                   {!!HTML::link('/indicator-list','Mentorship Indicators')!!} 
+           </div>
+    </h4>
 @stop
 @section('form-design')
 
-<form method="post" id="FSForm" action="session-create">
+<form method="post" id="FSForm" action="../session-create">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 <input type="hidden" name="tool_id" value="5">
 <!-- BEGIN_ITEMS -->
@@ -57,7 +63,7 @@
 <select id="mentor" name="mentor" class="drop_down">
 <option></option>
 @foreach ($mentors as $mentor)
-<option value="{{$mentor->mentor_id}}">{{$mentor->person->first_name}} {{$mentor->person->first_name}}</option>
+<option value="{{$mentor->mentor_id}}">{{$mentor->person->first_name}} {{$mentor->person->last_name}}</option>
 @endforeach
 </select>
 </div>
@@ -67,7 +73,7 @@
 <select id="mentee" name="mentee" class="drop_down">
 <option></option>
 @foreach ($mentees as $mentee)
-<option value="{{$mentee->mentee_id}}">{{$mentee->person->first_name}} {{$mentee->person->first_name}}</option>
+<option value="{{$mentee->mentee_id}}">{{$mentee->person->first_name}} {{$mentee->person->last_name}}</option>
 @endforeach
 </select>
 </div>
@@ -78,7 +84,12 @@
 <input type="text" name="m_date" class="text_field calendar_field" id="m_date" size="10" maxlength="10" datemax="" datemin="" value="" date="yy-mm-dd" />
 
 </div>
+<div id="q11" class="q required">
+<a class="item_anchor" name="ItemAnchor3"></a>
+<label class="question top_question" for="m_facility">Facility&nbsp;<b class="icon_required" style="color:#FF0000">*</b></label>
+<input type="text" name="m_facility" class="text_field" id="m_facility" size="20" />
 
+</div>
 <div class="clear"></div>
 
 <div id="q4" class="q required">
@@ -111,7 +122,7 @@
     <th colspan="4" style="text-align:left">Session Objectives</th>
 </tr>
 <tr>
-<td colspan="4"><textarea cols="70"></textarea></td>
+<td colspan="4"><textarea name="session_objectives"  cols="70"></textarea></td>
 </tr>
 
 </table>    
