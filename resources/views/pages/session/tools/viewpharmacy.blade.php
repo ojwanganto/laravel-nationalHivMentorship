@@ -91,15 +91,15 @@
 </tr>
 <tr>
 <td>Self-reported by mentee</td>
-<td colspan="3"><input type="text" name="self_reported_gap" size="50"/></td>
+<td colspan="3"><input type="text" value="{{$selfReportedGap}}" name="self_reported_gap" size="50"/></td>
 </tr>
 <tr>
 <td>Previous mentoring session</td>
-<td colspan="3"><input type="text" name="previous_session_gap" size="50"/></td>
+<td colspan="3"><input type="text" value="{{$previousSessGap}}" name="previous_session_gap" size="50"/></td>
 </tr>
 <tr>
 <td>Other:</td>
-    <td colspan="3"><input type="text" name="other_gap" size="50"/></td>
+    <td colspan="3"><input type="text" value="{{$otherGap}}" name="other_gap" size="50"/></td>
 </tr>
 </table>    
 <div class="clear"></div>   
@@ -109,10 +109,9 @@
     <th colspan="4" style="text-align:left">Session Objectives</th>
 </tr>
 <tr>
-<td colspan="4"><textarea name="session_objectives"  cols="70"></textarea></td>
+<td colspan="4"><textarea name="session_objectives"  cols="70">{{$sessionObjectives}}</textarea></td>
 </tr>
-
-</table>    
+</table>   
 
 <a class="item_anchor" name="ItemAnchor4"></a>
 <span class="question top_question">Please choose the best answer for each question. The mentee...&nbsp;<b class="icon_required" style="color:#FF0000">*</b></span>
@@ -285,18 +284,18 @@
 
 <table>
 <tr><th colspan="4" style="text-align:left">Summary of Mentee Strengths</th></tr>
-<tr><td colspan="4"><textarea cols="70" name="mentee_strength"></textarea></td></tr>
+<tr><td colspan="4"><textarea cols="70" name="mentee_strength">{{$menteeStrength}}</textarea></td></tr>
 </table>
  
 <table>
 <tr><th colspan="4" style="text-align:left">Summary of Mentee Areas for Improvement (with specific steps to address each priority area)</th></tr>
-<tr><td colspan="4"><textarea cols="70" name="mentee_improvement_areas"></textarea></td></tr>
+<tr><td colspan="4"><textarea cols="70" name="mentee_improvement_areas">{{$improvementAreas}}</textarea></td></tr>
 </table>
 
 <table>
 <tr><th colspan="4" style="text-align:left">Other Comments</th></tr>
-<tr><td colspan="4"><textarea cols="70" name="session_comments"></textarea></td></tr>
-</table>   
+<tr><td colspan="4"><textarea cols="70" name="session_comments">{{$comments}}</textarea></td></tr>
+</table>  
 </div>
 <div class="clear"></div>
 <div style="position:relative;font-family:Helvetica,Arial,sans-serif;font-size:12px;line-height:36px;text-align:left;background-color:#fafafa;height:35px;margin-top:10px;overflow:hidden;">
