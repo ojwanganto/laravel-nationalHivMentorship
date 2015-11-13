@@ -34,10 +34,16 @@
                    {!!HTML::link('/session-tool/5','Pharmacy')!!} 
            </div>
     </h4>
+     <h4 class="accordion-toggle" >
+           <div id="taccb">
+               <div id="taccbi">  &gt; </div>
+                   {!!HTML::link('/indicator-list','Mentorship Indicators')!!} 
+           </div>
+    </h4>
 @stop
 @section('form-design')
 
-<form method="post" id="FSForm" action="session-create">
+<form method="post" id="FSForm" action="../session-create">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 <input type="hidden" name="tool_id" value="3">
 <!-- BEGIN_ITEMS -->
@@ -118,7 +124,7 @@
     <th colspan="4" style="text-align:left">Session Objectives</th>
 </tr>
 <tr>
-<td colspan="4"><textarea cols="70"></textarea></td>
+<td colspan="4"><textarea name="session_objectives"  cols="70"></textarea></td>
 </tr>
 
 </table>    

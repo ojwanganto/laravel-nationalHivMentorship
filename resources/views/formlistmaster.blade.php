@@ -32,7 +32,19 @@
         </div>
 
         <div id="main-container">
-            <div id="splash-controls-container">
+            <div id="menu-accordion"> <!-- outer accordion -->
+                <div id="vaccordion">
+
+	                @yield('horizontal-nav')   
+                    <div id="cc">
+                        <div id="nlinks"><a href=""><img src="{!! asset('img/sign-out.png') !!}"><br> Logout</a></div>
+                        <div id="nlinks"><a href=""><img src="{!! asset('img/alerts.png') !!}"><br>Alerts</a></div>
+                        <div id="nlinks"><a href=""><img src="{!! asset('img/help.png') !!}"><br>Info</a></div>		
+                    </div>
+    
+                </div> <!-- end outer accordion -->
+            </div> <!-- end menu accordion -->
+            <div id="form-controls-container">
                 <div id="cp-title" style="width:100%; height:40px; line-height:40px; font-weight:bold; color:#13749f; font-size:18px; padding-left:30px; font-style:normal; font-family:Castellar; text-shadow:008080;"><legend>@yield('form-name')</legend></div>
 	   <div id="content" style="width:98%; height:auto; margin:auto; clear:both; overflow:hidden !important; position:relative; font-size:16px; ">
         <div>

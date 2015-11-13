@@ -33,6 +33,12 @@
                    {!!HTML::link('/session-tool/4','Nutrition')!!} 
            </div>
     </h4>
+    <h4 class="accordion-toggle" >
+           <div id="taccb">
+               <div id="taccbi">  &gt; </div>
+                   {!!HTML::link('/indicator-list','Mentorship Indicators')!!} 
+           </div>
+    </h4>
 @stop
 @section('form-design')
 
@@ -103,7 +109,7 @@
     <th colspan="4" style="text-align:left">Session Objectives</th>
 </tr>
 <tr>
-<td colspan="4"><textarea cols="70"></textarea></td>
+<td colspan="4"><textarea name="session_objectives"  cols="70"></textarea></td>
 </tr>
 
 </table>    

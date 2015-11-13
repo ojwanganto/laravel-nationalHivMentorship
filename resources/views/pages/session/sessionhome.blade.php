@@ -39,6 +39,12 @@
                    {!!HTML::link('/session-tool/5','Pharmacy')!!} 
            </div>
     </h4>
+    <h4 class="accordion-toggle" >
+           <div id="taccb">
+               <div id="taccbi">  &gt; </div>
+                   {!!HTML::link('/indicator-list','Mentorship Indicators')!!} 
+           </div>
+    </h4>
 @stop
 @section('form-design')
 <div id="result">

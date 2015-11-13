@@ -71,12 +71,36 @@ class MentorshipSessionController extends Controller
         $mSession -> mentor_id = $request->mentor;
         $mSession -> mentee_id = $request->mentee;
         $mSession -> session_tool_id = $request->tool_id;
-        $mSession -> facility = $request->m_facility;
+        $mSession -> facility = 'Nairobi';//$request->m_facility;
+        $mSession -> self_reported_gap = $request->self_reported_gap;
+        $mSession -> previous_session_gap = $request->previous_session_gap;
+        $mSession -> other_gap = $request->other_gap;
+        $mSession -> session_objectives = $request->session_objectives;
+        $mSession -> mentee_strength = $request->mentee_strength;
+        $mSession -> mentee_improvement_areas = $request->mentee_improvement_areas;
+        $mSession -> session_comments = $request->session_comments;
         $mSession -> save();
         $sessionId = $mSession->session_id;
-      
+
+        switch($request->tool_id) {
+            case 1: 
+                $formIndicators = FormIndicatorDefinitions::clinicalIndicators();
+            break;
+            case 2: 
+                $formIndicators = FormIndicatorDefinitions::laboratoryIndicators();
+            break;
+            case 3: 
+                $formIndicators = FormIndicatorDefinitions::counselingIndicators();
+            break;
+            case 4: 
+                $formIndicators = FormIndicatorDefinitions::nutritionIndicators();
+            break;
+            case 5: 
+                $formIndicators = FormIndicatorDefinitions::pharmacyIndicators();
+            break;
+        }
         
-        foreach($clinicalindicators as $ind) {
+        foreach($formIndicators as $ind) {
             
             $indNo = explode("_", $ind)[1];
             $indScore = $request->$ind;
@@ -108,6 +132,13 @@ class MentorshipSessionController extends Controller
         $mentor = $mentorshipSession->mentor->person->first_name ." ".$mentorshipSession->mentor->person->last_name;
         $mentee = $mentorshipSession->mentee->person->first_name ." ".$mentorshipSession->mentee->person->last_name;
         $facility = $mentorshipSession->facility;
+        $selfReportedGap = $mentorshipSession->self_reported_gap;
+        $previousSessGap = $mentorshipSession->previous_session_gap;
+        $otherGap = $mentorshipSession->other_gap;
+        $sessionObjectives = $mentorshipSession->session_objectives;
+        $menteeStrength = $mentorshipSession->mentee_strength;
+        $improvementAreas = $mentorshipSession->mentee_improvement_areas;
+        $comments = $mentorshipSession->session_comments;
         
         //create array to contain scores
         $sessionScores = $mentorshipSession->sessionScore;
@@ -121,7 +152,8 @@ class MentorshipSessionController extends Controller
             $sessionScore["$ind"] = $indScore;
             $sessionScore["$comm"] = $indComment;
         }
-        return view('pages.session.tools.viewclinical', compact('sessionDate', 'sessionTool', 'mentor', 'mentee', 'facility', 'sessionScore'));
+        return view('pages.session.tools.viewclinical', 
+                    compact('sessionDate', 'sessionTool', 'mentor', 'mentee', 'facility', 'sessionScore','selfReportedGap', 'previousSessGap', 'otherGap', 'sessionObjectives', 'menteeStrength', 'improvementAreas', 'comments'));
     }
 
     /**
