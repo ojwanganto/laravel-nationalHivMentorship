@@ -10,6 +10,8 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::get('/system-reports', 'ReportingController@index');
+Route::get('/system-admin', 'AdminController@index');
 Route::get('/person-mentee', 'PersonController@mentees');
 Route::get('/person-mentor', 'PersonController@mentors');
 Route::get('/system-setup', 'SystemSetUpController@setUp');

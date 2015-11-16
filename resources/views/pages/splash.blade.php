@@ -45,49 +45,55 @@ text-transform:none; color:#fff; font-weight:bold; text-decoration:none;
 
 <div id="accordion" class="ui-accordion ui-widget ui-helper-reset" role="tablist">
 
-	<h3 id="deps" class="ui-accordion-header ui-state-default ui-accordion-header-active ui-state-active ui-corner-top ui-accordion-icons ui-state-focus" role="tab" aria-controls="ui-id-1" aria-selected="true" aria-expanded="true" tabindex="0"><span class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-s"></span>User Modules</h3>
+	<h3 id="deps" class="ui-accordion-header ui-state-default ui-accordion-header-active ui-state-active ui-corner-top ui-accordion-icons ui-state-focus" role="tab" aria-controls="ui-id-1" aria-selected="true" aria-expanded="true" tabindex="0"><span class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-s"></span>System Modules</h3>
 	<div class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom ui-accordion-content-active" id="ui-id-1" aria-labelledby="deps" role="tabpanel" aria-hidden="false" style="display: block;">
  <table border="0" width="100%" align="center" style="text-align:center">
-          <tbody><tr>
+    <tbody>
+        <tr>
             <td> 
-		<a href="mentorship-session"> 
-		  <div id="controls">		
-			<img src="{!! asset('img/dataentry.png') !!}">
-			<br>
+		      <a href="my-profile"> 
+		      <div id="controls">		
+			     <img src="{!! asset('img/update.png') !!}">
+			     <br>
            
-	  		Mentorship Session       	  	
-  		  </div>
-		  </a>
-	   </td>
-            <td><a href="person-home">
-              <div id="controls"> <img src="{!! asset('img/pcare.png') !!}"> <br>
-                <p> Mentors/Mentees </p>
-              </div>
-            </a></td>
-            <td><a href="indicator-setup">
-              <div id="controls"> <img src="{!! asset('img/lab.png') !!}"> <br>
-                <p> Mentors/Mentees </p>
-              </div>
-            </a></td>
-            <td><a href="http://adt.ejimbaeric.com/ADT/user_management/login" target="_blank">
-            <div id="controls"> <img src="{!! asset('img/pharm.png') !!}"> <br>
-              <p> Manage Session</p>
-            </div></a></td>
-            <td><a href="person-list">
-              <div id="controls"> <img src="{!! asset('img/infants.png') !!}"> <br>
-                <p>Reporting</p>
-              </div>
-            </a></td>
+	  		       My Profile       	  	
+  		        </div>
+		      </a>
+	        </td>
             <td> 
-		<a href="system-setup"> 
-			<div id="controls">		
-			<img src="{!! asset('img/reports.png') !!}">
-			<br>
-            <p>
-	  		Admin    </p>	  	
-	  		</div>
-		  </a>
-	   </td>
+		      <a href="mentorship-session"> 
+		      <div id="controls">		
+			     <img src="{!! asset('img/dataentry.png') !!}">
+			     <br>
+           
+	  		       Mentorship Session       	  	
+  		        </div>
+		      </a>
+	        </td>
+            <td>
+                <a href="person-home">
+                    <div id="controls"> <img src="{!! asset('img/cohort.png') !!}"> <br>
+                        <p> Mentors/Mentees </p>
+                    </div>
+                </a>
+            </td>
+            <td>
+                <a href="person-list">
+                  <div id="controls"> <img src="{!! asset('img/reports.png') !!}"> <br>
+                    <p>Reporting</p>
+                  </div>
+                </a>
+            </td>
+            <td> 
+              <a href="system-admin"> 
+                <div id="controls">		
+                <img src="{!! asset('img/user-management.png') !!}">
+                <br>
+                <p>
+                Admin    </p>	  	
+                </div>
+              </a>
+            </td>
           </tr>	  
       </tbody></table> 
   </div>

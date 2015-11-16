@@ -5,6 +5,7 @@
     <li class='active'>{!!HTML::link('#','Mentorship Session')!!}</li>
     <li>{!!HTML::link('person-home','Mentor/Mentee')!!}</li>
     <li>{!!HTML::link('system-reports','Reporting')!!}</li>
+    <li>{!!HTML::link('system-admin','Admin')!!}</li>
     <li class='last'>{!!HTML::link('logout','Logout')!!}</li>
 @stop
 @section('horizontal-nav')
