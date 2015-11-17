@@ -153,7 +153,7 @@
 <td><input type="radio" name="ind_1" class="multiple_choice" id="RESULT_RadioButton-4-0-0" value="1" /></td>
 <td><input type="radio" name="ind_1" class="multiple_choice" id="RESULT_RadioButton-4-0-1" value="2" /></td>
 <td><input type="radio" name="ind_1" class="multiple_choice" id="RESULT_RadioButton-4-0-2" value="3" /></td>
-<td><input type="radio" name="ind_1" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="4" /></td>
+<td><input type="radio" name="ind_1" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="88" /></td>
 <td colspan="2"><input name="comm_1" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_dark">
@@ -161,7 +161,7 @@
 <td><input type="radio" name="ind_2" class="multiple_choice" id="freedom-0" value="1" /></td>
 <td><input type="radio" name="ind_2" class="multiple_choice" id="freedom-1" value="2" /></td>
 <td><input type="radio" name="ind_2" class="multiple_choice" id="freedom-2" value="3" /></td>
-<td><input type="radio" name="ind_2" class="multiple_choice" id="freedom-3" value="4" /></td>
+<td><input type="radio" name="ind_2" class="multiple_choice" id="freedom-3" value="88" /></td>
 <td colspan="2"><input name="comm_2" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
@@ -169,7 +169,7 @@
 <td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-0" value="1" /></td>
 <td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-1" value="2" /></td>
 <td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-2" value="3" /></td>
-<td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-3" value="4" /></td>
+<td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-3" value="88" /></td>
 <td colspan="2"><input name="comm_3" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_dark">
@@ -177,7 +177,7 @@
 <td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-0" value="1" /></td>
 <td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-1" value="2" /></td>
 <td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-2" value="3" /></td>
-<td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-3" value="4" /></td>
+<td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-3" value="88" /></td>
 <td colspan="2"><input name="comm_4" type="text" size="30"/></td>
 </tr>
 <tr>
@@ -188,7 +188,7 @@
 <td><input type="radio" name="ind_22" class="multiple_choice" id="RESULT_RadioButton-4-0-0" value="1" /></td>
 <td><input type="radio" name="ind_22" class="multiple_choice" id="RESULT_RadioButton-4-0-1" value="2" /></td>
 <td><input type="radio" name="ind_22" class="multiple_choice" id="RESULT_RadioButton-4-0-2" value="3" /></td>
-<td><input type="radio" name="ind_22" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="4" /></td>
+<td><input type="radio" name="ind_22" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="88" /></td>
 <td colspan="2"><input name="comm_22" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_dark">
@@ -196,7 +196,7 @@
 <td><input type="radio" name="ind_23" class="multiple_choice" id="freedom-0" value="1" /></td>
 <td><input type="radio" name="ind_23" class="multiple_choice" id="freedom-1" value="2" /></td>
 <td><input type="radio" name="ind_23" class="multiple_choice" id="freedom-2" value="3" /></td>
-<td><input type="radio" name="ind_23" class="multiple_choice" id="freedom-3" value="4" /></td>
+<td><input type="radio" name="ind_23" class="multiple_choice" id="freedom-3" value="88" /></td>
 <td colspan="2"><input name="comm_23" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
@@ -204,7 +204,7 @@
 <td><input type="radio" name="ind_24" class="multiple_choice" id="answer_questions-0" value="1" /></td>
 <td><input type="radio" name="ind_24" class="multiple_choice" id="answer_questions-1" value="2" /></td>
 <td><input type="radio" name="ind_24" class="multiple_choice" id="answer_questions-2" value="3" /></td>
-<td><input type="radio" name="ind_24" class="multiple_choice" id="answer_questions-3" value="4" /></td>
+<td><input type="radio" name="ind_24" class="multiple_choice" id="answer_questions-3" value="88" /></td>
 <td colspan="2"><input name="comm_24" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_dark">
@@ -212,7 +212,7 @@
 <td><input type="radio" name="ind_25" class="multiple_choice" id="clear_communication-0" value="1" /></td>
 <td><input type="radio" name="ind_25" class="multiple_choice" id="clear_communication-1" value="2" /></td>
 <td><input type="radio" name="ind_25" class="multiple_choice" id="clear_communication-2" value="3" /></td>
-<td><input type="radio" name="ind_25" class="multiple_choice" id="clear_communication-3" value="4" /></td>
+<td><input type="radio" name="ind_25" class="multiple_choice" id="clear_communication-3" value="88" /></td>
 <td colspan="2"><input name="comm_25" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
@@ -220,7 +220,7 @@
 <td><input type="radio" name="ind_26" class="multiple_choice" id="answer_questions-0" value="1" /></td>
 <td><input type="radio" name="ind_26" class="multiple_choice" id="answer_questions-1" value="2" /></td>
 <td><input type="radio" name="ind_26" class="multiple_choice" id="answer_questions-2" value="3" /></td>
-<td><input type="radio" name="ind_26" class="multiple_choice" id="answer_questions-3" value="4" /></td>
+<td><input type="radio" name="ind_26" class="multiple_choice" id="answer_questions-3" value="88" /></td>
 <td colspan="2"><input name="comm_26" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_dark">
@@ -228,7 +228,7 @@
 <td><input type="radio" name="ind_27" class="multiple_choice" id="clear_communication-0" value="1" /></td>
 <td><input type="radio" name="ind_27" class="multiple_choice" id="clear_communication-1" value="2" /></td>
 <td><input type="radio" name="ind_27" class="multiple_choice" id="clear_communication-2" value="3" /></td>
-<td><input type="radio" name="ind_27" class="multiple_choice" id="clear_communication-3" value="4" /></td>
+<td><input type="radio" name="ind_27" class="multiple_choice" id="clear_communication-3" value="88" /></td>
 <td colspan="2"><input name="comm_27" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
@@ -236,7 +236,7 @@
 <td><input type="radio" name="ind_28" class="multiple_choice" id="answer_questions-0" value="1" /></td>
 <td><input type="radio" name="ind_28" class="multiple_choice" id="answer_questions-1" value="2" /></td>
 <td><input type="radio" name="ind_28" class="multiple_choice" id="answer_questions-2" value="3" /></td>
-<td><input type="radio" name="ind_28" class="multiple_choice" id="answer_questions-3" value="4" /></td>
+<td><input type="radio" name="ind_28" class="multiple_choice" id="answer_questions-3" value="88" /></td>
 <td colspan="2"><input name="comm_28" type="text" size="30"/></td>
 </tr>
 </table>
