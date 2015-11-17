@@ -6,6 +6,7 @@
     <li class='active'>{!!HTML::link('#','Mentorship Session')!!}</li>
     <li>{!!HTML::link('person-home','Mentor/Mentee')!!}</li>
     <li>{!!HTML::link('system-reports','Reporting')!!}</li>
+    <li>{!!HTML::link('system-admin','Resource Centre')!!}</li>
     <li>{!!HTML::link('system-admin','Admin')!!}</li>
     <li class='last'>{!!HTML::link('logout','Logout')!!}</li>
 @stop
@@ -43,7 +44,19 @@
     </h4>
 @stop
 @section('form-design')
-
+ <script type="text/javascript"> 
+	
+function disablefield(){
+ if (document.getElementById('r2').checked==1){ 
+     document.getElementById('textbox_A').disabled='disabled';
+     document.getElementById('textbox_A').value='disabled';
+ }
+else{ 
+     document.getElementById('textbox_A').disabled='';
+     document.getElementById('textbox_A').value='Allowed';
+ }
+ }
+ </script> 
 <form method="post" id="FSForm" action="../session-create">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 <input type="hidden" name="tool_id" value="1">
@@ -336,11 +349,24 @@
 </table>
 </div>
 <div class="clear"></div>
-
+<div>
+<table>
+<tr><th colspan="4" style="text-align:left">Participated in CME during this mentorship visit: Yes/No</th><th><input type='radio' name='optS_cme' id="r1" value='yes' >YES</th><th><input type='radio' name='optS_cme' id="r2" value='no' onChange="disablefield()">NO</th></tr>
+ <tr><td colspan="4" style="width:px;">Topic:</td><td colspan="4" style="width:px;">Presenter:</td></tr>
+<tr><td colspan="4"><textarea cols="40" name="cme_comments" id="textbox_A"></textarea></td>
+    <td colspan="4"><textarea cols="40" name="cme_comments" id="textbox_presenter"></textarea></td></tr>
+</table>
+</div>
+<div>
+<table>
+<tr><th colspan="4" style="text-align:left">Participated in MDT meeting during this mentorship visit: Yes/No</th><th><input type='radio' name='opt_mdt' id="r3" value='yes'> YES</th><th><input type='radio' name='opt_mdt' id="r4" value='no'>NO</th></tr>
+    
+</table> 
+</div>
 <div style="position:relative;font-family:Helvetica,Arial,sans-serif;font-size:12px;line-height:36px;text-align:left;background-color:#fafafa;height:35px;margin-top:10px;overflow:hidden;">
 
 </div>
-</div>
+  
 <!-- END_ITEMS -->
 <input type="hidden" name="EParam" value="FzpUCZwnDno=" />
 <div class="outside_container">

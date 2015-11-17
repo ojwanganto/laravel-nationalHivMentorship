@@ -5,6 +5,7 @@
     <li>{!!HTML::link('mentorship-session','Mentorship Session')!!}</li>
     <li class='active'>{!!HTML::link('#','Mentor/Mentee')!!}</li>
     <li>{!!HTML::link('system-reports','Reporting')!!}</li>
+    <li>{!!HTML::link('system-admin','Resource Centre')!!}</li>
     <li>{!!HTML::link('system-admin','Admin')!!}</li>
     <li class='last'>{!!HTML::link('logout','Logout')!!}</li>
 @stop
