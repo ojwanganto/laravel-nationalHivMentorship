@@ -5,6 +5,7 @@
     <li class='active'>{!!HTML::link('#','Mentorship Session')!!}</li>
     <li>{!!HTML::link('person-home','Mentor/Mentee')!!}</li>
     <li>{!!HTML::link('system-reports','Reporting')!!}</li>
+    <li>{!!HTML::link('system-admin','Resource Centre')!!}</li>
     <li>{!!HTML::link('system-admin','Admin')!!}</li>
     <li class='last'>{!!HTML::link('logout','Logout')!!}</li>
 @stop
@@ -42,6 +43,22 @@
     </h4>
 @stop
 @section('form-design')
+<script type="text/javascript"> 
+	
+function disablefields() {
+         if (document.getElementById('cme_yes').checked == 1) { 
+              document.getElementById('cme_topic').disabled=false; 
+              document.getElementById('cme_presenter').disabled=false; 
+              document.getElementById('cme_topic').value='';
+              document.getElementById('cme_presenter').value=''; 
+         } else { 
+              document.getElementById('cme_topic').disabled=true; 
+              document.getElementById('cme_presenter').disabled=true; 
+              document.getElementById('cme_topic').value='';
+              document.getElementById('cme_presenter').value='';
+         } 
+     }
+ </script> 
 
 <form method="post" id="FSForm" action="../session-create">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -415,6 +432,7 @@
 <td><input type="radio" name="ind_54" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="4" /></td>
 <td colspan="2"><input name="comm_54" type="text" size="30"/></td>
 </tr>
+    <tr><td ><strong>Total</strong></td><td colspan="4"> <input id="totalScore" readonly="true" style="text-align: right; width: 75px;" type="text"></td></tr>
 </table>
 <table>
 <tr><th colspan="4" style="text-align:left">Summary of Mentee Strengths</th></tr>
@@ -430,6 +448,20 @@
 <tr><th colspan="4" style="text-align:left">Other Comments</th></tr>
 <tr><td colspan="4"><textarea cols="70" name="session_comments"></textarea></td></tr>
 </table>
+ <table>
+<tr><th colspan="4" style="text-align:left">Participated in CME during this mentorship visit: Yes/No</th>
+    <th><input type='radio' name='cme_participation' id="cme_yes" value='1' onclick="disablefields()">YES</th>
+    <th><input type='radio' name='cme_participation' id="cme_no" value='0' onclick="disablefields()">NO</th></tr>
+ <tr><td colspan="4" style="width:px;">Topic:</td><td colspan="4" style="width:px;">Presenter:</td></tr>
+<tr><td colspan="4"><textarea cols="40" name="cme_topic" id="cme_topic" disabled="true"></textarea></td>
+    <td colspan="4"><textarea cols="40" name="cme_presenter" id="cme_presenter" disabled="true"></textarea></td>
+    
+</table>
+
+<table>
+<tr><th colspan="4" style="text-align:left">Participated in MDT meeting during this mentorship visit: Yes/No</th><th><input type='radio' name='mdt_participation' id="mdt_yes" value='yes'> YES</th><th><input type='radio' name='mdt_participation' id="mdt_no" value='no'>NO</th></tr>
+    
+</table> 
 </div>
 <div class="clear"></div>
 <div style="position:relative;font-family:Helvetica,Arial,sans-serif;font-size:12px;line-height:36px;text-align:left;background-color:#fafafa;height:35px;margin-top:10px;overflow:hidden;">
