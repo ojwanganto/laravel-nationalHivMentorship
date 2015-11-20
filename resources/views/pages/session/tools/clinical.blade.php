@@ -3,7 +3,7 @@
 
 @section('main-nav')
     <li>{!!HTML::link('dash-board','Home')!!}</li>
-    <li class='active'>{!!HTML::link('#','Mentorship Session')!!}</li>
+    <li class='active'>{!!HTML::link('mentorship-session','Mentorship Session')!!}</li>
     <li>{!!HTML::link('person-home','Mentor/Mentee')!!}</li>
     <li>{!!HTML::link('system-reports','Reporting')!!}</li>
     <li>{!!HTML::link('system-admin','Admin')!!}</li>
