@@ -4,7 +4,9 @@
     <li>{!!HTML::link('dash-board','Home')!!}</li>
     <li>{!!HTML::link('mentorship-session','Mentorship Session')!!}</li>
     <li>{!!HTML::link('person-home','Mentor/Mentee')!!}</li>
+
     <li>{!!HTML::link('system-reports','Reporting')!!}</li>
+    <li>{!!HTML::link('system-admin','Resource Centre')!!}</li>
     <li class='active'>{!!HTML::link('#','Admin')!!}</li>
     <li class='last'>{!!HTML::link('logout','Logout')!!}</li>
 @stop
