@@ -1,5 +1,44 @@
 @extends('formmaster')
 @section('form-name', 'Mentorship Session Tool')
+@section('inline-js')
+<script type="text/javascript">
+$(document).ready(function(){
+    
+    $('#FSsubmit').click(function() {
+       
+        $('tr:has(input[type=radio])').css('outline', function() {
+            return $('input[type=radio]:checked', this).length === 0 ? 'thin solid red' : '';
+        });
+    });
+});
+function disablefields() {
+         if (document.getElementById('cme_yes').checked == 1) { 
+              document.getElementById('cme_topic').disabled=false; 
+              document.getElementById('cme_presenter').disabled=false; 
+              document.getElementById('cme_topic').value='';
+              document.getElementById('cme_presenter').value=''; 
+         } else { 
+              document.getElementById('cme_topic').disabled=true; 
+              document.getElementById('cme_presenter').disabled=true; 
+              document.getElementById('cme_topic').value='';
+              document.getElementById('cme_presenter').value='';
+         } 
+     }
+function calcscore(){
+    var score = 0;
+    $(".multiple_choice:checked").each(function(){
+        score+=parseInt($(this).val(),10);
+    });
+    $("input[name=totalScore]").val(score)
+}
+$().ready(function(){
+    $(".multiple_choice").change(function(){
+        calcscore()
+    });
+});
+
+</script>
+@stop
 @section('main-nav')
     <li>{!!HTML::link('dash-board','Home')!!}</li>
     <li class='active'>{!!HTML::link('#','Mentorship Session')!!}</li>
@@ -314,7 +353,7 @@ function disablefields() {
 <td><input type="radio" name="ind_66" class="multiple_choice" id="RESULT_RadioButton-4-0-4" value="4" /></td>
 <td colspan="2"><input name="comm_66" type="text" size="30"/></td>
 </tr>
-     <tr><td ><strong>Total</strong></td><td colspan="4"> <input id="totalScore" readonly="true" style="text-align: right; width: 75px;" type="text"></td></tr>
+     <tr><td ><strong>Total</strong></td><td colspan="4"> <input name="totalScore" readonly="true" style="text-align: right; width: 75px;" type="text"></td></tr>
 </table>
 <table>
 <tr><th colspan="4" style="text-align:left">Summary of Mentee Strengths</th></tr>
