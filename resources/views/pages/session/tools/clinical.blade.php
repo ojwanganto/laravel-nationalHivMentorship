@@ -1,6 +1,7 @@
 @extends('formmaster')
 @section('form-name', 'Mentorship Session Tool')
 @section('inline-js')
+
 <script type="text/javascript">
 $(document).ready(function(){
     
@@ -36,7 +37,12 @@ $().ready(function(){
         calcscore()
     });
 });
-
+    
+  
+  $(function() {
+    $( "#m_date" ).datepicker();
+  });
+  
 </script>
 @stop
 
@@ -123,13 +129,13 @@ $().ready(function(){
 <div id="q11" class="q required">
 <a class="item_anchor" name="ItemAnchor3"></a>
 <label class="question top_question" for="m_date">Date&nbsp;<b class="icon_required" style="color:#FF0000">*</b></label>
-<input type="text" name="m_date" class="text_field calendar_field" id="m_date" size="10" maxlength="10" datemax="" datemin="" value="" date="yy-mm-dd" />
+<input type="text"  id="m_date"  />
 
 </div>
 <div id="q11" class="q required">
 <a class="item_anchor" name="ItemAnchor3"></a>
-<label class="question top_question" for="m_facility">Facility&nbsp;<b class="icon_required" style="color:#FF0000">*</b></label>
-<input type="text" name="m_facility" class="text_field" id="m_facility" size="20"  />
+<label class="question top_question" for="m_facility">Facility&nbsp;<b class="icon_required" >*</b></label>
+<input type="text" name="m_facility"  id="m_facility" size="20"  />
 
 </div>
 <div class="clear"></div>

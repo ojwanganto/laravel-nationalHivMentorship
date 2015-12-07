@@ -97,6 +97,10 @@ function disablefields() {
               document.getElementById('cme_presenter').value='';
          } 
      }
+    
+    $(function() {
+    $( "#m_date" ).datepicker();
+  });
  </script> 
 
 <form method="post" id="FSForm" action="../session-create">
@@ -138,7 +142,7 @@ function disablefields() {
 <div id="q11" class="q required">
 <a class="item_anchor" name="ItemAnchor3"></a>
 <label class="question top_question" for="m_date">Date&nbsp;<b class="icon_required" style="color:#FF0000">*</b></label>
-<input type="text" name="m_date" class="text_field calendar_field" id="m_date" size="10" maxlength="10" datemax="" datemin="" value="" date="yy-mm-dd" />
+<input type="text" name="m_date"  id="m_date"  />
 
 </div>
 <div id="q11" class="q required">
