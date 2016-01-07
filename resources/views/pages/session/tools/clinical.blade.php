@@ -43,6 +43,19 @@ $().ready(function(){
     $( "#m_date" ).datepicker();
   });
   
+    jQuery(document).ready(function(){
+	$('.m_facility').autocomplete({
+		source:'jQueryAutocompleteRelatedFields.php', 
+		minLength:2,
+		select:function(evt, ui)
+		{
+			
+		this.form.county.value = ui.item.county;
+		this.form.facilityname.value = ui.item.facilityname;
+		}
+	});
+});
+
 </script>
 @stop
 
