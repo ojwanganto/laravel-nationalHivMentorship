@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Requests\PersonRequest;
 use App\Http\Controllers\Controller;
+use Input;
 class FacilityController extends Controller
 {
    
@@ -13,9 +14,9 @@ class FacilityController extends Controller
     
     public function index()
     {
-         $facilities = Posts:all();
+        
 
-        return View::make('pages.facility.mentorhome', compact('facilities'));
+        return View('clinical');
     }
     
     
@@ -25,38 +26,21 @@ class FacilityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function autocomplete(Request $request)
     {
-        return view('pages.facility.createfacility');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(FacilityRequest $request)
-    {
-        $facility = new Facility();
-        $facility -> facility_code = $request->facility_code;
-        $facility -> facility_name = $request->facility_name;
-        $facility -> region = $request->region;
-        $facility -> county = $request->county;
-        $facility -> sub_county = $request->sub_county;
-        $facility -> save(); 
+        $term = $request->m_facility;
+        $data = facility::where('name','LIKE','%' .$term. '%')
+            ->take(3)
+            ->get();
+        $results = array();
+        foreach($data as $key-> $v){
+            $results[] = ['mfl_code'->$v->mfl_code, 'value'->$v->name];
+        }
         
-      
-        return redirect('facility-home');
-       
+        return response()->json($result);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function show($id)
     {
         //

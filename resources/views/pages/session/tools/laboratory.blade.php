@@ -27,7 +27,12 @@ function disablefields() {
 function calcscore(){
     var score = 0;
     $(".multiple_choice:checked").each(function(){
+        if(parseInt($(this).val(),10)==88){
+            score+=0;
+        }
+        else{
         score+=parseInt($(this).val(),10);
+        }
     });
     $("input[name=totalScore]").val(score)
 }
@@ -36,7 +41,6 @@ $().ready(function(){
         calcscore()
     });
 });
-
 </script>
 @stop
 @section('main-nav')
@@ -211,7 +215,7 @@ function disablefields() {
 <td><input type="radio" name="ind_1" class="multiple_choice" id="RESULT_RadioButton-4-0-0" value="1" /></td>
 <td><input type="radio" name="ind_1" class="multiple_choice" id="RESULT_RadioButton-4-0-1" value="2" /></td>
 <td><input type="radio" name="ind_1" class="multiple_choice" id="RESULT_RadioButton-4-0-2" value="3" /></td>
-<td><input type="radio" name="ind_1" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="4" /></td>
+<td><input type="radio" name="ind_1" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="88" /></td>
 <td colspan="2"><input name="comm_1" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_dark">
@@ -219,7 +223,7 @@ function disablefields() {
 <td><input type="radio" name="ind_2" class="multiple_choice" id="freedom-0" value="1" /></td>
 <td><input type="radio" name="ind_2" class="multiple_choice" id="freedom-1" value="2" /></td>
 <td><input type="radio" name="ind_2" class="multiple_choice" id="freedom-2" value="3" /></td>
-<td><input type="radio" name="ind_2" class="multiple_choice" id="freedom-2" value="4" /></td>
+<td><input type="radio" name="ind_2" class="multiple_choice" id="freedom-2" value="88" /></td>
 <td colspan="2"><input name="comm_2" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
@@ -227,7 +231,7 @@ function disablefields() {
 <td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-0" value="1" /></td>
 <td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-1" value="2" /></td>
 <td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-2" value="3" /></td>
-<td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-3" value="4" /></td>
+<td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-3" value="88" /></td>
 <td colspan="2"><input name="comm_3" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_dark">
@@ -235,7 +239,7 @@ function disablefields() {
 <td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-0" value="1" /></td>
 <td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-1" value="2" /></td>
 <td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-2" value="3" /></td>
-<td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-3" value="4" /></td>
+<td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-3" value="88" /></td>
 <td colspan="2"><input name="comm_4" type="text" size="30"/></td>
 </tr>
 <tr>
@@ -246,7 +250,7 @@ function disablefields() {
 <td><input type="radio" name="ind_29" class="multiple_choice" id="RESULT_RadioButton-4-0-0" value="1" /></td>
 <td><input type="radio" name="ind_29" class="multiple_choice" id="RESULT_RadioButton-4-0-1" value="2" /></td>
 <td><input type="radio" name="ind_29" class="multiple_choice" id="RESULT_RadioButton-4-0-2" value="3" /></td>
-<td><input type="radio" name="ind_29" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="4" /></td>
+<td><input type="radio" name="ind_29" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="88" /></td>
 <td colspan="2"><input name="comm_29" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_dark">
@@ -254,7 +258,7 @@ function disablefields() {
 <td><input type="radio" name="ind_30" class="multiple_choice" id="freedom-0" value="1" /></td>
 <td><input type="radio" name="ind_30" class="multiple_choice" id="freedom-1" value="2" /></td>
 <td><input type="radio" name="ind_30" class="multiple_choice" id="freedom-2" value="3" /></td>
-<td><input type="radio" name="ind_30" class="multiple_choice" id="freedom-3" value="4" /></td>
+<td><input type="radio" name="ind_30" class="multiple_choice" id="freedom-3" value="88" /></td>
 <td colspan="2"><input name="comm_30" type="text" size="30"/></td>
 </tr>
 
@@ -268,7 +272,7 @@ function disablefields() {
 <td><input type="radio" name="ind_31" class="multiple_choice" id="RESULT_RadioButton-4-0-0" value="1" /></td>
 <td><input type="radio" name="ind_31" class="multiple_choice" id="RESULT_RadioButton-4-0-1" value="2" /></td>
 <td><input type="radio" name="ind_31" class="multiple_choice" id="RESULT_RadioButton-4-0-2" value="3" /></td>
-<td><input type="radio" name="ind_31" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="4" /></td>
+<td><input type="radio" name="ind_31" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="88" /></td>
 <td colspan="2"><input name="comm_31" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
@@ -276,7 +280,7 @@ function disablefields() {
 <td><input type="radio" name="ind_32" class="multiple_choice" id="RESULT_RadioButton-4-0-0" value="1" /></td>
 <td><input type="radio" name="ind_32" class="multiple_choice" id="RESULT_RadioButton-4-0-1" value="2" /></td>
 <td><input type="radio" name="ind_32" class="multiple_choice" id="RESULT_RadioButton-4-0-2" value="3" /></td>
-<td><input type="radio" name="ind_32" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="4" /></td>
+<td><input type="radio" name="ind_32" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="88" /></td>
 <td colspan="2"><input name="comm_32" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
@@ -284,7 +288,7 @@ function disablefields() {
 <td><input type="radio" name="ind_33" class="multiple_choice" id="RESULT_RadioButton-4-0-0" value="1" /></td>
 <td><input type="radio" name="ind_33" class="multiple_choice" id="RESULT_RadioButton-4-0-1" value="2" /></td>
 <td><input type="radio" name="ind_33" class="multiple_choice" id="RESULT_RadioButton-4-0-2" value="3" /></td>
-<td><input type="radio" name="ind_33" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="4" /></td>
+<td><input type="radio" name="ind_33" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="88" /></td>
 <td colspan="2"><input name="comm_33" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
@@ -292,7 +296,7 @@ function disablefields() {
 <td><input type="radio" name="ind_34" class="multiple_choice" id="RESULT_RadioButton-4-0-0" value="1" /></td>
 <td><input type="radio" name="ind_34" class="multiple_choice" id="RESULT_RadioButton-4-0-1" value="2" /></td>
 <td><input type="radio" name="ind_34" class="multiple_choice" id="RESULT_RadioButton-4-0-2" value="3" /></td>
-<td><input type="radio" name="ind_34" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="4" /></td>
+<td><input type="radio" name="ind_34" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="88" /></td>
 <td colspan="2"><input name="comm_34" type="text" size="30"/></td>
 </tr>
 
@@ -304,7 +308,7 @@ function disablefields() {
 <td><input type="radio" name="ind_35" class="multiple_choice" id="RESULT_RadioButton-4-0-0" value="1" /></td>
 <td><input type="radio" name="ind_35" class="multiple_choice" id="RESULT_RadioButton-4-0-1" value="2" /></td>
 <td><input type="radio" name="ind_35" class="multiple_choice" id="RESULT_RadioButton-4-0-2" value="3" /></td>
-<td><input type="radio" name="ind_35" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="4" /></td>
+<td><input type="radio" name="ind_35" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="88" /></td>
 <td colspan="2"><input name="comm_35" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
@@ -312,7 +316,7 @@ function disablefields() {
 <td><input type="radio" name="ind_36" class="multiple_choice" id="RESULT_RadioButton-4-0-0" value="1" /></td>
 <td><input type="radio" name="ind_36" class="multiple_choice" id="RESULT_RadioButton-4-0-1" value="2" /></td>
 <td><input type="radio" name="ind_36" class="multiple_choice" id="RESULT_RadioButton-4-0-2" value="3" /></td>
-<td><input type="radio" name="ind_36" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="4" /></td>
+<td><input type="radio" name="ind_36" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="88" /></td>
 <td colspan="2"><input name="comm_36" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
@@ -320,7 +324,7 @@ function disablefields() {
 <td><input type="radio" name="ind_37" class="multiple_choice" id="RESULT_RadioButton-4-0-0" value="1" /></td>
 <td><input type="radio" name="ind_37" class="multiple_choice" id="RESULT_RadioButton-4-0-1" value="2" /></td>
 <td><input type="radio" name="ind_37" class="multiple_choice" id="RESULT_RadioButton-4-0-2" value="3" /></td>
-<td><input type="radio" name="ind_37" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="4" /></td>
+<td><input type="radio" name="ind_37" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="88" /></td>
 <td colspan="2"><input name="comm_37" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
@@ -328,7 +332,7 @@ function disablefields() {
 <td><input type="radio" name="ind_38" class="multiple_choice" id="RESULT_RadioButton-4-0-0" value="1" /></td>
 <td><input type="radio" name="ind_38" class="multiple_choice" id="RESULT_RadioButton-4-0-1" value="2" /></td>
 <td><input type="radio" name="ind_38" class="multiple_choice" id="RESULT_RadioButton-4-0-2" value="3" /></td>
-<td><input type="radio" name="ind_38" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="4" /></td>
+<td><input type="radio" name="ind_38" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="88" /></td>
 <td colspan="2"><input name="comm_38" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
@@ -336,7 +340,7 @@ function disablefields() {
 <td><input type="radio" name="ind_39" class="multiple_choice" id="RESULT_RadioButton-4-0-0" value="1" /></td>
 <td><input type="radio" name="ind_39" class="multiple_choice" id="RESULT_RadioButton-4-0-1" value="2" /></td>
 <td><input type="radio" name="ind_39" class="multiple_choice" id="RESULT_RadioButton-4-0-2" value="3" /></td>
-<td><input type="radio" name="ind_39" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="4" /></td>
+<td><input type="radio" name="ind_39" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="88" /></td>
 <td colspan="2"><input name="comm_39" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
@@ -344,7 +348,7 @@ function disablefields() {
 <td><input type="radio" name="ind_40" class="multiple_choice" id="RESULT_RadioButton-4-0-0" value="1" /></td>
 <td><input type="radio" name="ind_40" class="multiple_choice" id="RESULT_RadioButton-4-0-1" value="2" /></td>
 <td><input type="radio" name="ind_40" class="multiple_choice" id="RESULT_RadioButton-4-0-2" value="3" /></td>
-<td><input type="radio" name="ind_40" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="4" /></td>
+<td><input type="radio" name="ind_40" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="88" /></td>
 <td colspan="2"><input name="comm_40" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
@@ -352,7 +356,7 @@ function disablefields() {
 <td><input type="radio" name="ind_41" class="multiple_choice" id="RESULT_RadioButton-4-0-0" value="1" /></td>
 <td><input type="radio" name="ind_41" class="multiple_choice" id="RESULT_RadioButton-4-0-1" value="2" /></td>
 <td><input type="radio" name="ind_41" class="multiple_choice" id="RESULT_RadioButton-4-0-2" value="3" /></td>
-<td><input type="radio" name="ind_41" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="4" /></td>
+<td><input type="radio" name="ind_41" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="88" /></td>
 <td colspan="2"><input name="comm_41" type="text" size="30"/></td>
 </tr>
 
@@ -364,7 +368,7 @@ function disablefields() {
 <td><input type="radio" name="ind_42" class="multiple_choice" id="RESULT_RadioButton-4-0-0" value="1" /></td>
 <td><input type="radio" name="ind_42" class="multiple_choice" id="RESULT_RadioButton-4-0-1" value="2" /></td>
 <td><input type="radio" name="ind_42" class="multiple_choice" id="RESULT_RadioButton-4-0-2" value="3" /></td>
-<td><input type="radio" name="ind_42" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="4" /></td>
+<td><input type="radio" name="ind_42" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="88" /></td>
 <td colspan="2"><input name="comm_42" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
@@ -372,7 +376,7 @@ function disablefields() {
 <td><input type="radio" name="ind_43" class="multiple_choice" id="RESULT_RadioButton-4-0-0" value="1" /></td>
 <td><input type="radio" name="ind_43" class="multiple_choice" id="RESULT_RadioButton-4-0-1" value="2" /></td>
 <td><input type="radio" name="ind_43" class="multiple_choice" id="RESULT_RadioButton-4-0-2" value="3" /></td>
-<td><input type="radio" name="ind_43" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="4" /></td>
+<td><input type="radio" name="ind_43" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="88" /></td>
 <td colspan="2"><input name="comm_43" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
@@ -380,7 +384,7 @@ function disablefields() {
 <td><input type="radio" name="ind_44" class="multiple_choice" id="RESULT_RadioButton-4-0-0" value="1" /></td>
 <td><input type="radio" name="ind_44" class="multiple_choice" id="RESULT_RadioButton-4-0-1" value="2" /></td>
 <td><input type="radio" name="ind_44" class="multiple_choice" id="RESULT_RadioButton-4-0-2" value="3" /></td>
-<td><input type="radio" name="ind_44" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="4" /></td>
+<td><input type="radio" name="ind_44" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="88" /></td>
 <td colspan="2"><input name="comm_44" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
@@ -388,7 +392,7 @@ function disablefields() {
 <td><input type="radio" name="ind_45" class="multiple_choice" id="RESULT_RadioButton-4-0-0" value="1" /></td>
 <td><input type="radio" name="ind_45" class="multiple_choice" id="RESULT_RadioButton-4-0-1" value="2" /></td>
 <td><input type="radio" name="ind_45" class="multiple_choice" id="RESULT_RadioButton-4-0-2" value="3" /></td>
-<td><input type="radio" name="ind_45" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="4" /></td>
+<td><input type="radio" name="ind_45" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="88" /></td>
 <td colspan="2"><input name="comm_45" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
@@ -396,7 +400,7 @@ function disablefields() {
 <td><input type="radio" name="ind_46" class="multiple_choice" id="RESULT_RadioButton-4-0-0" value="1" /></td>
 <td><input type="radio" name="ind_46" class="multiple_choice" id="RESULT_RadioButton-4-0-1" value="2" /></td>
 <td><input type="radio" name="ind_46" class="multiple_choice" id="RESULT_RadioButton-4-0-2" value="3" /></td>
-<td><input type="radio" name="ind_46" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="4" /></td>
+<td><input type="radio" name="ind_46" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="88" /></td>
 <td colspan="2"><input name="comm_46" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
@@ -404,7 +408,7 @@ function disablefields() {
 <td><input type="radio" name="ind_47" class="multiple_choice" id="RESULT_RadioButton-4-0-0" value="1" /></td>
 <td><input type="radio" name="ind_47" class="multiple_choice" id="RESULT_RadioButton-4-0-1" value="2" /></td>
 <td><input type="radio" name="ind_47" class="multiple_choice" id="RESULT_RadioButton-4-0-2" value="3" /></td>
-<td><input type="radio" name="ind_47" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="4" /></td>
+<td><input type="radio" name="ind_47" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="88" /></td>
 <td colspan="2"><input name="comm_47" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
@@ -412,7 +416,7 @@ function disablefields() {
 <td><input type="radio" name="ind_48" class="multiple_choice" id="RESULT_RadioButton-4-0-0" value="1" /></td>
 <td><input type="radio" name="ind_48" class="multiple_choice" id="RESULT_RadioButton-4-0-1" value="2" /></td>
 <td><input type="radio" name="ind_48" class="multiple_choice" id="RESULT_RadioButton-4-0-2" value="3" /></td>
-<td><input type="radio" name="ind_48" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="4" /></td>
+<td><input type="radio" name="ind_48" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="88" /></td>
 <td colspan="2"><input name="comm_48" type="text" size="30"/></td>
 </tr>
 
@@ -424,7 +428,7 @@ function disablefields() {
 <td><input type="radio" name="ind_49" class="multiple_choice" id="RESULT_RadioButton-4-0-0" value="1" /></td>
 <td><input type="radio" name="ind_49" class="multiple_choice" id="RESULT_RadioButton-4-0-1" value="2" /></td>
 <td><input type="radio" name="ind_49" class="multiple_choice" id="RESULT_RadioButton-4-0-2" value="3" /></td>
-<td><input type="radio" name="ind_49" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="4" /></td>
+<td><input type="radio" name="ind_49" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="88" /></td>
 <td colspan="2"><input name="comm_49" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
@@ -432,7 +436,7 @@ function disablefields() {
 <td><input type="radio" name="ind_50" class="multiple_choice" id="RESULT_RadioButton-4-0-0" value="1" /></td>
 <td><input type="radio" name="ind_50" class="multiple_choice" id="RESULT_RadioButton-4-0-1" value="2" /></td>
 <td><input type="radio" name="ind_50" class="multiple_choice" id="RESULT_RadioButton-4-0-2" value="3" /></td>
-<td><input type="radio" name="ind_50" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="4" /></td>
+<td><input type="radio" name="ind_50" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="88" /></td>
 <td colspan="2"><input name="comm_50" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
@@ -440,7 +444,7 @@ function disablefields() {
 <td><input type="radio" name="ind_51" class="multiple_choice" id="RESULT_RadioButton-4-0-0" value="1" /></td>
 <td><input type="radio" name="ind_51" class="multiple_choice" id="RESULT_RadioButton-4-0-1" value="2" /></td>
 <td><input type="radio" name="ind_51" class="multiple_choice" id="RESULT_RadioButton-4-0-2" value="3" /></td>
-<td><input type="radio" name="ind_51" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="4" /></td>
+<td><input type="radio" name="ind_51" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="88" /></td>
 <td colspan="2"><input name="comm_51" type="text" size="30"/></td>
 </tr>
 
@@ -452,7 +456,7 @@ function disablefields() {
 <td><input type="radio" name="ind_52" class="multiple_choice" id="RESULT_RadioButton-4-0-0" value="1" /></td>
 <td><input type="radio" name="ind_52" class="multiple_choice" id="RESULT_RadioButton-4-0-1" value="2" /></td>
 <td><input type="radio" name="ind_52" class="multiple_choice" id="RESULT_RadioButton-4-0-2" value="3" /></td>
-<td><input type="radio" name="ind_52" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="4" /></td>
+<td><input type="radio" name="ind_52" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="88" /></td>
 <td colspan="2"><input name="comm_52" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
@@ -460,7 +464,7 @@ function disablefields() {
 <td><input type="radio" name="ind_53" class="multiple_choice" id="RESULT_RadioButton-4-0-0" value="1" /></td>
 <td><input type="radio" name="ind_53" class="multiple_choice" id="RESULT_RadioButton-4-0-1" value="2" /></td>
 <td><input type="radio" name="ind_53" class="multiple_choice" id="RESULT_RadioButton-4-0-2" value="3" /></td>
-<td><input type="radio" name="ind_53" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="4" /></td>
+<td><input type="radio" name="ind_53" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="88" /></td>
 <td colspan="2"><input name="comm_53" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
@@ -468,7 +472,7 @@ function disablefields() {
 <td><input type="radio" name="ind_54" class="multiple_choice" id="RESULT_RadioButton-4-0-0" value="1" /></td>
 <td><input type="radio" name="ind_54" class="multiple_choice" id="RESULT_RadioButton-4-0-1" value="2" /></td>
 <td><input type="radio" name="ind_54" class="multiple_choice" id="RESULT_RadioButton-4-0-2" value="3" /></td>
-<td><input type="radio" name="ind_54" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="4" /></td>
+<td><input type="radio" name="ind_54" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="88" /></td>
 <td colspan="2"><input name="comm_54" type="text" size="30"/></td>
 </tr>
     <tr><td ><strong>Total</strong></td><td colspan="4"> <input name="totalScore" readonly="true" style="text-align: right; width: 75px;" type="text"></td></tr>
