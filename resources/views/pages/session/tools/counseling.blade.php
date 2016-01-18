@@ -41,6 +41,11 @@ $().ready(function(){
         calcscore()
     });
 });
+ 
+    $(function() {
+    $( "#m_date" ).datepicker();
+  });
+  
 
 </script>
 @stop
@@ -150,13 +155,35 @@ function disablefields() {
 <input type="text" name="m_date"  id="m_date"  />
 
 </div>
+    <div class="clear"></div>
+<table>
+     <tr>
 <div id="q11" class="q required">
 <a class="item_anchor" name="ItemAnchor3"></a>
-<label class="question top_question" for="m_facility">Facility&nbsp;<b class="icon_required" style="color:#FF0000">*</b></label>
-<input type="text" name="m_facility" class="text_field" id="m_facility" size="20"  />
-
+<label class="question top_question" for="m_facility">County&nbsp;<b class="icon_required" >*</b></label>
+<input type="text" name="m_facility"  id="m_facility" size="20"  />
 </div>
+<div id="q11" class="q required">
+<a class="item_anchor" name="ItemAnchor3"></a>
+<label class="question top_question" for="m_facility">Sub County&nbsp;<b class="icon_required" >*</b></label>
+<input type="text" name="mfl_code"  id="mfl_code" size="20"  />
 
+</div>  
+<div id="q11" class="q required">
+<a class="item_anchor" name="ItemAnchor3"></a>
+<label class="question top_question" for="m_facility">MFL Code&nbsp;<b class="icon_required" >*</b></label>
+<input type="text" name="mfl_code"  id="mfl_code" size="20"  />
+
+</div>  
+<div id="q11" class="q required">
+<a class="item_anchor" name="ItemAnchor3"></a>
+<label class="question top_question" for="m_facility">Facility&nbsp;<b class="icon_required" >*</b></label>
+<input type="text" name="mfl_code"  id="mfl_code" size="20"  />
+
+</div>  
+     </tr>
+     
+ </table>   
 <div class="clear"></div>
 
 <div id="q4" class="q required">
