@@ -1,6 +1,54 @@
 @extends('formmaster')
 @section('form-name', 'Mentorship Session Tool')
+@section('inline-js')
+<script type="text/javascript">
+$(document).ready(function(){
+    
+    $('#FSsubmit').click(function() {
+       
+        $('tr:has(input[type=radio])').css('outline', function() {
+            return $('input[type=radio]:checked', this).length === 0 ? 'thin solid red' : '';
+        });
+    });
+});
+function disablefields() {
+         if (document.getElementById('cme_yes').checked == 1) { 
+              document.getElementById('cme_topic').disabled=false; 
+              document.getElementById('cme_presenter').disabled=false; 
+              document.getElementById('cme_topic').value='';
+              document.getElementById('cme_presenter').value=''; 
+         } else { 
+              document.getElementById('cme_topic').disabled=true; 
+              document.getElementById('cme_presenter').disabled=true; 
+              document.getElementById('cme_topic').value='';
+              document.getElementById('cme_presenter').value='';
+         } 
+     }
+function calcscore(){
+    var score = 0;
+    $(".multiple_choice:checked").each(function(){
+        if(parseInt($(this).val(),10)==88){
+            score+= "";
+        }
+        else{
+        score+=parseInt($(this).val(),10);
+        }
+    });
+    $("input[name=totalScore]").val(score)
+}
+$().ready(function(){
+    $(".multiple_choice").change(function(){
+        calcscore()
+    });
+});
+ 
+    $(function() {
+    $( "#m_date" ).datepicker();
+  });
+  
 
+</script>
+@stop
 @section('main-nav')
     <li>{!!HTML::link('dash-board','Home')!!}</li>
     <li class='active'>{!!HTML::link('#','Mentorship Session')!!}</li>
@@ -59,6 +107,10 @@ function disablefields() {
               document.getElementById('cme_presenter').value='';
          } 
      }
+    
+    $(function() {
+    $( "#m_date" ).datepicker();
+  });
  </script> 
 
 <form method="post" id="FSForm" action="../session-create">
@@ -100,16 +152,38 @@ function disablefields() {
 <div id="q11" class="q required">
 <a class="item_anchor" name="ItemAnchor3"></a>
 <label class="question top_question" for="m_date">Date&nbsp;<b class="icon_required" style="color:#FF0000">*</b></label>
-<input type="text" name="m_date" class="text_field calendar_field" id="m_date" size="10" maxlength="10" datemax="" datemin="" value="" date="yy-mm-dd" />
+<input type="text" name="m_date"  id="m_date"  />
 
+</div>
+    <div class="clear"></div>
+<table>
+     <tr>
+<div id="q11" class="q required">
+<a class="item_anchor" name="ItemAnchor3"></a>
+<label class="question top_question" for="m_facility">County&nbsp;<b class="icon_required" >*</b></label>
+<input type="text" name="m_facility"  id="m_facility" size="20"  />
 </div>
 <div id="q11" class="q required">
 <a class="item_anchor" name="ItemAnchor3"></a>
-<label class="question top_question" for="m_facility">Facility&nbsp;<b class="icon_required" style="color:#FF0000">*</b></label>
-<input type="text" name="m_facility" class="text_field" id="m_facility" size="20"  />
+<label class="question top_question" for="m_facility">Sub County&nbsp;<b class="icon_required" >*</b></label>
+<input type="text" name="mfl_code"  id="mfl_code" size="20"  />
 
-</div>
+</div>  
+<div id="q11" class="q required">
+<a class="item_anchor" name="ItemAnchor3"></a>
+<label class="question top_question" for="m_facility">MFL Code&nbsp;<b class="icon_required" >*</b></label>
+<input type="text" name="mfl_code"  id="mfl_code" size="20"  />
 
+</div>  
+<div id="q11" class="q required">
+<a class="item_anchor" name="ItemAnchor3"></a>
+<label class="question top_question" for="m_facility">Facility&nbsp;<b class="icon_required" >*</b></label>
+<input type="text" name="mfl_code"  id="mfl_code" size="20"  />
+
+</div>  
+     </tr>
+     
+ </table>   
 <div class="clear"></div>
 
 <div id="q4" class="q required">
@@ -170,7 +244,7 @@ function disablefields() {
 <td><input type="radio" name="ind_1" class="multiple_choice" id="RESULT_RadioButton-4-0-0" value="1" /></td>
 <td><input type="radio" name="ind_1" class="multiple_choice" id="RESULT_RadioButton-4-0-1" value="2" /></td>
 <td><input type="radio" name="ind_1" class="multiple_choice" id="RESULT_RadioButton-4-0-2" value="3" /></td>
-<td><input type="radio" name="ind_1" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="4" /></td>
+<td><input type="radio" name="ind_1" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="88" /></td>
 <td colspan="2"><input name="comm_1" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_dark">
@@ -178,7 +252,7 @@ function disablefields() {
 <td><input type="radio" name="ind_2" class="multiple_choice" id="freedom-0" value="1" /></td>
 <td><input type="radio" name="ind_2" class="multiple_choice" id="freedom-1" value="2" /></td>
 <td><input type="radio" name="ind_2" class="multiple_choice" id="freedom-2" value="3" /></td>
-<td><input type="radio" name="ind_2" class="multiple_choice" id="freedom-3" value="4" /></td>
+<td><input type="radio" name="ind_2" class="multiple_choice" id="freedom-3" value="88" /></td>
 <td colspan="2"><input name="comm_2" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
@@ -186,7 +260,7 @@ function disablefields() {
 <td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-0" value="1" /></td>
 <td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-1" value="2" /></td>
 <td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-2" value="3" /></td>
-<td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-3" value="4" /></td>
+<td><input type="radio" name="ind_3" class="multiple_choice" id="answer_questions-3" value="88" /></td>
 <td colspan="2"><input name="comm_3" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_dark">
@@ -194,7 +268,7 @@ function disablefields() {
 <td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-0" value="1" /></td>
 <td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-1" value="2" /></td>
 <td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-2" value="3" /></td>
-<td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-3" value="4" /></td>
+<td><input type="radio" name="ind_4" class="multiple_choice" id="clear_communication-3" value="88" /></td>
 <td colspan="2"><input name="comm_4" type="text" size="30"/></td>
 </tr>
 <tr>
@@ -205,7 +279,7 @@ function disablefields() {
 <td><input type="radio" name="ind_22" class="multiple_choice" id="RESULT_RadioButton-4-0-0" value="1" /></td>
 <td><input type="radio" name="ind_22" class="multiple_choice" id="RESULT_RadioButton-4-0-1" value="2" /></td>
 <td><input type="radio" name="ind_22" class="multiple_choice" id="RESULT_RadioButton-4-0-2" value="3" /></td>
-<td><input type="radio" name="ind_22" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="4" /></td>
+<td><input type="radio" name="ind_22" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="88" /></td>
 <td colspan="2"><input name="comm_22" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_dark">
@@ -213,7 +287,7 @@ function disablefields() {
 <td><input type="radio" name="ind_23" class="multiple_choice" id="freedom-0" value="1" /></td>
 <td><input type="radio" name="ind_23" class="multiple_choice" id="freedom-1" value="2" /></td>
 <td><input type="radio" name="ind_23" class="multiple_choice" id="freedom-2" value="3" /></td>
-<td><input type="radio" name="ind_23" class="multiple_choice" id="freedom-3" value="4" /></td>
+<td><input type="radio" name="ind_23" class="multiple_choice" id="freedom-3" value="88" /></td>
 <td colspan="2"><input name="comm_23" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
@@ -221,7 +295,7 @@ function disablefields() {
 <td><input type="radio" name="ind_24" class="multiple_choice" id="answer_questions-0" value="1" /></td>
 <td><input type="radio" name="ind_24" class="multiple_choice" id="answer_questions-1" value="2" /></td>
 <td><input type="radio" name="ind_24" class="multiple_choice" id="answer_questions-2" value="3" /></td>
-<td><input type="radio" name="ind_24" class="multiple_choice" id="answer_questions-3" value="4" /></td>
+<td><input type="radio" name="ind_24" class="multiple_choice" id="answer_questions-3" value="88" /></td>
 <td colspan="2"><input name="comm_24" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_dark">
@@ -229,7 +303,7 @@ function disablefields() {
 <td><input type="radio" name="ind_25" class="multiple_choice" id="clear_communication-0" value="1" /></td>
 <td><input type="radio" name="ind_25" class="multiple_choice" id="clear_communication-1" value="2" /></td>
 <td><input type="radio" name="ind_25" class="multiple_choice" id="clear_communication-2" value="3" /></td>
-<td><input type="radio" name="ind_25" class="multiple_choice" id="clear_communication-3" value="4" /></td>
+<td><input type="radio" name="ind_25" class="multiple_choice" id="clear_communication-3" value="88" /></td>
 <td colspan="2"><input name="comm_25" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
@@ -237,7 +311,7 @@ function disablefields() {
 <td><input type="radio" name="ind_26" class="multiple_choice" id="answer_questions-0" value="1" /></td>
 <td><input type="radio" name="ind_26" class="multiple_choice" id="answer_questions-1" value="2" /></td>
 <td><input type="radio" name="ind_26" class="multiple_choice" id="answer_questions-2" value="3" /></td>
-<td><input type="radio" name="ind_26" class="multiple_choice" id="answer_questions-3" value="4" /></td>
+<td><input type="radio" name="ind_26" class="multiple_choice" id="answer_questions-3" value="88" /></td>
 <td colspan="2"><input name="comm_26" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_dark">
@@ -245,7 +319,7 @@ function disablefields() {
 <td><input type="radio" name="ind_27" class="multiple_choice" id="clear_communication-0" value="1" /></td>
 <td><input type="radio" name="ind_27" class="multiple_choice" id="clear_communication-1" value="2" /></td>
 <td><input type="radio" name="ind_27" class="multiple_choice" id="clear_communication-2" value="3" /></td>
-<td><input type="radio" name="ind_27" class="multiple_choice" id="clear_communication-3" value="4" /></td>
+<td><input type="radio" name="ind_27" class="multiple_choice" id="clear_communication-3" value="88" /></td>
 <td colspan="2"><input name="comm_27" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
@@ -253,10 +327,10 @@ function disablefields() {
 <td><input type="radio" name="ind_28" class="multiple_choice" id="answer_questions-0" value="1" /></td>
 <td><input type="radio" name="ind_28" class="multiple_choice" id="answer_questions-1" value="2" /></td>
 <td><input type="radio" name="ind_28" class="multiple_choice" id="answer_questions-2" value="3" /></td>
-<td><input type="radio" name="ind_28" class="multiple_choice" id="answer_questions-3" value="4" /></td>
+<td><input type="radio" name="ind_28" class="multiple_choice" id="answer_questions-3" value="88" /></td>
 <td colspan="2"><input name="comm_28" type="text" size="30"/></td>
 </tr>
-     <tr><td ><strong>Total</strong></td><td colspan="4"> <input id="totalScore" readonly="true" style="text-align: right; width: 75px;" type="text"></td></tr>
+     <tr><td ><strong>Total</strong></td><td colspan="4"> <input name="totalScore" readonly="true" style="text-align: right; width: 75px;" type="text"></td></tr>
 </table>
 <table>
 <tr><th colspan="4" style="text-align:left">Summary of Mentee Strengths</th></tr>
