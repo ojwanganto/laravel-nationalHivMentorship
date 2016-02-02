@@ -78,7 +78,14 @@ text-transform:none; color:#fff; font-weight:bold; text-decoration:none;
                 </a>
             </td>
             <td>
-                <a href="person-list">
+                <a href="system-reports">
+                  <div id="controls"> <img src="{!! asset('img/reports.png') !!}"> <br>
+                    <p>Reporting</p>
+                  </div>
+                </a>
+            </td>
+             <td>
+                <a href="resource-center">
                   <div id="controls"> <img src="{!! asset('img/reports.png') !!}"> <br>
                     <p>Reporting</p>
                   </div>
