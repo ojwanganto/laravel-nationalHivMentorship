@@ -86,8 +86,8 @@ text-transform:none; color:#fff; font-weight:bold; text-decoration:none;
             </td>
              <td>
                 <a href="resource-center">
-                  <div id="controls"> <img src="{!! asset('img/reports.png') !!}"> <br>
-                    <p>Reporting</p>
+                  <div id="controls"> <img src="{!! asset('img/quality-care.png') !!}"> <br>
+                    <p>Resource Center</p>
                   </div>
                 </a>
             </td>
