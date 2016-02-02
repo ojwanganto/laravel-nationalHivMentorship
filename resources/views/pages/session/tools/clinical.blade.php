@@ -104,13 +104,10 @@ function calcscore(){
            </div>
     </h4>
 @stop
-@section('form-design')
-<<<<<<< HEAD
-<form method="post" id="FSForm" action="../session-create">
-=======
 
-<form method="post" id="FSForm" action="">
->>>>>>> origin/master
+@section('form-design')
+
+<form method="post" id="FSForm" action="../session-create">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 <input type="hidden" name="tool_id" value="1">
 
