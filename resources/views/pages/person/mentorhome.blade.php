@@ -2,9 +2,11 @@
 @section('form-name', 'List of Mentors')
 @section('main-nav')
     <li>{!!HTML::link('dash-board','Home')!!}</li>
+    <li>{!!HTML::link('my-profile','My Profile')!!}</li>
     <li>{!!HTML::link('mentorship-session','Mentorship Session')!!}</li>
     <li class='active'>{!!HTML::link('#','Mentor/Mentee')!!}</li>
     <li>{!!HTML::link('system-reports','Reporting')!!}</li>
+    <li>{!!HTML::link('resource-center','Resource Centre')!!}</li>
     <li>{!!HTML::link('system-admin','Admin')!!}</li>
     <li class='last'>{!!HTML::link('logout','Logout')!!}</li>
 @stop

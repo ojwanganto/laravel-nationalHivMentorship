@@ -1,12 +1,47 @@
 @extends('formmaster')
 @section('form-name', 'Mentorship Session Tool')
-
+@section('inline-js')
+<script type="text/javascript"> 
+    $(document).ready(function(){
+        $("#FSsubmit").click (function (){
+            var commonInd = ['mentor_id','mentee_id','session_tool_id','facility','session_objectives','mentee_strength','mentee_improvement_areas','session_comments'];
+            var indicators = ['ind_1','ind_2','ind_3','ind_4','ind_5','ind_6','ind_7','ind_8','ind_9','ind_10','ind_11','ind_12','ind_13','ind_14',         'ind_15','ind_16','ind_17','ind_18','ind_19','ind_20','ind_21'];
+            var submit = true;
+            for (var ind in indicators) {
+                var indName = indicators[ind];
+                if(!$('input[name='+ indName +']:checked').val()) {
+                   $('input[name='+ indName + ']').parent().css({"background-color": "red"});
+                    submit =false;
+                }
+                
+            }
+            alert(submit);
+            return false;
+        });
+    });    
+	
+    function disablefields() {
+             if (document.getElementById('cme_yes').checked == 1) { 
+                  document.getElementById('cme_topic').disabled=false; 
+                  document.getElementById('cme_presenter').disabled=false; 
+                  document.getElementById('cme_topic').value='';
+                  document.getElementById('cme_presenter').value=''; 
+             } else { 
+                  document.getElementById('cme_topic').disabled=true; 
+                  document.getElementById('cme_presenter').disabled=true; 
+                  document.getElementById('cme_topic').value='';
+                  document.getElementById('cme_presenter').value='';
+             } 
+    }
+ </script> 
+@stop
 @section('main-nav')
     <li>{!!HTML::link('dash-board','Home')!!}</li>
+    <li>{!!HTML::link('my-profile','My Profile')!!}</li>
     <li class='active'>{!!HTML::link('mentorship-session','Mentorship Session')!!}</li>
     <li>{!!HTML::link('person-home','Mentor/Mentee')!!}</li>
     <li>{!!HTML::link('system-reports','Reporting')!!}</li>
-    <li>{!!HTML::link('system-admin','Resource Centre')!!}</li>
+    <li>{!!HTML::link('resource-center','Resource Centre')!!}</li>
     <li>{!!HTML::link('system-admin','Admin')!!}</li>
     <li class='last'>{!!HTML::link('logout','Logout')!!}</li>
 @stop
@@ -44,22 +79,6 @@
     </h4>
 @stop
 @section('form-design')
- <script type="text/javascript"> 
-	
-function disablefields() {
-         if (document.getElementById('cme_yes').checked == 1) { 
-              document.getElementById('cme_topic').disabled=false; 
-              document.getElementById('cme_presenter').disabled=false; 
-              document.getElementById('cme_topic').value='';
-              document.getElementById('cme_presenter').value=''; 
-         } else { 
-              document.getElementById('cme_topic').disabled=true; 
-              document.getElementById('cme_presenter').disabled=true; 
-              document.getElementById('cme_topic').value='';
-              document.getElementById('cme_presenter').value='';
-         } 
-     }
- </script> 
 <form method="post" id="FSForm" action="../session-create">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 <input type="hidden" name="tool_id" value="1">

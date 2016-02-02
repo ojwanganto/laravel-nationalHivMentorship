@@ -10,7 +10,7 @@
     <div class="container">
     <header id="header">
         <div class="jumbotron">
-            <h1>Nascop HIV National Mentorship </h1>
+            <h1>National HIV Mentorship Program </h1>
         </div>
     </header>
         <div class="row">
