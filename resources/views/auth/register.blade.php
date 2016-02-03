@@ -1,6 +1,32 @@
-@extends('master')
- 
-@section('main')
+@extends('formmaster')
+@section('form-name', 'Register User')
+@section('main-nav')
+    <li>{!!HTML::link('dash-board','Home')!!}</li>
+    <li>{!!HTML::link('my-profile','My Profile')!!}</li>
+    <li>{!!HTML::link('mentorship-session','Mentorship Session')!!}</li>
+    <li>{!!HTML::link('person-home','Mentor/Mentee')!!}</li>
+    <li>{!!HTML::link('system-reports','Reporting')!!}</li>
+    <li>{!!HTML::link('resource-center','Resource Centre')!!}</li>
+    <li class='active'>{!!HTML::link('#','Admin')!!}</li>
+    <li class='last'>{!!HTML::link('logout','Logout')!!}</li>
+@stop
+@section('horizontal-nav')
+    <h4 class="accordion-toggle" >
+           <div id="taccb">
+               <div id="taccbi">  &gt; </div>
+                   <!--{!!HTML::link('/session-tool/1','Clinical')!!}-->
+           </div>
+       
+    </h4>
+    <h4 class="accordion-toggle" >
+           <div id="taccb">
+               <div id="taccbi">  &gt; </div>
+                   <!--{!!HTML::link('/session-tool/2','Laboratory')!!}-->
+           </div>
+    </h4>
+    
+@stop
+@section('form-design')
     <div class="col-md-8 col-md-offset-2 form-content">
         <h3 class="heading">Register</h3>
         @foreach($errors->all() as $error)
