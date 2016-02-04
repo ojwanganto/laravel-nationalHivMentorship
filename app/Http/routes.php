@@ -11,6 +11,7 @@
 |
 */
 Route::get('/resource-center', 'ResourceCenterController@index');
+Route::get('/register-user', 'UserController@create');
 Route::get('/my-profile', 'UserController@index');
 Route::get('/system-reports', 'ReportingController@index');
 Route::get('/system-admin', 'AdminController@index');

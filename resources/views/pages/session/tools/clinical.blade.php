@@ -3,33 +3,52 @@
 @section('inline-js')
 <script type="text/javascript"> 
     $(document).ready(function(){
+        $( "#m_date" ).datepicker();
         $("#FSsubmit").click (function (){
-            var commonInd = ['mentor_id','mentee_id','session_tool_id','facility','session_objectives','mentee_strength','mentee_improvement_areas','session_comments'];
-            var indicators = ['ind_1','ind_2','ind_3','ind_4','ind_5','ind_6','ind_7','ind_8','ind_9','ind_10','ind_11','ind_12','ind_13','ind_14',         'ind_15','ind_16','ind_17','ind_18','ind_19','ind_20','ind_21'];
+            validateForm ();
+         
+        });
+    });    
+    
+    function validateForm () {
+         var drpDownNames = ['mentor','mentee'];
+            var txtAndTxtAreaIds = ['m_date','self_reported_gap','previous_session_gap','other_gap','session_objectives','mentee_strength','mentee_improvement_areas','session_comments'];
+            var sessionIndFieldNames = ['ind_1','ind_2','ind_3','ind_4','ind_5','ind_6','ind_7','ind_8','ind_9','ind_10','ind_11','ind_12','ind_13','ind_14',         'ind_15','ind_16','ind_17','ind_18','ind_19','ind_20','ind_21','cme_participation','mdt_participation'];
             var submit = true;
-            for (var ind in indicators) {
-                var indName = indicators[ind];
+            
+            for (var drpInd in drpDownNames) {
+                var drpName = drpDownNames[drpInd];
+                $("#"+drpName).css('border', function() {
+                return $(this).val() == '' ? '1px solid red' : '';
+                
+                if($(this).val() == '') { submit = false;}
+                
+                });
+                
+            }
+            for (var ind in sessionIndFieldNames) {
+                var indName = sessionIndFieldNames[ind];
                 if(!$('input[name='+ indName +']:checked').val()) {
                    $('input[name='+ indName + ']').parent().css({"background-color": "red"});
                     submit =false;
                 }
                 
             }
-            alert(submit);
-            return false;
-        });
-
-    $('#FSsubmit').click(function() {
-       
-        $('tr:has(input[type=radio])').css('outline', function() {
-            return $('input[type=radio]:checked', this).length === 0 ? 'thin solid red' : '';
-        });
-    });
-
- $( "#m_date" ).datepicker();
-
-
-    });    
+            
+            for (var txtF in txtAndTxtAreaIds) {
+                var txtFid = txtAndTxtAreaIds[txtF];
+                $("#"+txtFid).css('border', function() {
+                return $(this).val() == '' ? '1px solid red' : '';
+                
+                if($(this).val() == '') { submit = false;}
+            
+                });
+            }
+            if (!submit) {
+                $('#msg_container').html('Please fill all required fields before submitting form');
+            }
+            return submit;
+    }
 	
     function disablefields() {
              if (document.getElementById('cme_yes').checked == 1) { 
@@ -146,7 +165,7 @@ function calcscore(){
 <div id="q11" class="q required">
 <a class="item_anchor" name="ItemAnchor3"></a>
 <label class="question top_question" for="m_date">Date&nbsp;<b class="icon_required" style="color:#FF0000">*</b></label>
-<input type="text"  id="m_date" size="20" />
+<input type="text" name="m_date"  id="m_date" size="20" />
 </div>  
 <div class="clear"></div>
  <table>
@@ -192,15 +211,15 @@ function calcscore(){
 </tr>
 <tr>
 <td>Self-reported by mentee</td>
-<td colspan="3"><input type="text" name="self_reported_gap" size="50"/></td>
+<td colspan="3"><input id="self_reported_gap" type="text" name="self_reported_gap" size="50"/></td>
 </tr>
 <tr>
 <td>Previous mentoring session</td>
-<td colspan="3"><input type="text" name="previous_session_gap" size="50"/></td>
+<td colspan="3"><input id="previous_session_gap" type="text" name="previous_session_gap" size="50"/></td>
 </tr>
 <tr>
 <td>Other:</td>
-    <td colspan="3"><input type="text" name="other_gap" size="50"/></td>
+    <td colspan="3"><input id="other_gap" type="text" name="other_gap" size="50"/></td>
 </tr>
 </table>    
 <div class="clear"></div>   
@@ -210,7 +229,7 @@ function calcscore(){
     <th colspan="4" style="text-align:left">Session Objectives</th>
 </tr>
 <tr>
-<td colspan="4"><textarea name="session_objectives" cols="70"></textarea></td>
+<td colspan="4"><textarea id="session_objectives" name="session_objectives" cols="70"></textarea></td>
 </tr>
 
 </table>    
@@ -408,17 +427,17 @@ function calcscore(){
 </table>
 <table>
 <tr><th colspan="4" style="text-align:left">Summary of Mentee Strengths</th></tr>
-<tr><td colspan="4"><textarea cols="70" name="mentee_strength"></textarea></td></tr>
+<tr><td colspan="4"><textarea id="mentee_strength" cols="70" name="mentee_strength"></textarea></td></tr>
 </table>
  
 <table>
 <tr><th colspan="4" style="text-align:left">Summary of Mentee Areas for Improvement (with specific steps to address each priority area)</th></tr>
-<tr><td colspan="4"><textarea cols="70" name="mentee_improvement_areas"></textarea></td></tr>
+<tr><td colspan="4"><textarea id="mentee_improvement_areas" cols="70" name="mentee_improvement_areas"></textarea></td></tr>
 </table>
 
 <table>
 <tr><th colspan="4" style="text-align:left">Other Comments</th></tr>
-<tr><td colspan="4"><textarea cols="70" name="session_comments"></textarea></td></tr>
+<tr><td colspan="4"><textarea id="session_comments" cols="70" name="session_comments"></textarea></td></tr>
 </table>
     
     <table>
@@ -441,12 +460,11 @@ function calcscore(){
 
 <div class="clear"></div>
 
-<div style="position:relative;font-family:Helvetica,Arial,sans-serif;font-size:12px;line-height:36px;text-align:left;background-color:#fafafa;height:35px;margin-top:10px;overflow:hidden;">
+<div id="msg_container" style="position:relative;font-family:Helvetica,Arial,sans-serif;font-size:16px;color:red;line-height:36px;text-align:center;background-color:#fafafa;height:35px;margin-top:10px;overflow:hidden;">
 
 </div>
   
 <!-- END_ITEMS -->
-<input type="hidden" name="EParam" value="FzpUCZwnDno=" />
 <div class="outside_container">
 <div class="buttons_reverse"><input type="button" name="Submit" value="Submit" class="submit_button" id="FSsubmit" /></div></div>
 </form>
