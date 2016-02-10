@@ -14,7 +14,7 @@
     <h4 class="accordion-toggle" >
            <div id="taccb">
                <div id="taccbi">  &gt; </div>
-                   {!!HTML::link('#','Facility Level')!!}
+                   {!!HTML::link('facility','Facility Level')!!}
            </div>
        
     </h4>

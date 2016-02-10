@@ -42,7 +42,7 @@
             if (!submit) {
                 $('#msg_container').html('Please fill all required fields before submitting form');
             }
-			/*alert(submit);*/
+		
             return submit;
     }
 	
@@ -195,7 +195,7 @@ $().ready(function(){
   
  </table>   
 <div class="clear"></div>
-
+-
 <div id="q4" class="q required">
 
 <table>
