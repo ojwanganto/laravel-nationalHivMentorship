@@ -181,12 +181,7 @@ function calcscore(){
 <input type="text" name="mfl_code"  id="mfl_code" size="20"  />
 
 </div>  
-<div id="q11" class="q required">
-<a class="item_anchor" name="ItemAnchor3"></a>
-<label class="question top_question" for="m_facility">MFL Code&nbsp;<b class="icon_required" >*</b></label>
-<input type="text" name="mfl_code"  id="mfl_code" size="20"  />
 
-</div>  
 <div id="q11" class="q required">
 <a class="item_anchor" name="ItemAnchor3"></a>
 <label class="question top_question" for="m_facility">Facility&nbsp;<b class="icon_required" >*</b></label>
