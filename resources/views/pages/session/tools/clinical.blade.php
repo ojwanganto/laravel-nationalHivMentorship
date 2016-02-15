@@ -4,9 +4,8 @@
 <script type="text/javascript"> 
     $(document).ready(function(){
         $( "#m_date" ).datepicker();
-        $("#FSsubmit").click (function (){
-            validateForm ();
-         
+        $("#FSForm").submit (function (){
+         return validateForm ();
         });
     });    
     
@@ -461,7 +460,7 @@ function calcscore(){
   
 <!-- END_ITEMS -->
 <div class="outside_container">
-<div class="buttons_reverse"><input type="button" name="Submit" value="Submit" class="submit_button" id="FSsubmit" /></div></div>
+<div class="buttons_reverse"><input type="submit" name="Submit" value="Submit" class="submit_button" id="FSsubmit" /></div></div>
 </form>
 
 @stop
