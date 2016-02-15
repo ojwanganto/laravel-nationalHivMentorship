@@ -2,28 +2,64 @@
 @section('form-name', 'Mentorship Session Tool')
 @section('inline-js')
 <script type="text/javascript">
-$(document).ready(function(){
-    
-    $('#FSsubmit').click(function() {
-       
-        $('tr:has(input[type=radio])').css('outline', function() {
-            return $('input[type=radio]:checked', this).length === 0 ? 'thin solid red' : '';
+    $(document).ready(function(){
+        $("#m_date").datepicker();
+        $("#FSsubmit").click (function (){
+            validateForm ();   
         });
-    });
-});
-function disablefields() {
-         if (document.getElementById('cme_yes').checked == 1) { 
-              document.getElementById('cme_topic').disabled=false; 
-              document.getElementById('cme_presenter').disabled=false; 
-              document.getElementById('cme_topic').value='';
-              document.getElementById('cme_presenter').value=''; 
-         } else { 
-              document.getElementById('cme_topic').disabled=true; 
-              document.getElementById('cme_presenter').disabled=true; 
-              document.getElementById('cme_topic').value='';
-              document.getElementById('cme_presenter').value='';
-         } 
-     }
+    });    
+   
+    function validateForm () {
+         var drpDownNames = ['mentor','mentee'];
+            var txtAndTxtAreaIds = ['m_date','self_reported_gap','previous_session_gap','other_gap','session_objectives','mentee_strength','mentee_improvement_areas','session_comments'];
+            var sessionIndFieldNames = ['ind_1','ind_2','ind_3','ind_4','ind_29','ind_30','ind_31','ind_32','ind_33','ind_34','ind_35','ind_36','ind_37','ind_38','ind_39','ind_40','ind_41','ind_42','ind_43','ind_44','ind_45','ind_46','ind_47','ind_48','ind_49','ind_50','ind_51','ind_52','ind_53','ind_54','cme_participation','mdt_participation'];
+            
+			var submit = true;
+            
+            for (var drpInd in drpDownNames) {
+                var drpName = drpDownNames[drpInd];
+                $("#"+drpName).css('border', function() {
+                return $(this).val() == '' ? '1px solid red' : '';
+                });
+               if($("#"+drpName).val() == '') { submit = false;} 
+            }
+            for (var ind in sessionIndFieldNames) {
+                var indName = sessionIndFieldNames[ind];
+                if(!$('input[name='+ indName +']:checked').val()) {
+                   $('input[name='+ indName + ']').parent().css({"background-color": "red"});
+                    submit =false;
+                }
+                
+            }
+            
+            for (var txtF in txtAndTxtAreaIds) {
+                var txtFid = txtAndTxtAreaIds[txtF];
+                $("#"+txtFid).css('border', function() {
+                return $(this).val() == '' ? '1px solid red' : '';
+                });
+				if($("#"+txtFid).val() == '') { submit = false;}
+            }
+            if (!submit) {
+                $('#msg_container').html('Please fill all required fields before submitting form');
+            }
+		
+            return submit;
+    }
+	
+    function disablefields() {
+             if (document.getElementById('cme_yes').checked == 1) { 
+                  document.getElementById('cme_topic').disabled=false; 
+                  document.getElementById('cme_presenter').disabled=false; 
+                  document.getElementById('cme_topic').value='';
+                  document.getElementById('cme_presenter').value=''; 
+             } else { 
+                  document.getElementById('cme_topic').disabled=true; 
+                  document.getElementById('cme_presenter').disabled=true; 
+                  document.getElementById('cme_topic').value='';
+                  document.getElementById('cme_presenter').value='';
+             } 
+    }
+
 function calcscore(){
     var score = 0;
     $(".multiple_choice:checked").each(function(){
@@ -34,18 +70,13 @@ function calcscore(){
         score+=parseInt($(this).val(),10);
         }
     });
-    $("input[name=totalScore]").val(score)
+    $("input[name=totalScore]").val(score);
 }
 $().ready(function(){
     $(".multiple_choice").change(function(){
         calcscore()
     });
-});
-    
-    $(function() {
-    $( "#m_date" ).datepicker();
-  });
-  
+}); 
 </script>
 @stop
 @section('main-nav')
@@ -92,22 +123,6 @@ $().ready(function(){
     </h4>
 @stop
 @section('form-design')
-<script type="text/javascript"> 
-	
-function disablefields() {
-         if (document.getElementById('cme_yes').checked == 1) { 
-              document.getElementById('cme_topic').disabled=false; 
-              document.getElementById('cme_presenter').disabled=false; 
-              document.getElementById('cme_topic').value='';
-              document.getElementById('cme_presenter').value=''; 
-         } else { 
-              document.getElementById('cme_topic').disabled=true; 
-              document.getElementById('cme_presenter').disabled=true; 
-              document.getElementById('cme_topic').value='';
-              document.getElementById('cme_presenter').value='';
-         } 
-     }
- </script> 
 
 <form method="post" id="FSForm" action="../session-create">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -180,7 +195,7 @@ function disablefields() {
   
  </table>   
 <div class="clear"></div>
-
+-
 <div id="q4" class="q required">
 
 <table>
@@ -193,15 +208,15 @@ function disablefields() {
 </tr>
 <tr>
 <td>Self-reported by mentee</td>
-<td colspan="3"><input type="text" name="self_reported_gap" size="50"/></td>
+<td colspan="3"><input type="text" id="self_reported_gap" name="self_reported_gap" size="50"/></td>
 </tr>
 <tr>
 <td>Previous mentoring session</td>
-<td colspan="3"><input type="text" name="previous_session_gap" size="50"/></td>
+<td colspan="3"><input type="text" id="previous_session_gap" name="previous_session_gap" size="50"/></td>
 </tr>
 <tr>
 <td>Other:</td>
-    <td colspan="3"><input type="text" name="other_gap" size="50"/></td>
+    <td colspan="3"><input type="text" id="other_gap" name="other_gap" size="50"/></td>
 </tr>
 </table>    
 <div class="clear"></div>   
@@ -211,7 +226,7 @@ function disablefields() {
     <th colspan="4" style="text-align:left">Session Objectives</th>
 </tr>
 <tr>
-<td colspan="4"><textarea name="session_objectives"  cols="70" name="session_objectives"></textarea></td>
+<td colspan="4"><textarea id="session_objectives" name="session_objectives"  cols="70" name="session_objectives"></textarea></td>
 </tr>
 
 </table>    
@@ -508,17 +523,17 @@ function disablefields() {
 </table>
 <table>
 <tr><th colspan="4" style="text-align:left">Summary of Mentee Strengths</th></tr>
-<tr><td colspan="4"><textarea cols="70" name="mentee_strength"></textarea></td></tr>
+<tr><td colspan="4"><textarea cols="70" id="mentee_strength" name="mentee_strength"></textarea></td></tr>
 </table>
  
 <table>
 <tr><th colspan="4" style="text-align:left">Summary of Mentee Areas for Improvement (with specific steps to address each priority area)</th></tr>
-<tr><td colspan="4"><textarea cols="70" name="mentee_improvement_areas"></textarea></td></tr>
+<tr><td colspan="4"><textarea cols="70" id="mentee_improvement_areas" name="mentee_improvement_areas"></textarea></td></tr>
 </table>
 
 <table>
 <tr><th colspan="4" style="text-align:left">Other Comments</th></tr>
-<tr><td colspan="4"><textarea cols="70" name="session_comments"></textarea></td></tr>
+<tr><td colspan="4"><textarea cols="70" id="session_comments" name="session_comments"></textarea></td></tr>
 </table>
  <table>
 <tr><th colspan="4" style="text-align:left">Participated in CME during this mentorship visit: Yes/No</th>
@@ -536,7 +551,7 @@ function disablefields() {
 </table> 
 </div>
 <div class="clear"></div>
-<div style="position:relative;font-family:Helvetica,Arial,sans-serif;font-size:12px;line-height:36px;text-align:left;background-color:#fafafa;height:35px;margin-top:10px;overflow:hidden;">
+<div id="msg_container" style="position:relative;font-family:Helvetica,Arial,sans-serif;font-size:16px;color:red;line-height:36px;text-align:center;background-color:#fafafa;height:35px;margin-top:10px;overflow:hidden;">
 
 </div>
 </div>

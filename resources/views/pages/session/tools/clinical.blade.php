@@ -19,10 +19,8 @@
                 var drpName = drpDownNames[drpInd];
                 $("#"+drpName).css('border', function() {
                 return $(this).val() == '' ? '1px solid red' : '';
-                
-                if($(this).val() == '') { submit = false;}
-                
                 });
+				if($("#"+drpName).val() == '') { submit = false;}
                 
             }
             for (var ind in sessionIndFieldNames) {
@@ -38,10 +36,9 @@
                 var txtFid = txtAndTxtAreaIds[txtF];
                 $("#"+txtFid).css('border', function() {
                 return $(this).val() == '' ? '1px solid red' : '';
-                
-                if($(this).val() == '') { submit = false;}
             
                 });
+				if($("#"+txtFid).val() == '') { submit = false;}
             }
             if (!submit) {
                 $('#msg_container').html('Please fill all required fields before submitting form');
@@ -75,7 +72,11 @@ function calcscore(){
     });
     $("input[name=totalScore]").val(score)
 }
-  
+ $().ready(function(){
+    $(".multiple_choice").change(function(){
+        calcscore()
+    });
+}); 
 </script>
 @stop
 
@@ -462,7 +463,7 @@ function calcscore(){
 <div id="msg_container" style="position:relative;font-family:Helvetica,Arial,sans-serif;font-size:16px;color:red;line-height:36px;text-align:center;background-color:#fafafa;height:35px;margin-top:10px;overflow:hidden;">
 
 </div>
-  
+ </div> 
 <!-- END_ITEMS -->
 <div class="outside_container">
 <div class="buttons_reverse"><input type="submit" name="Submit" value="Submit" class="submit_button" id="FSsubmit" /></div></div>
