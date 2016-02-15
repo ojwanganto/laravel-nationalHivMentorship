@@ -74,6 +74,7 @@ function calcscore(){
         }
     });
     $("input[name=totalScore]").val(score)
+	calcscore();
 }
   
 </script>
@@ -127,7 +128,7 @@ function calcscore(){
 
 <form method="post" id="FSForm" action="../session-create">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-<input type="hidden" name="tool_id" value="1">
+<input type="hidden" name="tool_id" value="2">
 
 <!-- BEGIN_ITEMS -->
 <div class="form_table">
