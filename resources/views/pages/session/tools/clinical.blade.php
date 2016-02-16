@@ -3,12 +3,19 @@
 @section('inline-js')
 <script type="text/javascript"> 
     $(document).ready(function(){
-        $( "#m_date" ).datepicker();
+      
+		$( "#m_date" ).datepicker({
+			changeMonth: true,
+			changeYear: true
+		});
         $("#FSForm").submit (function (){
          return validateForm ();
         });
+		
+		$(".multiple_choice").change(function(){
+        calcscore()
     });    
-    
+    }); 
     function validateForm () {
          var drpDownNames = ['mentor','mentee'];
             var txtAndTxtAreaIds = ['m_date','self_reported_gap','previous_session_gap','other_gap','session_objectives','mentee_strength','mentee_improvement_areas','session_comments'];
@@ -74,7 +81,7 @@ function calcscore(){
         }
     });
     $("input[name=totalScore]").val(score)
-	calcscore();
+	
 }
   
 </script>
@@ -461,7 +468,7 @@ function calcscore(){
   
 <!-- END_ITEMS -->
 <div class="outside_container">
-<div class="buttons_reverse"><input type="submit" name="Submit" value="Submit" class="submit_button" id="FSsubmit" /></div></div>
+<div class="buttons_reverse"><input type="submit" name="Submit" value="Submit" class="submit_button" id="FSsubmit" /></div>
+</div>
 </form>
-
 @stop

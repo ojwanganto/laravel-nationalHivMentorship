@@ -3,14 +3,59 @@
 @section('inline-js')
 <script type="text/javascript">
 $(document).ready(function(){
+	$( "#m_date" ).datepicker({
+			changeMonth: true,
+			changeYear: true
+		});
     
-    $('#FSsubmit').click(function() {
-       
-        $('tr:has(input[type=radio])').css('outline', function() {
-            return $('input[type=radio]:checked', this).length === 0 ? 'thin solid red' : '';
+   $("#FSForm").submit (function (){
+         return validateForm ();
         });
-    });
+   
+	$(".multiple_choice").change(function(){
+        calcscore()
+		});
 });
+	function validateForm () {
+         var drpDownNames = ['mentor','mentee'];
+            var txtAndTxtAreaIds = ['m_date','self_reported_gap','previous_session_gap','other_gap','session_objectives','mentee_strength','mentee_improvement_areas','session_comments'];
+            var sessionIndFieldNames =['ind_1','ind_2','ind_3','ind_4','ind_67','ind_68','ind_69','ind_70','ind_71','ind_72','ind_73','ind_74','ind_75','ind_76','ind_77','ind_78','ind_79','cme_participation','mdt_participation'];
+            var submit = true;
+            
+            for (var drpInd in drpDownNames) {
+                var drpName = drpDownNames[drpInd];
+                $("#"+drpName).css('border', function() {
+                return $(this).val() == '' ? '1px solid red' : '';
+                
+                if($(this).val() == '') { submit = false;}
+                
+                });
+                
+            }
+            for (var ind in sessionIndFieldNames) {
+                var indName = sessionIndFieldNames[ind];
+                if(!$('input[name='+ indName +']:checked').val()) {
+                   $('input[name='+ indName + ']').parent().css({"background-color": "red"});
+                    submit =false;
+                }
+                
+            }
+            
+            for (var txtF in txtAndTxtAreaIds) {
+                var txtFid = txtAndTxtAreaIds[txtF];
+                $("#"+txtFid).css('border', function() {
+                return $(this).val() == '' ? '1px solid red' : '';
+                
+                if($(this).val() == '') { submit = false;}
+            
+                });
+            }
+            if (!submit) {
+                $('#msg_container').html('Please fill all required fields before submitting form');
+            }
+            return submit;
+    }
+	
 function disablefields() {
          if (document.getElementById('cme_yes').checked == 1) { 
               document.getElementById('cme_topic').disabled=false; 
@@ -36,16 +81,8 @@ function calcscore(){
     });
     $("input[name=totalScore]").val(score)
 }
-$().ready(function(){
-    $(".multiple_choice").change(function(){
-        calcscore()
-    });
-});
 
-    $(function() {
-    $( "#m_date" ).datepicker();
-  });
-  
+   
 </script>
 @stop
 @section('main-nav')
