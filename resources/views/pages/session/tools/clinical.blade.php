@@ -3,12 +3,19 @@
 @section('inline-js')
 <script type="text/javascript"> 
     $(document).ready(function(){
-        $( "#m_date" ).datepicker();
+      
+		$( "#m_date" ).datepicker({
+			changeMonth: true,
+			changeYear: true
+		});
         $("#FSForm").submit (function (){
          return validateForm ();
         });
+		
+		$(".multiple_choice").change(function(){
+        calcscore()
     });    
-    
+    }); 
     function validateForm () {
          var drpDownNames = ['mentor','mentee'];
             var txtAndTxtAreaIds = ['m_date','self_reported_gap','previous_session_gap','other_gap','session_objectives','mentee_strength','mentee_improvement_areas','session_comments'];
@@ -74,6 +81,7 @@ function calcscore(){
         }
     });
     $("input[name=totalScore]").val(score)
+	
 }
   
 </script>
@@ -127,7 +135,7 @@ function calcscore(){
 
 <form method="post" id="FSForm" action="../session-create">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-<input type="hidden" name="tool_id" value="1">
+<input type="hidden" name="tool_id" value="2">
 
 <!-- BEGIN_ITEMS -->
 <div class="form_table">
@@ -180,12 +188,7 @@ function calcscore(){
 <input type="text" name="mfl_code"  id="mfl_code" size="20"  />
 
 </div>  
-<div id="q11" class="q required">
-<a class="item_anchor" name="ItemAnchor3"></a>
-<label class="question top_question" for="m_facility">MFL Code&nbsp;<b class="icon_required" >*</b></label>
-<input type="text" name="mfl_code"  id="mfl_code" size="20"  />
 
-</div>  
 <div id="q11" class="q required">
 <a class="item_anchor" name="ItemAnchor3"></a>
 <label class="question top_question" for="m_facility">Facility&nbsp;<b class="icon_required" >*</b></label>
@@ -465,7 +468,7 @@ function calcscore(){
   
 <!-- END_ITEMS -->
 <div class="outside_container">
-<div class="buttons_reverse"><input type="submit" name="Submit" value="Submit" class="submit_button" id="FSsubmit" /></div></div>
+<div class="buttons_reverse"><input type="submit" name="Submit" value="Submit" class="submit_button" id="FSsubmit" /></div>
+</div>
 </form>
-
 @stop
