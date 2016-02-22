@@ -14,7 +14,42 @@
 		
 		$(".multiple_choice").change(function(){
         calcscore()
-    });    
+    	}); 
+		$("#county").change(function() {
+		$.get('../facility/loadsubcat/' + $(this).val(), function(data) {
+			if (data != null) {
+				$("#subcounty").empty();
+				for (var i in data) {
+					var f = data[i];
+					
+						$('#subcounty').append($('<option/>', { 
+        				value: f.id,
+        				text : f.name 
+    					}));
+					}
+			}
+		});	
+		
+    });
+
+/*adding functionality for sub-county drop-down*/
+
+	$("#subcounty").change(function() {
+		$.get('../facility/loadfacility/' + $(this).val(), function(data) {
+			if (data != null) {
+				$("#facility").empty();
+				for (var i in data) {
+					var f = data[i];
+					
+						$('#facility').append($('<option/>', { 
+        				value: f.id,
+        				text : f.name 
+    					}));
+					}
+			}
+		});	
+		
+    });
     }); 
     function validateForm () {
          var drpDownNames = ['mentor','mentee'];
@@ -135,7 +170,7 @@ function calcscore(){
 
 <form method="post" id="FSForm" action="../session-create">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-<input type="hidden" name="tool_id" value="2">
+<input type="hidden" name="tool_id" value="1">
 
 <!-- BEGIN_ITEMS -->
 <div class="form_table">
@@ -179,26 +214,35 @@ function calcscore(){
      <tr>
 <div id="q11" class="q required">
 <a class="item_anchor" name="ItemAnchor3"></a>
+
 <label class="question top_question" for="m_facility">County&nbsp;<b class="icon_required" >*</b></label>
-<input type="text" name="m_facility"  id="m_facility" size="20"  />
+<select name="county" id="county" class="form-control input-sm">
+	<option selected>Select County</option>
+            
+            @foreach($counties as $county)
+			<option value="{{ $county->id }}"> {{$county->name}}</option>
+            @endforeach
+ </select>
 </div>
 <div id="q11" class="q required">
 <a class="item_anchor" name="ItemAnchor3"></a>
+	
 <label class="question top_question" for="m_facility">Sub County&nbsp;<b class="icon_required" >*</b></label>
-<input type="text" name="mfl_code"  id="mfl_code" size="20"  />
 
-</div>  
-
+<select id="subcounty" class="form-control input-sm" name="subcounty_id">
+</select>
+</div>   
 <div id="q11" class="q required">
 <a class="item_anchor" name="ItemAnchor3"></a>
 <label class="question top_question" for="m_facility">Facility&nbsp;<b class="icon_required" >*</b></label>
-<input type="text" name="mfl_code"  id="mfl_code" size="20"  />
+<select id="facility" class="form-control input-sm" name="facility_id">
+</select>
 
-</div>  
+</div>   
      </tr>
      
- </table>   
-    
+ </table>  
+ 
 <div class="clear"></div>
 
 <div id="q4" class="q required">

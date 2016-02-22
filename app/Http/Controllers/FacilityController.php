@@ -16,7 +16,7 @@ class FacilityController extends Controller
     {
         
 
-        return View('clinical');
+        return View('pages.reporting.facility');
     }
     
     
@@ -26,35 +26,41 @@ class FacilityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function autocomplete(Request $request)
+  
+    public function county()
     {
-        $term = $request->m_facility;
-        $data = facility::where('name','LIKE','%' .$term. '%')
-            ->take(3)
-            ->get();
-        $results = array();
-        foreach($data as $key-> $v){
-            $results[] = ['mfl_code'->$v->mfl_code, 'value'->$v->name];
-        }
-        
-        return response()->json($result);
-    }
-
+	
+		$countys = \DB::table('county')->get();
+		return View('pages.reporting.facility')->with('countys',$countys);
+	}
    
-    public function show($id)
-    {
-        //
+  /* public function subcounty($id)
+	{
+		$subcounty = \DB::table('subcounty')->where('county_id', $id)->get();
+		return View('pages.reporting.facility')->with('subcounty',$subcounty);
     }
-
+*/
+	
+	 public function subcounty($id)
+	{
+		$subcounty = \DB::table('subcounty')->where('county_id', $id)->get();
+		
+		return $subcounty;
+		 
+    }
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
+	
+     public function facility($id)
+	{
+		$facility = \DB::table('facility')->where('subcounty_id', $id)->get();
+		
+		return $facility;
+		 
     }
 
     /**
@@ -77,6 +83,5 @@ class FacilityController extends Controller
      */
     public function destroy($id)
     {
-        //
-    }
+	}
 }

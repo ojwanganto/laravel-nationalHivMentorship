@@ -44,16 +44,17 @@ class MentorshipSessionController extends Controller
         
         $mentors = Mentor::all();
         $mentees = Mentee::all();
+		$counties = \DB::table('county')->get();
         if ($tool==1) {
-            return view('pages.session.tools.clinical', compact('mentors','mentees'));
+            return view('pages.session.tools.clinical', compact('mentors','mentees','counties'));
         } else if ($tool==2) {
-            return view('pages.session.tools.laboratory', compact('mentors','mentees'));
+            return view('pages.session.tools.laboratory', compact('mentors','mentees','counties'));
         } else if ($tool==3) {
-            return view('pages.session.tools.counseling', compact('mentors','mentees'));
+            return view('pages.session.tools.counseling', compact('mentors','mentees','counties'));
         } else if ($tool==4) {
-            return view('pages.session.tools.nutrition', compact('mentors','mentees'));
+            return view('pages.session.tools.nutrition', compact('mentors','mentees','counties'));
         } else if ($tool==5) {
-            return view('pages.session.tools.pharmacy', compact('mentors','mentees'));
+            return view('pages.session.tools.pharmacy', compact('mentors','mentees','counties'));
         } else {
             return redirect('mentorship-session');
         }

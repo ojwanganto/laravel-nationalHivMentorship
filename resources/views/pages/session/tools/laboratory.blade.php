@@ -20,7 +20,7 @@ $(document).ready(function(){
 	function validateForm () {
          var drpDownNames = ['mentor','mentee'];
             var txtAndTxtAreaIds = ['m_date','self_reported_gap','previous_session_gap','other_gap','session_objectives','mentee_strength','mentee_improvement_areas','session_comments'];
-            var sessionIndFieldNames = ['ind_1','ind_2','ind_3','ind_4','ind_29','ind_30','ind_31','ind_32','ind_33','ind_34',         'ind_35','ind_36','ind_37','ind_38','ind_39','ind_40','ind_41','ind_42','ind_43','ind_44',  'ind_45','ind_46','ind_47','ind_48','ind_49','ind_40','ind_51','ind_52','ind_53','ind_54','cme_participation','mdt_participation'];
+            var sessionIndFieldNames = ['ind_1','ind_2','ind_3','ind_4','ind_29','ind_30','ind_31','ind_32','ind_33','ind_34',         'ind_35','ind_36','ind_37','ind_38','ind_39','ind_40','ind_41','ind_42','ind_43','ind_44',  'ind_45','ind_46','ind_47','ind_48','ind_49','ind_50','ind_51','ind_52','ind_53','ind_54','cme_participation','mdt_participation'];
             var submit = true;
             
             for (var drpInd in drpDownNames) {
@@ -82,11 +82,7 @@ function calcscore(){
     });
     $("input[name=totalScore]").val(score)
 }
-$().ready(function(){
-    $(".multiple_choice").change(function(){
-        calcscore()
-    });
-});
+
     
     
 </script>
@@ -135,22 +131,7 @@ $().ready(function(){
     </h4>
 @stop
 @section('form-design')
-<script type="text/javascript"> 
-	
-function disablefields() {
-         if (document.getElementById('cme_yes').checked == 1) { 
-              document.getElementById('cme_topic').disabled=false; 
-              document.getElementById('cme_presenter').disabled=false; 
-              document.getElementById('cme_topic').value='';
-              document.getElementById('cme_presenter').value=''; 
-         } else { 
-              document.getElementById('cme_topic').disabled=true; 
-              document.getElementById('cme_presenter').disabled=true; 
-              document.getElementById('cme_topic').value='';
-              document.getElementById('cme_presenter').value='';
-         } 
-     }
- </script> 
+
 
 <form method="post" id="FSForm" action="../session-create">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">

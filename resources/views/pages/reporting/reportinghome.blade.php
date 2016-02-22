@@ -14,20 +14,20 @@
     <h4 class="accordion-toggle" >
            <div id="taccb">
                <div id="taccbi">  &gt; </div>
-                   {!!HTML::link('#','Facility Level')!!}
+                   {!!HTML::link('facility','Facility Level')!!}
            </div>
        
     </h4>
     <h4 class="accordion-toggle" >
            <div id="taccb">
                <div id="taccbi">  &gt; </div>
-                   {!!HTML::link('#','Sub-County Level')!!}
+                   {!!HTML::link('county','Sub-County Level')!!}
            </div>
     </h4>
     <h4 class="accordion-toggle" >
            <div id="taccb">
                <div id="taccbi">  &gt; </div>
-                   {!!HTML::link('#','Regional Level')!!}
+                   {!!HTML::link('reports','Regional Level')!!}
            </div>
     </h4>
     <h4 class="accordion-toggle" >
