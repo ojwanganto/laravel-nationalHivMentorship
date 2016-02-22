@@ -326,7 +326,8 @@
 <table>
 <tr><th colspan="4" style="text-align:left">Participated in CME during this mentorship visit: Yes/No</th>
     <th><input type='radio' @if($sessionScore['cme_participation']==1) checked @endif name='cme_participation' id="cme_yes" value='1' onclick="disablefields()">YES</th>
-    <th><input type='radio' @if($sessionScore['cme_participation']==0) checked @endif name='cme_participation' id="cme_no" value='0' onclick="disablefields()">NO</th></tr>
+    <th><input type='radio' @if($sessionScore['cme_participation']==0) checked @endif name='cme_participation' id="cme_no" value='0' onclick="disablefields()">NO</th>
+	<td colspan="2"><input value="{{$sessionScore['cme_participation']}}" name="cme_participation" type="text" size="30"/></td></tr>
  <tr><td colspan="4" style="width:px;">Topic:</td><td colspan="4" style="width:px;">Presenter:</td></tr>
 <tr><td colspan="4"><textarea cols="40" name="cme_topic" id="cme_topic" disabled="true">{{$cmeTopic}}</textarea></td>
     <td colspan="4"><textarea cols="40" name="cme_presenter" id="cme_presenter" disabled="true">{{$cmePresenter}}</textarea></td></tr>

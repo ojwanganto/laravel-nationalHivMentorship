@@ -45,20 +45,22 @@ class ReportingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
-
+   public function display(){
+		
+		$persons = \DB::table('person')->get();
+		return View('pages.reporting.county')->with('persons',$persons);
+	}
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+   public function displaysessions()
     {
-        //
+       $sessions = \DB::table('mentorship_session')
+    	->join('session_tool', 'mentorship_session.session_tool_id', '=', 'session_tool.tool_id')->get();
+		return View('pages.reporting.reports')->with('sessions',$sessions);
     }
 
     /**
