@@ -16,9 +16,44 @@ $(document).ready(function(){
 	$(".multiple_choice").change(function(){
         calcscore()
 		});
+	$("#county").change(function() {
+		$.get('../facility/loadsubcat/' + $(this).val(), function(data) {
+			if (data != null) {
+				$("#subcounty").empty();
+				for (var i in data) {
+					var f = data[i];
+					
+						$('#subcounty').append($('<option/>', { 
+        				value: f.id,
+        				text : f.name 
+    					}));
+					}
+			}
+		});	
+		
+    });
+
+/*adding functionality for sub-county drop-down*/
+
+	$("#subcounty").change(function() {
+		$.get('../facility/loadfacility/' + $(this).val(), function(data) {
+			if (data != null) {
+				$("#m_facility").empty();
+				for (var i in data) {
+					var f = data[i];
+					
+						$('#m_facility').append($('<option/>', { 
+        				value: f.id,
+        				text : f.name 
+    					}));
+					}
+			}
+		});	
+		
+    });
 });
 	function validateForm () {
-         var drpDownNames = ['mentor','mentee'];
+         var drpDownNames = ['mentor','mentee','subcounty','m_facility'];
             var txtAndTxtAreaIds = ['m_date','self_reported_gap','previous_session_gap','other_gap','session_objectives','mentee_strength','mentee_improvement_areas','session_comments'];
             var sessionIndFieldNames = ['ind_1','ind_2','ind_3','ind_4','ind_29','ind_30','ind_31','ind_32','ind_33','ind_34',         'ind_35','ind_36','ind_37','ind_38','ind_39','ind_40','ind_41','ind_42','ind_43','ind_44',  'ind_45','ind_46','ind_47','ind_48','ind_49','ind_50','ind_51','ind_52','ind_53','ind_54','cme_participation','mdt_participation'];
             var submit = true;
@@ -175,34 +210,37 @@ function calcscore(){
 
 </div>
     <div class="clear"></div> 
-<table>
+ <table>
      <tr>
 <div id="q11" class="q required">
 <a class="item_anchor" name="ItemAnchor3"></a>
-<label class="question top_question" for="m_facility">County&nbsp;<b class="icon_required" >*</b></label>
-<input type="text" name="m_facility"  id="m_facility" size="20"  />
+<label class="question top_question" for="subcounty">County&nbsp;<b class="icon_required" style="color:#FF0000">*</b></label>
+<select name="county" id="county" class="drop_down">
+	<option selected>Select County</option>
+            
+            @foreach($counties as $county)
+			<option value="{{ $county->id }}"> {{$county->name}}</option>
+            @endforeach
+ </select>
 </div>
 <div id="q11" class="q required">
 <a class="item_anchor" name="ItemAnchor3"></a>
-<label class="question top_question" for="m_facility">Sub County&nbsp;<b class="icon_required" >*</b></label>
-<input type="text" name="mfl_code"  id="mfl_code" size="20"  />
+	
+<label class="question top_question" for="subcounty">Sub-County&nbsp;<b class="icon_required" style="color:#FF0000">*</b></label>
 
-</div>  
-<div id="q11" class="q required">
+<select id="subcounty" class="drop_down" name="subcounty"><option></option></select>
+</div>   
+<div id="q" class="q required">
 <a class="item_anchor" name="ItemAnchor3"></a>
-<label class="question top_question" for="m_facility">MFL Code&nbsp;<b class="icon_required" >*</b></label>
-<input type="text" name="mfl_code"  id="mfl_code" size="20"  />
+<label class="question top_question" for="m_facility">Facility&nbsp;<b class="icon_required" style="color:#FF0000">*</b></label>
+<select id="m_facility" class="drop_down" name="m_facility">
+    <option></option>
+</select>
 
-</div>  
-<div id="q11" class="q required">
-<a class="item_anchor" name="ItemAnchor3"></a>
-<label class="question top_question" for="m_facility">Facility&nbsp;<b class="icon_required" >*</b></label>
-<input type="text" name="mfl_code"  id="mfl_code" size="20"  />
-
-</div>  
+</div>   
      </tr>
-  
- </table>   
+     
+ </table>  
 <div class="clear"></div>
 
 <div id="q4" class="q required">
@@ -217,17 +255,17 @@ function calcscore(){
 </tr>
 <tr>
 <td>Self-reported by mentee</td>
-<td colspan="3"><input type="text" name="self_reported_gap" size="50"/></td>
+<td colspan="3"><input id="self_reported_gap" type="text" name="self_reported_gap" size="50"/></td>
 </tr>
 <tr>
 <td>Previous mentoring session</td>
-<td colspan="3"><input type="text" name="previous_session_gap" size="50"/></td>
+<td colspan="3"><input id="previous_session_gap" type="text" name="previous_session_gap" size="50"/></td>
 </tr>
 <tr>
 <td>Other:</td>
-    <td colspan="3"><input type="text" name="other_gap" size="50"/></td>
+    <td colspan="3"><input id="other_gap" type="text" name="other_gap" size="50"/></td>
 </tr>
-</table>    
+</table>      
 <div class="clear"></div>   
 
 <table>
@@ -235,10 +273,10 @@ function calcscore(){
     <th colspan="4" style="text-align:left">Session Objectives</th>
 </tr>
 <tr>
-<td colspan="4"><textarea name="session_objectives"  cols="70" name="session_objectives"></textarea></td>
+<td colspan="4"><textarea id="session_objectives" name="session_objectives" cols="70"></textarea></td>
 </tr>
 
-</table>    
+</table>        
 
 <a class="item_anchor" name="ItemAnchor4"></a>
 <span class="question top_question">Please choose the best answer for each question. The mentee...&nbsp;<b class="icon_required" style="color:#FF0000">*</b></span>
@@ -532,17 +570,17 @@ function calcscore(){
 </table>
 <table>
 <tr><th colspan="4" style="text-align:left">Summary of Mentee Strengths</th></tr>
-<tr><td colspan="4"><textarea cols="70" name="mentee_strength"></textarea></td></tr>
+<tr><td colspan="4"><textarea id="mentee_strength" cols="70" name="mentee_strength"></textarea></td></tr>
 </table>
  
 <table>
 <tr><th colspan="4" style="text-align:left">Summary of Mentee Areas for Improvement (with specific steps to address each priority area)</th></tr>
-<tr><td colspan="4"><textarea cols="70" name="mentee_improvement_areas"></textarea></td></tr>
+<tr><td colspan="4"><textarea id="mentee_improvement_areas" cols="70" name="mentee_improvement_areas"></textarea></td></tr>
 </table>
 
 <table>
 <tr><th colspan="4" style="text-align:left">Other Comments</th></tr>
-<tr><td colspan="4"><textarea cols="70" name="session_comments"></textarea></td></tr>
+<tr><td colspan="4"><textarea id="session_comments" cols="70" name="session_comments"></textarea></td></tr>
 </table>
  <table>
 <tr><th colspan="4" style="text-align:left">Participated in CME during this mentorship visit: Yes/No</th>
