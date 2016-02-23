@@ -139,7 +139,7 @@
 <td><input type="radio" @if($sessionScore['ind_1']==1) checked @endif name="ind_1" class="multiple_choice" id="RESULT_RadioButton-4-0-0" value="1" /></td>
 <td><input type="radio" @if($sessionScore['ind_1']==2) checked @endif name="ind_1" class="multiple_choice" id="RESULT_RadioButton-4-0-1" value="2" /></td>
 <td><input type="radio" @if($sessionScore['ind_1']==3) checked @endif name="ind_1" class="multiple_choice" id="RESULT_RadioButton-4-0-2" value="3" /></td>
-<td><input type="radio" @if($sessionScore['ind_1']==4) checked @endif name="ind_1" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="4" /></td>
+<td><input type="radio" @if($sessionScore['ind_1']==88) checked @endif name="ind_1" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="88" /></td>
 <td colspan="2"><input value="{{$sessionScore['comm_1']}}" name="comm_1" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_dark">
@@ -147,7 +147,7 @@
 <td><input type="radio" @if($sessionScore['ind_2']==1) checked @endif name="ind_2" class="multiple_choice" id="freedom-0" value="1" /></td>
 <td><input type="radio" @if($sessionScore['ind_2']==2) checked @endif name="ind_2" class="multiple_choice" id="freedom-1" value="2" /></td>
 <td><input type="radio" @if($sessionScore['ind_2']==3) checked @endif name="ind_2" class="multiple_choice" id="freedom-2" value="3" /></td>
-<td><input type="radio" @if($sessionScore['ind_2']==4) checked @endif name="ind_2" class="multiple_choice" id="freedom-3" value="4" /></td>
+<td><input type="radio" @if($sessionScore['ind_2']==88) checked @endif name="ind_2" class="multiple_choice" id="freedom-3" value="88" /></td>
 <td colspan="2"><input value="{{$sessionScore['comm_2']}}" name="comm_2" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
@@ -155,7 +155,7 @@
 <td><input type="radio" @if($sessionScore['ind_3']==1) checked @endif name="ind_3" class="multiple_choice" id="answer_questions-0" value="1" /></td>
 <td><input type="radio" @if($sessionScore['ind_3']==2) checked @endif name="ind_3" class="multiple_choice" id="answer_questions-1" value="2" /></td>
 <td><input type="radio" @if($sessionScore['ind_3']==3) checked @endif name="ind_3" class="multiple_choice" id="answer_questions-2" value="3" /></td>
-<td><input type="radio" @if($sessionScore['ind_3']==4) checked @endif name="ind_3" class="multiple_choice" id="answer_questions-3" value="4" /></td>
+<td><input type="radio" @if($sessionScore['ind_3']==88) checked @endif name="ind_3" class="multiple_choice" id="answer_questions-3" value="88" /></td>
 <td colspan="2"><input value="{{$sessionScore['comm_3']}}" name="comm_3" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_dark">
@@ -163,7 +163,7 @@
 <td><input type="radio" @if($sessionScore['ind_4']==1) checked @endif name="ind_4" class="multiple_choice" id="clear_communication-0" value="1" /></td>
 <td><input type="radio" @if($sessionScore['ind_4']==2) checked @endif name="ind_4" class="multiple_choice" id="clear_communication-1" value="2" /></td>
 <td><input type="radio" @if($sessionScore['ind_4']==3) checked @endif name="ind_4" class="multiple_choice" id="clear_communication-2" value="3" /></td>
-<td><input type="radio" @if($sessionScore['ind_4']==4) checked @endif name="ind_4" class="multiple_choice" id="clear_communication-3" value="4" /></td>
+<td><input type="radio" @if($sessionScore['ind_4']==88) checked @endif name="ind_4" class="multiple_choice" id="clear_communication-3" value="88" /></td>
 <td colspan="2"><input value="{{$sessionScore['comm_4']}}" name="comm_4" type="text" size="30"/></td>
 </tr>
 <tr>
@@ -174,7 +174,7 @@
 <td><input type="radio" @if($sessionScore['ind_67']==1) checked @endif name="ind_67" class="multiple_choice" id="RESULT_RadioButton-4-0-0" value="1" /></td>
 <td><input type="radio" @if($sessionScore['ind_67']==2) checked @endif name="ind_67" class="multiple_choice" id="RESULT_RadioButton-4-0-1" value="2" /></td>
 <td><input type="radio" @if($sessionScore['ind_67']==3) checked @endif name="ind_67" class="multiple_choice" id="RESULT_RadioButton-4-0-2" value="3" /></td>
-<td><input type="radio" @if($sessionScore['ind_67']==4) checked @endif name="ind_67" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="4" /></td>
+<td><input type="radio" @if($sessionScore['ind_67']==88) checked @endif name="ind_67" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="88" /></td>
 <td colspan="2"><input value="{{$sessionScore['comm_67']}}" name="comm_67" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_dark">
@@ -182,7 +182,7 @@
 <td><input type="radio" @if($sessionScore['ind_68']==1) checked @endif name="ind_68" class="multiple_choice" id="freedom-0" value="1" /></td>
 <td><input type="radio" @if($sessionScore['ind_68']==2) checked @endif name="ind_68" class="multiple_choice" id="freedom-1" value="2" /></td>
 <td><input type="radio" @if($sessionScore['ind_68']==3) checked @endif name="ind_68" class="multiple_choice" id="freedom-2" value="3" /></td>
-<td><input type="radio" @if($sessionScore['ind_68']==4) checked @endif name="ind_68" class="multiple_choice" id="freedom-3" value="4" /></td>
+<td><input type="radio" @if($sessionScore['ind_68']==88) checked @endif name="ind_68" class="multiple_choice" id="freedom-3" value="88" /></td>
 <td colspan="2"><input value="{{$sessionScore['comm_68']}}" name="comm_68" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
@@ -190,7 +190,7 @@
 <td><input type="radio" @if($sessionScore['ind_69']==1) checked @endif name="ind_69" class="multiple_choice" id="answer_questions-0" value="1" /></td>
 <td><input type="radio" @if($sessionScore['ind_69']==2) checked @endif name="ind_69" class="multiple_choice" id="answer_questions-1" value="2" /></td>
 <td><input type="radio" @if($sessionScore['ind_69']==3) checked @endif name="ind_69" class="multiple_choice" id="answer_questions-2" value="3" /></td>
-<td><input type="radio" @if($sessionScore['ind_69']==4) checked @endif name="ind_69" class="multiple_choice" id="answer_questions-3" value="4" /></td>
+<td><input type="radio" @if($sessionScore['ind_69']==88) checked @endif name="ind_69" class="multiple_choice" id="answer_questions-3" value="88" /></td>
 <td colspan="2"><input value="{{$sessionScore['comm_69']}}" name="comm_69" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_dark">
@@ -198,7 +198,7 @@
 <td><input type="radio" @if($sessionScore['ind_70']==1) checked @endif name="ind_70" class="multiple_choice" id="clear_communication-0" value="1" /></td>
 <td><input type="radio" @if($sessionScore['ind_70']==2) checked @endif name="ind_70" class="multiple_choice" id="clear_communication-1" value="2" /></td>
 <td><input type="radio" @if($sessionScore['ind_70']==3) checked @endif name="ind_70" class="multiple_choice" id="clear_communication-2" value="3" /></td>
-<td><input type="radio" @if($sessionScore['ind_70']==4) checked @endif name="ind_70" class="multiple_choice" id="clear_communication-3" value="4" /></td>
+<td><input type="radio" @if($sessionScore['ind_70']==88) checked @endif name="ind_70" class="multiple_choice" id="clear_communication-3" value="88" /></td>
 <td colspan="2"><input value="{{$sessionScore['comm_70']}}" name="comm_70" type="text" size="30"/></td>
 </tr>
 
@@ -211,7 +211,7 @@
 <td><input type="radio" @if($sessionScore['ind_71']==1) checked @endif name="ind_71" class="multiple_choice" id="RESULT_RadioButton-4-0-0" value="1" /></td>
 <td><input type="radio" @if($sessionScore['ind_71']==2) checked @endif name="ind_71" class="multiple_choice" id="RESULT_RadioButton-4-0-1" value="2" /></td>
 <td><input type="radio" @if($sessionScore['ind_71']==3) checked @endif name="ind_71" class="multiple_choice" id="RESULT_RadioButton-4-0-2" value="3" /></td>
-<td><input type="radio" @if($sessionScore['ind_71']==4) checked @endif name="ind_71" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="4" /></td>
+<td><input type="radio" @if($sessionScore['ind_71']==88) checked @endif name="ind_71" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="88" /></td>
 <td colspan="2"><input value="{{$sessionScore['comm_71']}}" name="comm_71" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_dark">
@@ -219,15 +219,15 @@
 <td><input type="radio" @if($sessionScore['ind_72']==1) checked @endif name="ind_72" class="multiple_choice" id="freedom-0" value="1" /></td>
 <td><input type="radio" @if($sessionScore['ind_72']==2) checked @endif name="ind_72" class="multiple_choice" id="freedom-1" value="2" /></td>
 <td><input type="radio" @if($sessionScore['ind_72']==3) checked @endif name="ind_72" class="multiple_choice" id="freedom-2" value="3" /></td>
-<td><input type="radio" @if($sessionScore['ind_72']==4) checked @endif name="ind_72" class="multiple_choice" id="freedom-3" value="4" /></td>
-<td colspan="2"><input value="{{$sessionScore['comm_72']}}" name="comm_72" type="text" size="30"/></td>
+<td><input type="radio" @if($sessionScore['ind_72']==88) checked @endif name="ind_72" class="multiple_choice" id="freedom-3" value="4" /></td>
+<td colspan="88"><input value="{{$sessionScore['comm_72']}}" name="comm_72" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
 <td class="question" style="width:px;">c.	Management of ADRs</td>
 <td><input type="radio" @if($sessionScore['ind_73']==1) checked @endif name="ind_73" class="multiple_choice" id="answer_questions-0" value="1" /></td>
 <td><input type="radio" @if($sessionScore['ind_73']==2) checked @endif name="ind_73" class="multiple_choice" id="answer_questions-1" value="2" /></td>
 <td><input type="radio" @if($sessionScore['ind_73']==3) checked @endif name="ind_73" class="multiple_choice" id="answer_questions-2" value="3" /></td>
-<td><input type="radio" @if($sessionScore['ind_73']==4) checked @endif name="ind_73" class="multiple_choice" id="answer_questions-3" value="4" /></td>
+<td><input type="radio" @if($sessionScore['ind_73']==88) checked @endif name="ind_73" class="multiple_choice" id="answer_questions-3" value="88" /></td>
 <td colspan="2"><input value="{{$sessionScore['comm_73']}}" name="comm_73" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_dark">
@@ -235,7 +235,7 @@
 <td><input type="radio" @if($sessionScore['ind_74']==1) checked @endif name="ind_74" class="multiple_choice" id="clear_communication-0" value="1" /></td>
 <td><input type="radio" @if($sessionScore['ind_74']==2) checked @endif name="ind_74" class="multiple_choice" id="clear_communication-1" value="2" /></td>
 <td><input type="radio" @if($sessionScore['ind_74']==3) checked @endif name="ind_74" class="multiple_choice" id="clear_communication-2" value="3" /></td>
-<td><input type="radio" @if($sessionScore['ind_74']==4) checked @endif name="ind_74" class="multiple_choice" id="clear_communication-3" value="4" /></td>
+<td><input type="radio" @if($sessionScore['ind_74']==88) checked @endif name="ind_74" class="multiple_choice" id="clear_communication-3" value="88" /></td>
 <td colspan="2"><input value="{{$sessionScore['comm_74']}}" name="comm_74" type="text" size="30"/></td>
 </tr>
 
@@ -248,7 +248,7 @@
 <td><input type="radio" @if($sessionScore['ind_75']==1) checked @endif name="ind_75" class="multiple_choice" id="RESULT_RadioButton-4-0-0" value="1" /></td>
 <td><input type="radio" @if($sessionScore['ind_75']==2) checked @endif name="ind_75" class="multiple_choice" id="RESULT_RadioButton-4-0-1" value="2" /></td>
 <td><input type="radio" @if($sessionScore['ind_75']==3) checked @endif name="ind_75" class="multiple_choice" id="RESULT_RadioButton-4-0-2" value="3" /></td>
-<td><input type="radio" @if($sessionScore['ind_75']==4) checked @endif name="ind_75" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="4" /></td>
+<td><input type="radio" @if($sessionScore['ind_75']==88) checked @endif name="ind_75" class="multiple_choice" id="RESULT_RadioButton-4-0-3" value="88" /></td>
 <td colspan="2"><input value="{{$sessionScore['comm_75']}}" name="comm_75" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_dark">
@@ -256,7 +256,7 @@
 <td><input type="radio" @if($sessionScore['ind_76']==1) checked @endif name="ind_76" class="multiple_choice" id="freedom-0" value="1" /></td>
 <td><input type="radio" @if($sessionScore['ind_76']==2) checked @endif name="ind_76" class="multiple_choice" id="freedom-1" value="2" /></td>
 <td><input type="radio" @if($sessionScore['ind_76']==3) checked @endif name="ind_76" class="multiple_choice" id="freedom-2" value="3" /></td>
-<td><input type="radio" @if($sessionScore['ind_76']==4) checked @endif name="ind_76" class="multiple_choice" id="freedom-3" value="4" /></td>
+<td><input type="radio" @if($sessionScore['ind_76']==88) checked @endif name="ind_76" class="multiple_choice" id="freedom-3" value="88" /></td>
 <td colspan="2"><input value="{{$sessionScore['comm_76']}}" name="comm_76" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_light">
@@ -264,7 +264,7 @@
 <td><input type="radio" @if($sessionScore['ind_77']==1) checked @endif name="ind_77" class="multiple_choice" id="answer_questions-0" value="1" /></td>
 <td><input type="radio" @if($sessionScore['ind_77']==2) checked @endif name="ind_77" class="multiple_choice" id="answer_questions-1" value="2" /></td>
 <td><input type="radio" @if($sessionScore['ind_77']==3) checked @endif name="ind_77" class="multiple_choice" id="answer_questions-2" value="3" /></td>
-<td><input type="radio" @if($sessionScore['ind_77']==4) checked @endif name="ind_77" class="multiple_choice" id="answer_questions-3" value="4" /></td>
+<td><input type="radio" @if($sessionScore['ind_77']==88) checked @endif name="ind_77" class="multiple_choice" id="answer_questions-3" value="88" /></td>
 <td colspan="2"><input value="{{$sessionScore['comm_77']}}" name="comm_77" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_dark">
@@ -272,7 +272,7 @@
 <td><input type="radio" @if($sessionScore['ind_78']==1) checked @endif name="ind_78" class="multiple_choice" id="clear_communication-0" value="1" /></td>
 <td><input type="radio" @if($sessionScore['ind_78']==2) checked @endif name="ind_78" class="multiple_choice" id="clear_communication-1" value="2" /></td>
 <td><input type="radio" @if($sessionScore['ind_78']==3) checked @endif name="ind_78" class="multiple_choice" id="clear_communication-2" value="3" /></td>
-<td><input type="radio" @if($sessionScore['ind_78']==4) checked @endif name="ind_78" class="multiple_choice" id="clear_communication-3" value="4" /></td>
+<td><input type="radio" @if($sessionScore['ind_78']==88) checked @endif name="ind_78" class="multiple_choice" id="clear_communication-3" value="88" /></td>
 <td colspan="2"><input value="{{$sessionScore['comm_78']}}" name="comm_78" type="text" size="30"/></td>
 </tr>
 <tr class="matrix_row_dark">
@@ -280,9 +280,10 @@
 <td><input type="radio" @if($sessionScore['ind_79']==1) checked @endif name="ind_79" class="multiple_choice" id="clear_communication-0" value="1" /></td>
 <td><input type="radio" @if($sessionScore['ind_79']==2) checked @endif name="ind_79" class="multiple_choice" id="clear_communication-1" value="2" /></td>
 <td><input type="radio" @if($sessionScore['ind_79']==3) checked @endif name="ind_79" class="multiple_choice" id="clear_communication-2" value="3" /></td>
-<td><input type="radio" @if($sessionScore['ind_79']==4) checked @endif name="ind_79" class="multiple_choice" id="clear_communication-3" value="4" /></td>
+<td><input type="radio" @if($sessionScore['ind_79']==88) checked @endif name="ind_79" class="multiple_choice" id="clear_communication-3" value="88" /></td>
 <td colspan="2"><input value="{{$sessionScore['comm_79']}}" name="comm_79" type="text" size="30"/></td>
 </tr>
+	<tr><td ><strong>Total Score</strong></td><td colspan="4"> <input name="totalScore" readonly="true" style="text-align: right; width: 75px;" type="text" value="{{$totalScore}}"></td></tr>
 </table>
 
 <table>
@@ -299,10 +300,10 @@
 <tr><th colspan="4" style="text-align:left">Other Comments</th></tr>
 <tr><td colspan="4"><textarea cols="70" name="session_comments">{{$comments}}</textarea></td></tr>
 </table>
-<table>
+ <table>
 <tr><th colspan="4" style="text-align:left">Participated in CME during this mentorship visit: Yes/No</th>
-    <th><input type='radio' @if($sessionScore['cme_participation']==1) checked @endif name='cme_participation' id="cme_yes" value='1' onclick="disablefields()">YES</th>
-    <th><input type='radio' @if($sessionScore['cme_participation']==0) checked @endif name='cme_participation' id="cme_no" value='0' onclick="disablefields()">NO</th></tr>
+    <th><input type='radio' @if($cmeTopic != '') checked @endif name='cme_participation' id="cme_yes" value='1' >YES</th>
+    <th><input type='radio' @if($cmeTopic == '') checked @endif name='cme_participation' id="cme_no" value='0' >NO</th></tr>
  <tr><td colspan="4" style="width:px;">Topic:</td><td colspan="4" style="width:px;">Presenter:</td></tr>
 <tr><td colspan="4"><textarea cols="40" name="cme_topic" id="cme_topic" disabled="true">{{$cmeTopic}}</textarea></td>
     <td colspan="4"><textarea cols="40" name="cme_presenter" id="cme_presenter" disabled="true">{{$cmePresenter}}</textarea></td></tr>
@@ -310,7 +311,7 @@
 </table>
 
 <table>
-<tr><th colspan="4" style="text-align:left">Participated in MDT meeting during this mentorship visit: Yes/No</th><th><input type='radio' @if($sessionScore['mdt_participation']==yes) checked @endif name='mdt_participation' id="mdt_yes" value='yes'> YES</th><th><input type='radio'  @if($sessionScore['mdt_participation']==no) checked @endif name='mdt_participation' id="mdt_no" value='no'>NO</th></tr>
+<tr><th colspan="4" style="text-align:left">Participated in MDT meeting during this mentorship visit: Yes/No</th><th><input type='radio' name='mdt_participation' @if($mdtParticipation == 1) checked @endif id="mdt_yes" value='1'> YES</th><th><input type='radio' name='mdt_participation' @if($mdtParticipation == 0) checked @endif id="mdt_no" value='0'>NO</th></tr>
     
 </table> 
 </div>
