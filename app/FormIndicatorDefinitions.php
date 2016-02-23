@@ -23,7 +23,7 @@ class FormIndicatorDefinitions
     
     public static function laboratoryIndicators () {
         $laboratoryindicators = array(
-            'ind_1','ind_2','ind_3','ind_4','ind_29','ind_30','ind_31','ind_32','ind_33','ind_34','ind_35','ind_36','ind_37',         'ind_38','ind_39','ind_40','ind_41','ind_42','ind_43','ind_44','ind_45','ind_46','ind_47','ind_48','ind_49','ind_59','ind_51','ind_52','ind_53','ind_54'      
+            'ind_1','ind_2','ind_3','ind_4','ind_29','ind_30','ind_31','ind_32','ind_33','ind_34','ind_35','ind_36','ind_37',         'ind_38','ind_39','ind_40','ind_41','ind_42','ind_43','ind_44','ind_45','ind_46','ind_47','ind_48','ind_49','ind_50','ind_51','ind_52','ind_53','ind_54'      
         );
         return $laboratoryindicators;
     }
