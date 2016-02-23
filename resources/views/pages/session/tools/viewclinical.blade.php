@@ -307,7 +307,7 @@
 <td><input type="radio" @if($sessionScore['ind_21']==4) checked @endif name="ind_21" class="multiple_choice" id="answer_questions-2" value="4" /></td>
 <td colspan="2"><input value="{{$sessionScore['comm_21']}}" name="comm_21" type="text" size="30"/></td>
 </tr>
-
+<tr><td ><strong>Total Score</strong></td><td colspan="4"> <input name="totalScore" readonly="true" style="text-align: right; width: 75px;" type="text" value="{{$totalScore}}"></td></tr>
 </table>
 <table>
 <tr><th colspan="4" style="text-align:left">Summary of Mentee Strengths</th></tr>
@@ -323,11 +323,10 @@
 <tr><th colspan="4" style="text-align:left">Other Comments</th></tr>
 <tr><td colspan="4"><textarea cols="70" name="session_comments">{{$comments}}</textarea></td></tr>
 </table>
-<table>
+   <table>
 <tr><th colspan="4" style="text-align:left">Participated in CME during this mentorship visit: Yes/No</th>
-    <th><input type='radio' @if($sessionScore['cme_participation']==1) checked @endif name='cme_participation' id="cme_yes" value='1' onclick="disablefields()">YES</th>
-    <th><input type='radio' @if($sessionScore['cme_participation']==0) checked @endif name='cme_participation' id="cme_no" value='0' onclick="disablefields()">NO</th>
-	<td colspan="2"><input value="{{$sessionScore['cme_participation']}}" name="cme_participation" type="text" size="30"/></td></tr>
+    <th><input type='radio' @if($cmeTopic != '') checked @endif name='cme_participation' id="cme_yes" value='1' >YES</th>
+    <th><input type='radio' @if($cmeTopic == '') checked @endif name='cme_participation' id="cme_no" value='0' >NO</th></tr>
  <tr><td colspan="4" style="width:px;">Topic:</td><td colspan="4" style="width:px;">Presenter:</td></tr>
 <tr><td colspan="4"><textarea cols="40" name="cme_topic" id="cme_topic" disabled="true">{{$cmeTopic}}</textarea></td>
     <td colspan="4"><textarea cols="40" name="cme_presenter" id="cme_presenter" disabled="true">{{$cmePresenter}}</textarea></td></tr>
@@ -335,7 +334,7 @@
 </table>
 
 <table>
-<tr><th colspan="4" style="text-align:left">Participated in MDT meeting during this mentorship visit: Yes/No</th><th><input type='radio' @if($sessionScore['mdt_participation']==yes) checked @endif name='mdt_participation' id="mdt_yes" value='yes'> YES</th><th><input type='radio'  @if($sessionScore['mdt_participation']==no) checked @endif name='mdt_participation' id="mdt_no" value='no'>NO</th></tr>
+<tr><th colspan="4" style="text-align:left">Participated in MDT meeting during this mentorship visit: Yes/No</th><th><input type='radio' name='mdt_participation' @if($mdtParticipation == 1) checked @endif id="mdt_yes" value='1'> YES</th><th><input type='radio' name='mdt_participation' @if($mdtParticipation == 0) checked @endif id="mdt_no" value='0'>NO</th></tr>
     
 </table> 
 </div>
@@ -348,7 +347,7 @@
 <!-- END_ITEMS -->
 <input type="hidden" name="EParam" value="FzpUCZwnDno=" />
 <div class="outside_container">
-<div class="buttons_reverse"><input type="submit" name="Submit" value="Submit" class="submit_button" id="FSsubmit" /></div></div>
+<!--<div class="buttons_reverse"><input type="submit" name="Submit" value="Submit" class="submit_button" id="FSsubmit" /></div></div>-->
 </form>
 
 @stop

@@ -66,6 +66,7 @@ class MentorshipSessionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+  
     public function store(Request $request)
     {
         $mSession = new MentorshipSession();
@@ -80,6 +81,10 @@ class MentorshipSessionController extends Controller
         $mSession -> mentee_strength = $request->mentee_strength;
         $mSession -> mentee_improvement_areas = $request->mentee_improvement_areas;
         $mSession -> session_comments = $request->session_comments;
+        $mSession -> cme_topic = $request->cme_topic;
+        $mSession -> cme_presenter = $request->cme_presenter;
+        $mSession -> mdt_participation = $request->mdt_participation;
+        $mSession -> session_score = $request->totalScore;
         $mSession -> save();
         $sessionId = $mSession->session_id;
 
@@ -141,6 +146,10 @@ class MentorshipSessionController extends Controller
         $menteeStrength = $mentorshipSession->mentee_strength;
         $improvementAreas = $mentorshipSession->mentee_improvement_areas;
         $comments = $mentorshipSession->session_comments;
+        $cmeTopic = $mentorshipSession->cme_topic;
+        $cmePresenter = $mentorshipSession->cme_presenter;
+        $mdtParticipation = $mentorshipSession->mdt_participation;
+        $totalScore = $mentorshipSession->session_score;
         
         //create array to contain scores
         $sessionScores = $mentorshipSession->sessionScore;
@@ -174,7 +183,7 @@ class MentorshipSessionController extends Controller
         }
 
         return view($viewPage, 
-                    compact('sessionDate', 'sessionTool', 'mentor', 'mentee', 'facility', 'sessionScore','selfReportedGap', 'previousSessGap', 'otherGap', 'sessionObjectives', 'menteeStrength', 'improvementAreas', 'comments'));
+                    compact('sessionDate', 'sessionTool', 'mentor', 'mentee', 'facility', 'sessionScore','selfReportedGap', 'previousSessGap', 'otherGap', 'sessionObjectives', 'menteeStrength', 'improvementAreas', 'comments','cmeTopic','cmePresenter','mdtParticipation','totalScore'));
      
     }
 

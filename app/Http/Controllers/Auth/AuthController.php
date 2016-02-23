@@ -59,7 +59,7 @@ class AuthController extends Controller {
         $this->user->email = $request->email;
         $this->user->password = bcrypt($request->password);
         $this->user->save();
-        $this->auth->login($this->user); 
+        //$this->auth->login($this->user); 
         return redirect('/dash-board'); 
     }
  

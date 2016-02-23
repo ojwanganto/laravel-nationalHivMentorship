@@ -37,11 +37,11 @@
 	$("#subcounty").change(function() {
 		$.get('../facility/loadfacility/' + $(this).val(), function(data) {
 			if (data != null) {
-				$("#facility").empty();
+				$("#m_facility").empty();
 				for (var i in data) {
 					var f = data[i];
 					
-						$('#facility').append($('<option/>', { 
+						$('#m_facility').append($('<option/>', { 
         				value: f.id,
         				text : f.name 
     					}));
@@ -52,7 +52,7 @@
     });
     }); 
     function validateForm () {
-         var drpDownNames = ['mentor','mentee'];
+         var drpDownNames = ['mentor','mentee','subcounty','m_facility'];
             var txtAndTxtAreaIds = ['m_date','self_reported_gap','previous_session_gap','other_gap','session_objectives','mentee_strength','mentee_improvement_areas','session_comments'];
             var sessionIndFieldNames = ['ind_1','ind_2','ind_3','ind_4','ind_5','ind_6','ind_7','ind_8','ind_9','ind_10','ind_11','ind_12','ind_13','ind_14',         'ind_15','ind_16','ind_17','ind_18','ind_19','ind_20','ind_21','cme_participation','mdt_participation'];
             var submit = true;
@@ -214,9 +214,8 @@ function calcscore(){
      <tr>
 <div id="q11" class="q required">
 <a class="item_anchor" name="ItemAnchor3"></a>
-
-<label class="question top_question" for="m_facility">County&nbsp;<b class="icon_required" >*</b></label>
-<select name="county" id="county" class="form-control input-sm">
+<label class="question top_question" for="subcounty">County&nbsp;<b class="icon_required" style="color:#FF0000">*</b></label>
+<select name="county" id="county" class="drop_down">
 	<option selected>Select County</option>
             
             @foreach($counties as $county)
@@ -227,15 +226,15 @@ function calcscore(){
 <div id="q11" class="q required">
 <a class="item_anchor" name="ItemAnchor3"></a>
 	
-<label class="question top_question" for="m_facility">Sub County&nbsp;<b class="icon_required" >*</b></label>
+<label class="question top_question" for="subcounty">Sub-County&nbsp;<b class="icon_required" style="color:#FF0000">*</b></label>
 
-<select id="subcounty" class="form-control input-sm" name="subcounty_id">
-</select>
+<select id="subcounty" class="drop_down" name="subcounty"><option></option></select>
 </div>   
-<div id="q11" class="q required">
+<div id="q" class="q required">
 <a class="item_anchor" name="ItemAnchor3"></a>
-<label class="question top_question" for="m_facility">Facility&nbsp;<b class="icon_required" >*</b></label>
-<select id="facility" class="form-control input-sm" name="facility_id">
+<label class="question top_question" for="m_facility">Facility&nbsp;<b class="icon_required" style="color:#FF0000">*</b></label>
+<select id="m_facility" class="drop_down" name="m_facility">
+    <option></option>
 </select>
 
 </div>   
@@ -497,7 +496,7 @@ function calcscore(){
 </table>
 
 <table>
-<tr><th colspan="4" style="text-align:left">Participated in MDT meeting during this mentorship visit: Yes/No</th><th><input type='radio' name='mdt_participation' id="mdt_yes" value='yes'> YES</th><th><input type='radio' name='mdt_participation' id="mdt_no" value='no'>NO</th></tr>
+<tr><th colspan="4" style="text-align:left">Participated in MDT meeting during this mentorship visit: Yes/No</th><th><input type='radio' name='mdt_participation' id="mdt_yes" value='1'> YES</th><th><input type='radio' name='mdt_participation' id="mdt_no" value='0'>NO</th></tr>
     
 </table> 
 </div>
