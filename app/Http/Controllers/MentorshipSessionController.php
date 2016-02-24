@@ -73,6 +73,7 @@ class MentorshipSessionController extends Controller
         $mSession -> mentor_id = $request->mentor;
         $mSession -> mentee_id = $request->mentee;
         $mSession -> session_tool_id = $request->tool_id;
+        $mSession -> session_date = date("Y-m-d", strtotime($request->m_date));
         $mSession -> facility = $request->m_facility;
         $mSession -> self_reported_gap = $request->self_reported_gap;
         $mSession -> previous_session_gap = $request->previous_session_gap;
@@ -133,7 +134,7 @@ class MentorshipSessionController extends Controller
     public function show($id)
     {
         $mentorshipSession = MentorshipSession::find($id);
-        $sessionDate = $mentorshipSession->created_at;
+        $sessionDate = $mentorshipSession->session_date;
         $sessionTool = $mentorshipSession->sessionTool->name;
         $sessionToolId = $mentorshipSession->sessionTool->tool_id;
         $mentor = $mentorshipSession->mentor->person->first_name ." ".$mentorshipSession->mentor->person->last_name;

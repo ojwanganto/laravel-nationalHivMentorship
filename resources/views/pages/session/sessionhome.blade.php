@@ -65,7 +65,7 @@
         <tbody>
         @foreach ($mSessions as $ms)
             <tr>
-                <td>{{$ms->created_at}}</td>
+                <td>{{date_format($ms->session_date, 'Y-m-d')}}</td>
                 <td>{{$ms->sessionTool->name}}</td>
                 <td>{{$ms->mentor->person->first_name}} {{$ms->mentor->person->last_name}}</td>
                 <td>{{$ms->mentee->person->first_name}} {{$ms->mentee->person->last_name}}</td>

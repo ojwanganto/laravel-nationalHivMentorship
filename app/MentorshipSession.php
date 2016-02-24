@@ -8,6 +8,7 @@ class MentorshipSession extends Model
 {
     protected $table = 'mentorship_session';
     protected $primaryKey = 'session_id';
+    protected $dates = ['session_date'];
     
      /**
      * Get the SessionTool associated with MentorshipSession

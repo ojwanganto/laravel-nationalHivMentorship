@@ -71,7 +71,7 @@
             <td><b>Facility</b></td>
         </tr>
         <tr>
-            <td>{{$sessionDate}}</td>
+            <td>{{date_format($sessionDate, 'Y-m-d')}}</td>
             <td>{{$sessionTool}}</td>
             <td>{{$mentor}}</td>
             <td>{{$mentee}}</td>

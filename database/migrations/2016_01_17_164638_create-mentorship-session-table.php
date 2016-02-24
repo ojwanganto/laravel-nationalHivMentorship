@@ -18,6 +18,7 @@ class CreateMentorshipSessionTable extends Migration
             $table->integer('mentee_id')->unsigned()->default(0);
             $table->integer('session_tool_id')->unsigned()->default(0);
             $table->integer('facility')->unsigned()->default(0);
+            $table->date('session_date');
             $table->foreign('mentor_id')->references('mentor_id')->on('mentor');
             $table->foreign('mentee_id')->references('mentee_id')->on('mentee');
             $table->foreign('session_tool_id')->references('tool_id')->on('session_tool'); 
