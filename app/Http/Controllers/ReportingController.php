@@ -15,7 +15,54 @@ class ReportingController extends Controller
      */
     public function index()
     {
-        return view('pages.reporting.reportinghome');
+        $countys = \DB::table('county')->get();
+        return view('pages.reporting.reportinghome')->with('countys',$countys);
+    }
+    
+    public function county()
+    {
+	
+		$countys = \DB::table('county')->get();
+		return View('pages.reporting.facility')->with('countys',$countys);
+	}
+   
+  /* public function subcounty($id)
+	{
+		$subcounty = \DB::table('subcounty')->where('county_id', $id)->get();
+		return View('pages.reporting.facility')->with('subcounty',$subcounty);
+    }
+*/
+	
+    public function subcounty($id)
+	{
+		$subcounty = \DB::table('subcounty')->where('county_id', $id)->get();
+		
+		return $subcounty;
+		 
+    }
+    
+    public function getMentorshipSessions ($fromdate, $todate, $county, $subcounty, $facility ) {
+        $val = [];
+        $val[] = $fromdate;
+        $val[] = $todate;
+        $val[] = $county;
+        $val[] = $subcounty;
+        $val[] = $facility;
+        return $val;
+    }
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+	
+     public function facility($id)
+	{
+		$facility = \DB::table('facility')->where('subcounty_id', $id)->get();
+		
+		return $facility;
+		 
     }
 
     /**

@@ -10,6 +10,7 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::get('/reporting/sessions/{fromdate}/{todate}/{county}/{subcounty}/{facility}', 'ReportingController@getMentorshipSessions');
 Route::get('/reports', 'ReportingController@displaysessions');
 Route::get('/county', 'ReportingController@display');
 Route::get('/facility/loadfacility/{id}','FacilityController@facility');
@@ -27,9 +28,6 @@ Route::get('/session/{id}', 'MentorshipSessionController@show');
 Route::get('/mentorship-session', 'MentorshipSessionController@index');
 Route::post('/session-create', 'MentorshipSessionController@store');
 Route::get('/indicator-list', 'MentorshipSessionIndicatorController@index');
-/*Route::get('/indicator-form', 'MentorshipSessionIndicatorController@create');
-Route::post('/indicator-create', 'MentorshipSessionIndicatorController@store');*/
-Route::get('/person-home', 'PersonController@index');
 Route::get('/person-create', 'PersonController@create');
 Route::post('/person-add', 'PersonController@store');
 Route::get('/session-tool/{tool}','MentorshipSessionController@create');

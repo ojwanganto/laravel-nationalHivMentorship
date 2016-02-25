@@ -15,6 +15,12 @@ class UserController extends Controller
      */
     public function index()
     {
+       /* if(\Auth::check() && \Auth::user()->name != '') {
+            echo 'user logged in';
+        } else {
+            echo 'No user logged in';
+        }*/
+    
         return view('pages.person.userprofile');
     }
 
