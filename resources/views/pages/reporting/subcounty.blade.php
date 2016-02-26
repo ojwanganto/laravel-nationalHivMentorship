@@ -110,7 +110,7 @@ function getReports () {
         subcounty: subcounty,
         facility: facility
     };
-    var rtype =0;
+    var rtype =2;
     var stringParam = from_date + '/' + to_date + '/' + county + '/' + subcounty + '/' + facility + '/' + rtype;
     
     		//$.get('facility/loadfacility/' + $(this).val(), function(data) {
@@ -118,12 +118,11 @@ function getReports () {
 			if (data != null) {
 				$("#facility").empty();
                 $('#facility').append($('<option/>', {text : 'Select Facility' }));
-                var columns = ['Session Date', 'Facility MFL', 'Facility Name', 'Session', 'Mentor', 'Mentee'];
+                var columns = ['Facility Name', 'Facility MFL', 'Clinical', 'Counseling', 'Pharmacy', 'Laboratory', 'Nutrition', 'Total Sessions'];
 				writeTable(data, columns);
 			}
 		});	
-    
-    
+ 
     
     //$('#result').html('Params: ' + stringParam);
 }
@@ -140,12 +139,14 @@ function writeTable(data, columns) {
     for (var i in data) {
         var mSession = data[i];
         var tr = $('<tr/>').appendTo(tbody); 
-        tr.append('<td>' + mSession.sessionDate + '</td>');
-        tr.append('<td>' + mSession.facilityMFL + '</td>');
         tr.append('<td>' + mSession.facilityName + '</td>');
-        tr.append('<td>' + mSession.sessionName + '</td>');
-        tr.append('<td>' + mSession.mentor + '</td>');
-        tr.append('<td>' + mSession.mentee + '</td>');
+        tr.append('<td>' + mSession.facilityMFL + '</td>');
+        tr.append('<td>' + mSession.Clinical + '</td>');
+        tr.append('<td>' + mSession.Counseling + '</td>');
+        tr.append('<td>' + mSession.Pharmacy + '</td>');
+        tr.append('<td>' + mSession.Laboratory + '</td>');
+        tr.append('<td>' + mSession.Nutrition + '</td>');
+        tr.append('<td>' + mSession.sessions + '</td>');
         
 			             
     }

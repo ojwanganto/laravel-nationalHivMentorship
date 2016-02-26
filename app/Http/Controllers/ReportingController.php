@@ -19,6 +19,24 @@ class ReportingController extends Controller
         return view('pages.reporting.reportinghome')->with('countys',$countys);
     }
     
+    public function facilitydashboard()
+    {
+        $countys = \DB::table('county')->get();
+        return view('pages.reporting.facility')->with('countys',$countys);
+    }
+    
+    public function subcountydashboard()
+    {
+        $countys = \DB::table('county')->get();
+        return view('pages.reporting.subcounty')->with('countys',$countys);
+    }
+    
+    public function countydashboard()
+    {
+        $countys = \DB::table('county')->get();
+        return view('pages.reporting.county')->with('countys',$countys);
+    }
+    
     public function county()
     {
 	
@@ -41,9 +59,11 @@ class ReportingController extends Controller
 		 
     }
     
-    public function getMentorshipSessions ($fromdate, $todate, $county, $subcounty, $facility ) {
+    public function getMentorshipSessions ($fromdate, $todate, $county, $subcounty, $facility, $rtype ) {
         
-        $sessions = \DB::table('mentorship_session as ms')
+        $returnedData = '';
+        if ($rtype == 0) {
+            $returnedData = \DB::table('mentorship_session as ms')
             ->join('mentor as mn', 'ms.mentor_id', '=', 'mn.mentor_id')
             ->join('mentee as me', 'ms.mentee_id', '=', 'me.mentee_id')
             ->join('person as p', 'mn.person_id', '=', 'p.person_id')
@@ -52,8 +72,71 @@ class ReportingController extends Controller
             ->join('facility as f', 'ms.facility', '=', 'f.id')
             ->select('ms.session_id', \DB::raw("concat_ws(' ', p.first_name, p.middle_name, p.last_name) as mentor"), \DB::raw("concat_ws(' ', pp.first_name, pp.middle_name, pp.last_name) as mentee"), 'ms.session_date as sessionDate', 'st.name as sessionName', 'f.name as facilityName', 'f.mfl_code as facilityMFL')
             ->get();
+        } 
         
-       return $sessions;
+        if ($rtype == 1) {
+            $query = "select x.facilityName, x.facilityMFL,
+            sum(if(x.sessionName='Clinical', 1,0)) as Clinical, 
+            sum(if(x.sessionName='Counseling', 1,0)) as Counseling,
+            sum(if(x.sessionName='Pharmacy', 1,0)) as Pharmacy,
+            sum(if(x.sessionName='Laboratory', 1,0)) as Laboratory,
+            sum(if(x.sessionName='Nutrition', 1,0)) as Nutrition,
+            count(*) as sessions
+            from (
+            select
+            ms.session_id,
+            concat_ws(' ', p.first_name, p.middle_name, p.last_name) as mentor,
+            concat_ws(' ', pp.first_name, pp.middle_name, pp.last_name) as mentee,
+            ms.session_date as sessionDate,
+            st.name as sessionName,
+            f.name as facilityName,
+            f.mfl_code as facilityMFL
+            from mentorship_session ms
+            inner join mentor mn on ms.mentor_id = mn.mentor_id
+            inner join mentee me on ms.mentee_id = me.mentee_id
+            inner join person p on mn.person_id = p.person_id
+            inner join person pp on me.person_id = pp.person_id
+            inner join session_tool st on ms.session_tool_id = st.tool_id
+            inner join facility f on ms.facility = f.id 
+            where ms.facility = :facility ) x
+            group by x.facilityName";
+         
+            $returnedData = \DB::select($query, ['facility' => $facility] );  
+         
+        }
+       
+        if ($rtype == 2) {
+            $query = "select x.facilityName, x.facilityMFL,
+            sum(if(x.sessionName='Clinical', 1,0)) as Clinical, 
+            sum(if(x.sessionName='Counseling', 1,0)) as Counseling,
+            sum(if(x.sessionName='Pharmacy', 1,0)) as Pharmacy,
+            sum(if(x.sessionName='Laboratory', 1,0)) as Laboratory,
+            sum(if(x.sessionName='Nutrition', 1,0)) as Nutrition,
+            count(*) as sessions
+            from (
+            select
+            ms.session_id,
+            concat_ws(' ', p.first_name, p.middle_name, p.last_name) as mentor,
+            concat_ws(' ', pp.first_name, pp.middle_name, pp.last_name) as mentee,
+            ms.session_date as sessionDate,
+            st.name as sessionName,
+            f.name as facilityName,
+            f.mfl_code as facilityMFL
+            from mentorship_session ms
+            inner join mentor mn on ms.mentor_id = mn.mentor_id
+            inner join mentee me on ms.mentee_id = me.mentee_id
+            inner join person p on mn.person_id = p.person_id
+            inner join person pp on me.person_id = pp.person_id
+            inner join session_tool st on ms.session_tool_id = st.tool_id
+            inner join facility f on ms.facility = f.id ) x
+            group by x.facilityName";
+         
+            $returnedData = \DB::select($query);  
+         
+        }
+       
+           
+       return $returnedData;
         
        /* $query = "select
         ms.session_id,
@@ -74,6 +157,125 @@ class ReportingController extends Controller
        // $mSessions = \DB::select($query);
         
        // return $mSessions;
+    }
+    
+    public function getFacilityAggregates ($facilityId) {
+        $query = "select x.facilityName, x.facilityMFL,
+            sum(if(x.sessionName='Clinical', 1,0)) as Clinical, 
+            sum(if(x.sessionName='Counseling', 1,0)) as Counseling,
+            sum(if(x.sessionName='Pharmacy', 1,0)) as Pharmacy,
+            sum(if(x.sessionName='Laboratory', 1,0)) as Laboratory,
+            sum(if(x.sessionName='Nutrition', 1,0)) as Nutrition,
+            count(*) as sessions
+            from (
+            select
+            ms.session_id,
+            concat_ws(' ', p.first_name, p.middle_name, p.last_name) as mentor,
+            concat_ws(' ', pp.first_name, pp.middle_name, pp.last_name) as mentee,
+            ms.session_date as sessionDate,
+            st.name as sessionName,
+            f.name as facilityName,
+            f.mfl_code as facilityMFL
+            from mentorship_session ms
+            inner join mentor mn on ms.mentor_id = mn.mentor_id
+            inner join mentee me on ms.mentee_id = me.mentee_id
+            inner join person p on mn.person_id = p.person_id
+            inner join person pp on me.person_id = pp.person_id
+            inner join session_tool st on ms.session_tool_id = st.tool_id
+            inner join facility f on ms.facility = f.id ) x
+            group by x.facilityName";
+         
+        $mSessions = \DB::select($query);  
+         return $mSessions;
+    }
+     public function getRegionalAggregates ($regionId) {
+        $query = "select x.facilityName, x.facilityMFL,
+            sum(if(x.sessionName='Clinical', 1,0)) as Clinical, 
+            sum(if(x.sessionName='Counseling', 1,0)) as Counseling,
+            sum(if(x.sessionName='Pharmacy', 1,0)) as Pharmacy,
+            sum(if(x.sessionName='Laboratory', 1,0)) as Laboratory,
+            sum(if(x.sessionName='Nutrition', 1,0)) as Nutrition,
+            count(*) as sessions
+            from (
+            select
+            ms.session_id,
+            concat_ws(' ', p.first_name, p.middle_name, p.last_name) as mentor,
+            concat_ws(' ', pp.first_name, pp.middle_name, pp.last_name) as mentee,
+            ms.session_date as sessionDate,
+            st.name as sessionName,
+            f.name as facilityName,
+            f.mfl_code as facilityMFL
+            from mentorship_session ms
+            inner join mentor mn on ms.mentor_id = mn.mentor_id
+            inner join mentee me on ms.mentee_id = me.mentee_id
+            inner join person p on mn.person_id = p.person_id
+            inner join person pp on me.person_id = pp.person_id
+            inner join session_tool st on ms.session_tool_id = st.tool_id
+            inner join facility f on ms.facility = f.id ) x
+            group by x.facilityName";
+         
+        $mSessions = \DB::select($query);  
+         return $mSessions;
+    }
+    
+    public function getSubCountyAggregates ($subcountyId) {
+        $query = "select x.facilityName, x.facilityMFL,
+            sum(if(x.sessionName='Clinical', 1,0)) as Clinical, 
+            sum(if(x.sessionName='Counseling', 1,0)) as Counseling,
+            sum(if(x.sessionName='Pharmacy', 1,0)) as Pharmacy,
+            sum(if(x.sessionName='Laboratory', 1,0)) as Laboratory,
+            sum(if(x.sessionName='Nutrition', 1,0)) as Nutrition,
+            count(*) as sessions
+            from (
+            select
+            ms.session_id,
+            concat_ws(' ', p.first_name, p.middle_name, p.last_name) as mentor,
+            concat_ws(' ', pp.first_name, pp.middle_name, pp.last_name) as mentee,
+            ms.session_date as sessionDate,
+            st.name as sessionName,
+            f.name as facilityName,
+            f.mfl_code as facilityMFL
+            from mentorship_session ms
+            inner join mentor mn on ms.mentor_id = mn.mentor_id
+            inner join mentee me on ms.mentee_id = me.mentee_id
+            inner join person p on mn.person_id = p.person_id
+            inner join person pp on me.person_id = pp.person_id
+            inner join session_tool st on ms.session_tool_id = st.tool_id
+            inner join facility f on ms.facility = f.id ) x
+            group by x.facilityName";
+         
+        $mSessions = \DB::select($query);  
+         return $mSessions;
+    }
+    
+    public function getCountyAggregates ($countyId) {
+        $query = "select x.facilityName, x.facilityMFL,
+            sum(if(x.sessionName='Clinical', 1,0)) as Clinical, 
+            sum(if(x.sessionName='Counseling', 1,0)) as Counseling,
+            sum(if(x.sessionName='Pharmacy', 1,0)) as Pharmacy,
+            sum(if(x.sessionName='Laboratory', 1,0)) as Laboratory,
+            sum(if(x.sessionName='Nutrition', 1,0)) as Nutrition,
+            count(*) as sessions
+            from (
+            select
+            ms.session_id,
+            concat_ws(' ', p.first_name, p.middle_name, p.last_name) as mentor,
+            concat_ws(' ', pp.first_name, pp.middle_name, pp.last_name) as mentee,
+            ms.session_date as sessionDate,
+            st.name as sessionName,
+            f.name as facilityName,
+            f.mfl_code as facilityMFL
+            from mentorship_session ms
+            inner join mentor mn on ms.mentor_id = mn.mentor_id
+            inner join mentee me on ms.mentee_id = me.mentee_id
+            inner join person p on mn.person_id = p.person_id
+            inner join person pp on me.person_id = pp.person_id
+            inner join session_tool st on ms.session_tool_id = st.tool_id
+            inner join facility f on ms.facility = f.id ) x
+            group by x.facilityName";
+         
+        $mSessions = \DB::select($query);  
+         return $mSessions;
     }
     /**
      * Show the form for editing the specified resource.

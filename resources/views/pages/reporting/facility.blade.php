@@ -10,21 +10,57 @@
     <li>{!!HTML::link('system-admin','Admin')!!}</li>
     <li class='last'>{!!HTML::link('logout','Logout')!!}</li>
 @stop
+@section('horizontal-nav')
+    <h4 class="accordion-toggle" >
+           <div id="taccb">
+               <div id="taccbi">  &gt; </div>
+                   {!!HTML::link('facility-dashboard','Facility Level')!!}
+           </div>
+       
+    </h4>
+    <h4 class="accordion-toggle" >
+           <div id="taccb">
+               <div id="taccbi">  &gt; </div>
+                   {!!HTML::link('subcounty-dashboard','Sub-County Level')!!}
+           </div>
+    </h4>
+    <h4 class="accordion-toggle" >
+           <div id="taccb">
+               <div id="taccbi">  &gt; </div>
+                   {!!HTML::link('county-dashboard','County Level')!!}
+           </div>
+    </h4>
+
+@stop
 @section('inline-js')
  <script>
    $(document).ready(function() {
+     
+   //var dataTable = $("#summaryOfResults").dataTable();
+    //$('#summaryOfResults').dataTable();
+    $("#run").click(function (){
+       getReports(); 
+    });
 	$( "#from_date" ).datepicker({
 			changeMonth: true,
-			changeYear: true
+			changeYear: true,
+            dateFormat: 'dd-mm-yy'
 		});
 	$( "#to_date" ).datepicker({
 			changeMonth: true,
-			changeYear: true
+			changeYear: true,
+            dateFormat: 'dd-mm-yy'
 		});
 	$("#county").change(function() {
 		$.get('facility/loadsubcat/' + $(this).val(), function(data) {
-			if (data != null) {
-				$("#subcounty").empty();
+            
+            $("#subcounty").empty();
+            $("#subcounty").append($('<option/>', {text : 'Select Sub-County' }));
+            $("#facility").empty();
+            $('#facility').append($('<option/>', {text : 'Select Facility' }));
+			
+            if (data != null) {
+				                
 				for (var i in data) {
 					var f = data[i];
 					
@@ -44,6 +80,7 @@
 		$.get('facility/loadfacility/' + $(this).val(), function(data) {
 			if (data != null) {
 				$("#facility").empty();
+                $('#facility').append($('<option/>', {text : 'Select Facility' }));
 				for (var i in data) {
 					var f = data[i];
 					
@@ -59,6 +96,63 @@
 
 });
 
+function getReports () {
+    var from_date = $('#from_date').val();
+    var to_date = $('#to_date').val();
+    var county = $('#county').val();
+    var subcounty = $('#subcounty').val();
+    var facility = $('#facility').val();
+    
+    var paramObj = {
+        from_date: from_date,
+        to_date: to_date,
+        county: county,
+        subcounty: subcounty,
+        facility: facility
+    };
+    var rtype =1;
+    var stringParam = from_date + '/' + to_date + '/' + county + '/' + subcounty + '/' + facility + '/' + rtype;
+    
+    		//$.get('facility/loadfacility/' + $(this).val(), function(data) {
+            $.get('reporting/sessions/'+ stringParam , function(data) {
+			if (data != null) {
+				$("#facility").empty();
+                $('#facility').append($('<option/>', {text : 'Select Facility' }));
+                var columns = ['Facility Name', 'Facility MFL', 'Clinical', 'Counseling', 'Pharmacy', 'Laboratory', 'Nutrition', 'Total Sessions'];
+				writeTable(data, columns);
+			}
+		});	
+    
+    
+    
+    //$('#result').html('Params: ' + stringParam);
+}
+     
+function writeTable(data, columns) {
+    var tbody = $('#body');
+    tbody.empty();
+    var tr = $('<tr/>').appendTo(tbody);
+    for (var j in columns) {
+        var col = columns[j];
+        tr.append('<td>' + col + '</td>');
+        
+    }
+    for (var i in data) {
+        var mSession = data[i];
+        var tr = $('<tr/>').appendTo(tbody); 
+        tr.append('<td>' + mSession.facilityName + '</td>');
+        tr.append('<td>' + mSession.facilityMFL + '</td>');
+        tr.append('<td>' + mSession.Clinical + '</td>');
+        tr.append('<td>' + mSession.Counseling + '</td>');
+        tr.append('<td>' + mSession.Pharmacy + '</td>');
+        tr.append('<td>' + mSession.Laboratory + '</td>');
+        tr.append('<td>' + mSession.Nutrition + '</td>');
+        tr.append('<td>' + mSession.sessions + '</td>');
+        
+			             
+    }
+}
+
 
  
 </script>
@@ -68,8 +162,8 @@
 
 <div>
 From <input type="text" name="from_date"  id="from_date" size="20" />
-To Date: <input type="text" name="to_date"  id="to_date" size="20" />
-    
+To  <input type="text" name="to_date"  id="to_date" size="20" />
+&nbsp;&nbsp;&nbsp; County:    
 <select name="county" id="county" class="form-control input-sm">
 	<option selected>Select County</option>
             
@@ -77,9 +171,18 @@ To Date: <input type="text" name="to_date"  id="to_date" size="20" />
             <option value="{{ $county->id }}"> {{$county->name}}</option>
         @endforeach
 </select>
-    
-<select id="subcounty" class="form-control input-sm" name="subcounty_id"></select>
-<select id="facility" class="form-control input-sm" name="facility_id"></select>
+&nbsp;&nbsp;&nbsp; Sub-County:    
+<select id="subcounty" class="form-control input-sm" ></select>
+&nbsp;&nbsp;&nbsp; Facility:
+<select id="facility" class="form-control input-sm" ></select>
+<input type="button" id="run" name="run" value="Get Report" />
+</div>
+<br/>
+<div id='result'>
+    <table id='summaryOfResults'  width='100%'>
+        <thead></thead>
+        <tbody id="body"></tbody>
+    </table>
 </div>
 
 @stop
