@@ -40,6 +40,8 @@
 @section('inline-js')
  <script>
    $(document).ready(function() {
+       
+    //$('#summaryOfResults').dataTable();
     $("#run").click(function (){
        getReports(); 
     });
@@ -119,18 +121,36 @@ function getReports () {
 			if (data != null) {
 				$("#facility").empty();
                 $('#facility').append($('<option/>', {text : 'Select Facility' }));
-				for (var i in data) {
-                    $mSession = data[i];
-                    console.log($mSession);
-                      
-			             
-				}
+                var columns = ['Session Date', 'Facility MFL', 'Facility Name', 'Session', 'Mentor', 'Mentee'];
+				writeTable(data, columns);
 			}
 		});	
     
     
     
-    $('#result').html('Params: ' + stringParam);
+    //$('#result').html('Params: ' + stringParam);
+}
+     
+function writeTable(data, columns) {
+    var tbody = $('#body');
+    var tr = $('<tr/>').appendTo(tbody);
+    for (var j in columns) {
+        var col = columns[j];
+        tr.append('<td>' + col + '</td>');
+        
+    }
+    for (var i in data) {
+        var mSession = data[i];
+        var tr = $('<tr/>').appendTo(tbody); 
+        tr.append('<td>' + mSession.sessionDate + '</td>');
+        tr.append('<td>' + mSession.facilityMFL + '</td>');
+        tr.append('<td>' + mSession.facilityName + '</td>');
+        tr.append('<td>' + mSession.sessionName + '</td>');
+        tr.append('<td>' + mSession.mentor + '</td>');
+        tr.append('<td>' + mSession.mentee + '</td>');
+        
+			             
+    }
 }
 
 
@@ -159,6 +179,10 @@ To  <input type="text" name="to_date"  id="to_date" size="20" />
 </div>
 <br/>
 <div id='result'>
+    <table id='summaryOfResults'  width='100%'>
+        <thead></thead>
+        <tbody id="body"></tbody>
+    </table>
 </div>
 
 @stop
