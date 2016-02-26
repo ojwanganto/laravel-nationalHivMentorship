@@ -138,8 +138,8 @@ function getReports () {
 @section('form-design')
 
 <div>
-From <input type="text" name="from_date"  id="from_date" size="20" />
-To  <input type="text" name="to_date"  id="to_date" size="20" />
+From <input type="text" name="from_date"  id="from_date" size="15" />
+To  <input type="text" name="to_date"  id="to_date" size="15" />
 &nbsp;&nbsp;&nbsp; County:    
 <select name="county" id="county" class="form-control input-sm">
 	<option selected>Select County</option>
