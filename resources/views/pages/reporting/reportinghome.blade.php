@@ -120,8 +120,11 @@ function getReports () {
 				$("#facility").empty();
                 $('#facility').append($('<option/>', {text : 'Select Facility' }));
 				for (var i in data) {
+                    $mSession = data[i];
+                    console.log($mSession);
+                      
 			             
-					}
+				}
 			}
 		});	
     
