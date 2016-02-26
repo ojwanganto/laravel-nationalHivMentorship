@@ -12,6 +12,7 @@
 */
 Route::get('/reporting/sessions/{fromdate}/{todate}/{county}/{subcounty}/{facility}', 'ReportingController@getMentorshipSessions');
 Route::get('/reports', 'ReportingController@displaysessions');
+Route::get('/person-home', 'PersonController@index');
 Route::get('/county', 'ReportingController@display');
 Route::get('/facility/loadfacility/{id}','FacilityController@facility');
 Route::get('/facility/loadsubcat/{id}','FacilityController@subcounty');
