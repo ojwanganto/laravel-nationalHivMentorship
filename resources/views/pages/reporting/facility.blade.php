@@ -46,11 +46,13 @@
 			changeYear: true,
             dateFormat: 'dd-mm-yy'
 		});
+    $("#from_date").datepicker("setDate", new Date());
 	$( "#to_date" ).datepicker({
 			changeMonth: true,
 			changeYear: true,
             dateFormat: 'dd-mm-yy'
 		});
+    $("#to_date").datepicker("setDate", new Date());
 	$("#county").change(function() {
 		$.get('facility/loadsubcat/' + $(this).val(), function(data) {
             

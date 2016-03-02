@@ -46,53 +46,13 @@
 			changeYear: true,
             dateFormat: 'dd-mm-yy'
 		});
+    $("#from_date").datepicker("setDate", new Date());
 	$( "#to_date" ).datepicker({
 			changeMonth: true,
 			changeYear: true,
             dateFormat: 'dd-mm-yy'
 		});
-	$("#county").change(function() {
-		$.get('facility/loadsubcat/' + $(this).val(), function(data) {
-            
-            $("#subcounty").empty();
-            $("#subcounty").append($('<option/>', {text : 'Select Sub-County' }));
-            $("#facility").empty();
-            $('#facility').append($('<option/>', {text : 'Select Facility' }));
-			
-            if (data != null) {
-				                
-				for (var i in data) {
-					var f = data[i];
-					
-						$('#subcounty').append($('<option/>', { 
-        				value: f.id,
-        				text : f.name 
-    					}));
-					}
-			}
-		});	
-		
-    });
-
-/*adding functionality for sub-county drop-down*/
-
-	$("#subcounty").change(function() {
-		$.get('facility/loadfacility/' + $(this).val(), function(data) {
-			if (data != null) {
-				$("#facility").empty();
-                $('#facility').append($('<option/>', {text : 'Select Facility' }));
-				for (var i in data) {
-					var f = data[i];
-					
-						$('#facility').append($('<option/>', { 
-        				value: f.id,
-        				text : f.name 
-    					}));
-					}
-			}
-		});	
-		
-    });
+    $("#to_date").datepicker("setDate", new Date());
 
 });
 
@@ -100,25 +60,20 @@ function getReports () {
     var from_date = $('#from_date').val();
     var to_date = $('#to_date').val();
     var county = $('#county').val();
-    var subcounty = $('#subcounty').val();
-    var facility = $('#facility').val();
     
     var paramObj = {
         from_date: from_date,
         to_date: to_date,
-        county: county,
-        subcounty: subcounty,
-        facility: facility
-    };
+        county: county
+    }
     var rtype =3;
-    var stringParam = from_date + '/' + to_date + '/' + county + '/' + subcounty + '/' + facility + '/' + rtype;
+    var stringParam = from_date + '/' + to_date + '/' + county + '/0/0/' + rtype;
     
-    		//$.get('facility/loadfacility/' + $(this).val(), function(data) {
             $.get('reporting/sessions/'+ stringParam , function(data) {
 			if (data != null) {
 				$("#facility").empty();
                 $('#facility').append($('<option/>', {text : 'Select Facility' }));
-                var columns = ['Session Date', 'Facility MFL', 'Facility Name', 'Session', 'Mentor', 'Mentee'];
+                var columns = ['Sub-County', 'County','Clinical', 'Counseling', 'Pharmacy', 'Laboratory', 'Nutrition', 'Total Sessions'];
 				writeTable(data, columns);
 			}
 		});	
@@ -140,12 +95,14 @@ function writeTable(data, columns) {
     for (var i in data) {
         var mSession = data[i];
         var tr = $('<tr/>').appendTo(tbody); 
-        tr.append('<td>' + mSession.sessionDate + '</td>');
-        tr.append('<td>' + mSession.facilityMFL + '</td>');
-        tr.append('<td>' + mSession.facilityName + '</td>');
-        tr.append('<td>' + mSession.sessionName + '</td>');
-        tr.append('<td>' + mSession.mentor + '</td>');
-        tr.append('<td>' + mSession.mentee + '</td>');
+        tr.append('<td>' + mSession.subcountyName + '</td>');
+        tr.append('<td>' + mSession.countyName + '</td>');
+        tr.append('<td>' + mSession.Clinical + '</td>');
+        tr.append('<td>' + mSession.Counseling + '</td>');
+        tr.append('<td>' + mSession.Pharmacy + '</td>');
+        tr.append('<td>' + mSession.Laboratory + '</td>');
+        tr.append('<td>' + mSession.Nutrition + '</td>');
+        tr.append('<td>' + mSession.sessions + '</td>');
         
 			             
     }
@@ -169,10 +126,7 @@ To  <input type="text" name="to_date"  id="to_date" size="20" />
             <option value="{{ $county->id }}"> {{$county->name}}</option>
         @endforeach
 </select>
-&nbsp;&nbsp;&nbsp; Sub-County:    
-<select id="subcounty" class="form-control input-sm" ></select>
-&nbsp;&nbsp;&nbsp; Facility:
-<select id="facility" class="form-control input-sm" ></select>
+
 <input type="button" id="run" name="run" value="Get Report" />
 </div>
 <br/>
