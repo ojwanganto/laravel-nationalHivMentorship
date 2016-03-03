@@ -17,6 +17,7 @@
     <link href="{!! asset('css/jquery-ui.css') !!}" rel="stylesheet" type="text/css" media="screen">
 
     <!--<script type="text/javascript" src="js/jquery-2.1.0.js"></script> -->
+    <script type="text/javascript" src="{!! asset('js/jquery.datatables.min.js') !!}"></script>  
     <script type="text/javascript" src="js/datetimepicker_css.js"></script>
     <script type="text/javascript" src="{!! asset('js/form/jquery.min.js') !!}"></script>
     <script type="text/javascript" src="{!! asset('js/form/jquery-ui.js') !!}"></script>

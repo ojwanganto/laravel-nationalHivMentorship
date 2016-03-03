@@ -14,33 +14,29 @@
     <h4 class="accordion-toggle" >
            <div id="taccb">
                <div id="taccbi">  &gt; </div>
-                   {!!HTML::link('facility','Facility Level')!!}
+                   {!!HTML::link('facility-dashboard','Facility Level')!!}
            </div>
        
     </h4>
     <h4 class="accordion-toggle" >
            <div id="taccb">
                <div id="taccbi">  &gt; </div>
-                   {!!HTML::link('county','Sub-County Level')!!}
+                   {!!HTML::link('subcounty-dashboard','Sub-County Level')!!}
            </div>
     </h4>
     <h4 class="accordion-toggle" >
            <div id="taccb">
                <div id="taccbi">  &gt; </div>
-                   {!!HTML::link('reports','Regional Level')!!}
+                   {!!HTML::link('county-dashboard','County Level')!!}
            </div>
     </h4>
-    <h4 class="accordion-toggle" >
-           <div id="taccb">
-               <div id="taccbi">  &gt; </div>
-                   {!!HTML::link('#','National Level')!!}
-           </div>
-    </h4>
+
 @stop
 @section('inline-js')
  <script>
    $(document).ready(function() {
-       
+     
+   //var dataTable = $("#summaryOfResults").dataTable();
     //$('#summaryOfResults').dataTable();
     $("#run").click(function (){
        getReports(); 
@@ -50,11 +46,13 @@
 			changeYear: true,
             dateFormat: 'dd-mm-yy'
 		});
+    $("#from_date").datepicker("setDate", new Date());
 	$( "#to_date" ).datepicker({
 			changeMonth: true,
 			changeYear: true,
             dateFormat: 'dd-mm-yy'
 		});
+     $("#to_date").datepicker("setDate", new Date());
 	$("#county").change(function() {
 		$.get('facility/loadsubcat/' + $(this).val(), function(data) {
             
@@ -114,7 +112,8 @@ function getReports () {
         subcounty: subcounty,
         facility: facility
     };
-    var stringParam = from_date + '/' + to_date + '/' + county + '/' + subcounty + '/' + facility;
+    var rtype =0;
+    var stringParam = from_date + '/' + to_date + '/' + county + '/' + subcounty + '/' + facility + '/' + rtype;
     
     		//$.get('facility/loadfacility/' + $(this).val(), function(data) {
             $.get('reporting/sessions/'+ stringParam , function(data) {
@@ -133,6 +132,7 @@ function getReports () {
      
 function writeTable(data, columns) {
     var tbody = $('#body');
+    tbody.empty();
     var tr = $('<tr/>').appendTo(tbody);
     for (var j in columns) {
         var col = columns[j];

@@ -76,26 +76,6 @@
 		
     });
 
-/*adding functionality for sub-county drop-down*/
-
-	$("#subcounty").change(function() {
-		$.get('facility/loadfacility/' + $(this).val(), function(data) {
-			if (data != null) {
-				$("#facility").empty();
-                $('#facility').append($('<option/>', {text : 'Select Facility' }));
-				for (var i in data) {
-					var f = data[i];
-					
-						$('#facility').append($('<option/>', { 
-        				value: f.id,
-        				text : f.name 
-    					}));
-					}
-			}
-		});	
-		
-    });
-
 });
 
 function getReports () {
@@ -103,17 +83,15 @@ function getReports () {
     var to_date = $('#to_date').val();
     var county = $('#county').val();
     var subcounty = $('#subcounty').val();
-    var facility = $('#facility').val();
     
     var paramObj = {
         from_date: from_date,
         to_date: to_date,
         county: county,
-        subcounty: subcounty,
-        facility: facility
+        subcounty: subcounty
     };
-    var rtype =1;
-    var stringParam = from_date + '/' + to_date + '/' + county + '/' + subcounty + '/' + facility + '/' + rtype;
+    var rtype =2;
+    var stringParam = from_date + '/' + to_date + '/' + county + '/' + subcounty + '/0/' + rtype;
     
     		//$.get('facility/loadfacility/' + $(this).val(), function(data) {
             $.get('reporting/sessions/'+ stringParam , function(data) {
@@ -124,8 +102,7 @@ function getReports () {
 				writeTable(data, columns);
 			}
 		});	
-    
-    
+ 
     
     //$('#result').html('Params: ' + stringParam);
 }
@@ -175,8 +152,7 @@ To  <input type="text" name="to_date"  id="to_date" size="20" />
 </select>
 &nbsp;&nbsp;&nbsp; Sub-County:    
 <select id="subcounty" class="form-control input-sm" ></select>
-&nbsp;&nbsp;&nbsp; Facility:
-<select id="facility" class="form-control input-sm" ></select>
+
 <input type="button" id="run" name="run" value="Get Report" />
 </div>
 <br/>

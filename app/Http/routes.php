@@ -10,13 +10,15 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::get('/reporting/sessions/{fromdate}/{todate}/{county}/{subcounty}/{facility}', 'ReportingController@getMentorshipSessions');
+Route::get('/reporting/sessions/{fromdate}/{todate}/{county}/{subcounty}/{facility}/{rtype}', 'ReportingController@getMentorshipSessions');
 Route::get('/reports', 'ReportingController@displaysessions');
 Route::get('/person-home', 'PersonController@index');
-Route::get('/county', 'ReportingController@display');
+Route::get('/facility-dashboard', 'ReportingController@facilitydashboard');
+Route::get('/subcounty-dashboard', 'ReportingController@subcountydashboard');
+Route::get('/county-dashboard', 'ReportingController@countydashboard');
 Route::get('/facility/loadfacility/{id}','FacilityController@facility');
 Route::get('/facility/loadsubcat/{id}','FacilityController@subcounty');
-Route::get('/facility', 'FacilityController@county');
+//Route::get('/facility', 'FacilityController@county');
 Route::get('/resource-center', 'ResourceCenterController@index');
 Route::get('/register-user', 'UserController@create');
 Route::get('/my-profile', 'UserController@index');
