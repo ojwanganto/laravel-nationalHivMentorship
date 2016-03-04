@@ -18,7 +18,8 @@ class CreateFacilityTable extends Migration
             $table->string('name',75);
             $table->integer('subcounty_id')->unsigned();
             $table->foreign('subcounty_id')->references('id')->on('subcounty');
-            });
+            $table->timestamps();
+        });
     }
 
     /**

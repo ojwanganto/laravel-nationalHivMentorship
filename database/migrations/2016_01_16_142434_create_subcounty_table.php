@@ -17,7 +17,8 @@ class CreateSubcountyTable extends Migration
             $table->string('name',75);
             $table->integer('county_id')->unsigned();
             $table->foreign('county_id')->references('id')->on('county');
-                   });
+            $table->timestamps();
+      });
     }
 
     /**
