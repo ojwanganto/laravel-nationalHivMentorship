@@ -4,8 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Facility extends Model
+class County extends Model
 {
-    protected $table = 'facility';
+    protected $table = 'county';
     protected $primaryKey = 'id';
 }

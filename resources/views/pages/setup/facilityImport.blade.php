@@ -12,7 +12,7 @@
     <li class='last'>{!!HTML::link('logout','Logout')!!}</li>
 @stop
 @section('horizontal-nav')
-        <h4 class="accordion-toggle" >
+    <h4 class="accordion-toggle" >
            <div id="taccb">
                <div id="taccbi">  &gt; </div>
                    {!!HTML::link('/system-setup','Form Indicators setup')!!}
@@ -25,6 +25,19 @@
                    {!!HTML::link('/facility-upload','Facility Import')!!}
            </div>
        
+    </h4>
+    <h4 class="accordion-toggle" >
+           <div id="taccb">
+               <div id="taccbi">  &gt; </div>
+                   {!!HTML::link('/facility-process','Process Facility List')!!}
+           </div>
+       
+    </h4>
+    <h4 class="accordion-toggle" >
+           <div id="taccb">
+               <div id="taccbi">  &gt; </div>
+                   {!!HTML::link('/register-user','Register User')!!}
+           </div>
     </h4>
     <h4 class="accordion-toggle" >
            <div id="taccb">
@@ -50,4 +63,34 @@
                    {!!HTML::link('/system-backup','System Backup')!!} 
            </div>
     </h4>
+@stop
+@section('form-design')
+
+<div class="about-section">
+   <div class="text-content">
+     <div class="span7 offset1">
+        @if(Session::has('success'))
+          <div class="alert-box success">
+          <h2>{!! Session::get('success') !!}</h2>
+          </div>
+        @endif
+        <div class="secure">Upload form</div>
+        {!! Form::open(array('url'=>'facility-upload','method'=>'POST', 'files'=>true)) !!}
+         <div class="control-group">
+          <div class="controls">
+          {!! Form::file('image') !!}
+	  <p class="errors">{!!$errors->first('image')!!}</p>
+	@if(Session::has('error'))
+	<p class="errors">{!! Session::get('error') !!}</p>
+	@endif
+        </div>
+        </div>
+        <div id="success"> </div>
+      {!! Form::submit('Submit', array('class'=>'send-btn')) !!}
+      {!! Form::close() !!}
+      </div>
+   </div>
+</div>
+
+
 @stop
