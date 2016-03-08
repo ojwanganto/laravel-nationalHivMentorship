@@ -70,6 +70,9 @@ class AuthController extends Controller {
      */
     public function getLogin()
     {
+		 if (view()->exists('auth.authenticate')) {
+           return view('auth.authenticate');
+       }
         return view('auth.login');
     }
  
@@ -101,6 +104,13 @@ class AuthController extends Controller {
         $this->auth->logout();
  
         return redirect('/');
+    }
+	public function authenticate()
+    {
+        if (Auth::attempt(['email' => $email, 'password' => $password, 'active' => 1])) {
+            // Authentication passed...
+            return redirect()->intended('dashboard');
+        }
     }
  
 }

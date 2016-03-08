@@ -106,7 +106,7 @@ text-transform:none; color:#fff; font-weight:bold; text-decoration:none;
   </div>
   </div>
 
-	</div>	
+		
 	</form>
 	<!-- content end -->	
 	</div>
