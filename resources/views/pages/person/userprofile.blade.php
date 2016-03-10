@@ -78,11 +78,6 @@
         
     </tr>
     </table>
-@section('body')
-<section class="">
-    <h1>Profile: {{Auth::user()->name }}</h1>
-    <p>email: {{Auth::user()->email }}</p>
-</section>
-@stop
+   
 </div>
 @stop

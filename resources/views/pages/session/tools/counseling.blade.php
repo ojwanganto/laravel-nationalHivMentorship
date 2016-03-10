@@ -17,8 +17,13 @@ $(document).ready(function(){
 	});
 	$("#county").change(function() {
 		$.get('../facility/loadsubcat/' + $(this).val(), function(data) {
+			$("#subcounty").empty();
+            $("#subcounty").append($('<option/>', {text : 'Select Sub-County' }));
+            $("#m_facility").empty();
+            $('#m_facility').append($('<option/>', {text : 'Select Facility' }));
+			
 			if (data != null) {
-				$("#subcounty").empty();
+				
 				for (var i in data) {
 					var f = data[i];
 					

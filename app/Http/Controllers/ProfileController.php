@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
@@ -20,13 +20,32 @@ class ProfileController extends Controller
         return view('pages.person.userprofile')->with($user->toArray());
 		
     }
+    
+	  public function profile(Request $request, $id) {
+		$data['user'] = User::find($id);
+		if (!$data['user'])
+		  return redirect('/');
+		if ($request -> user() && $data['user'] -> id == $request -> user() -> id) {
+		  $data['person'] = true;
+		} else {
+		  $data['person'] = null;
+		}
+		$data['mentee_id'] = $data['user'] -> mentee -> count();
+		$data['mentorship_session'] = $data['user'] -> mentorship_session-> count();
+		$data['facility'] = $data['user'] -> facility -> where('active', '1') -> count();
+		$data['gender'] = $data['person'] - $data['person'];
+		$data['session_id'] = $data['user'] -> mentorship_session -> take(5);
+		
+		return view('person.userprofile', $data);
+	  }
+
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(array $data)
+   public function create(array $data)
 	{
 		$user = User::create([
 			'name' => $data['name'],
@@ -72,12 +91,18 @@ class ProfileController extends Controller
 	Route::get('users/{username}', 'UsersController@show');
      * Show the form for editing the specified resource.
      *
+	 public function show( App\User $user )
+	 	{
+    		return view('users.show', compact('user'));
+		}
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
+		
+        $userInfo = User::find(Auth::id())->with('personalInfo')->first();
+        return View('pages.person.register')->with('userInfo',$userInfo);
     }
 
     /**
@@ -119,4 +144,5 @@ class ProfileController extends Controller
     {
         //
     }
+	
 }
