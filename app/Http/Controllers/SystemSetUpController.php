@@ -18,6 +18,15 @@ use Session;
 
 class SystemSetUpController extends Controller
 {
+      /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct() {
+        $this->middleware('auth');
+    }
+    
     public function setUp() {
         /*
             Clear session_indicator table and populate it with new data

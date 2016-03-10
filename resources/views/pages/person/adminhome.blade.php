@@ -29,7 +29,7 @@
     <h4 class="accordion-toggle" >
            <div id="taccb">
                <div id="taccbi">  &gt; </div>
-                   {!!HTML::link('/view-user','System Users')!!}
+                   {!!HTML::link('/register','Add User')!!}
            </div>
     </h4>
     <h4 class="accordion-toggle" >

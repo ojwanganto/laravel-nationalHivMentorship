@@ -10,6 +10,13 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
+
+// Registration routes...
+Route::get('auth/register', 'Auth\AuthController@getRegister');
+Route::post('auth/register', 'Auth\AuthController@postRegister');
 Route::get('/reporting/sessions/{fromdate}/{todate}/{county}/{subcounty}/{facility}/{rtype}', 'ReportingController@getMentorshipSessions');
 Route::get('/facility-upload', 'SystemSetUpController@importFacilityFile');
 Route::get('/facility-process', 'SystemSetUpController@processFacilityFile');
@@ -36,6 +43,16 @@ Route::get('/indicator-list', 'MentorshipSessionIndicatorController@index');
 Route::get('/person-create', 'PersonController@create');
 Route::post('/person-add', 'PersonController@store');
 Route::get('/session-tool/{tool}','MentorshipSessionController@create');
-Route::get('/',['as'=>'home','uses'=>'HomeController@index']);
+Route::get('/','HomeController@index');
 Route::get('/dash-board',['as'=>'dash-board','uses'=>"DashBoardController@index"]);
+Route::get('/home',"DashBoardController@index");
 Route::controller('/','Auth\AuthController');
+
+// Authentication routes...
+
+
+
+/*Route::controllers([
+   'password' => 'Auth\PasswordController',
+]);*/
+

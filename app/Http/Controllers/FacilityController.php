@@ -10,17 +10,20 @@ use Input;
 class FacilityController extends Controller
 {
    
-    
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct() {
+        $this->middleware('auth');
+    }
     
     public function index()
     {
-        
-
         return View('pages.reporting.facility');
     }
-    
-    
-    
+ 
     /**
      * Show the form for creating a new resource.
      *
@@ -34,13 +37,6 @@ class FacilityController extends Controller
 		return View('pages.reporting.facility')->with('countys',$countys);
 	}
    
-  /* public function subcounty($id)
-	{
-		$subcounty = \DB::table('subcounty')->where('county_id', $id)->get();
-		return View('pages.reporting.facility')->with('subcounty',$subcounty);
-    }
-*/
-	
 	 public function subcounty($id)
 	{
 		$subcounty = \DB::table('subcounty')->where('county_id', $id)->get();
