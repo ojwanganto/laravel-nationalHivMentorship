@@ -1,24 +1,23 @@
 @extends('formmaster')
-@section('form-name', 'Resource Center')
+@section('form-name', 'NASCOP Guidelines')
 @section('main-nav')
     <li>{!!HTML::link('dash-board','Home')!!}</li>
     <li>{!!HTML::link('my-profile','My Profile')!!}</li>
     <li>{!!HTML::link('mentorship-session','Mentorship Session')!!}</li>
     <li>{!!HTML::link('person-home','Mentor/Mentee')!!}</li>
     <li>{!!HTML::link('system-reports','Reporting')!!}</li>
-    <li class='active'>{!!HTML::link('#','Resource Centre')!!}</li>
+    <li class='active'>{!!HTML::link('resource-center','Resource Centre')!!}</li>
     <li>{!!HTML::link('system-admin','Admin')!!}</li>
     <li class='last'>{!!HTML::link('logout','Logout')!!}</li>
 @stop
 @section('horizontal-nav')
-    <h4 class="accordion-toggle" >
+   <h4 class="accordion-toggle" >
            <div id="taccb">
                <div id="taccbi">  &gt; </div>
                    {!!HTML::link('files-upload','Upload Files')!!}
            </div>
        
     </h4>
-   
     <h4 class="accordion-toggle" >
            <div id="taccb">
                <div id="taccbi">  &gt; </div>
@@ -38,4 +37,32 @@
                    {!!HTML::link('others-upload','Others')!!}
            </div>
     </h4>
+@stop
+@section('form-design')
+
+<div class="about-section">
+   <div class="text-content">
+     <div class="span7 offset1">
+		<div>
+			 
+			<?php
+	 	       $dir="../storage/exports/guidelines/*";
+			   
+			   foreach(glob($dir) as $file) 
+				{
+				   echo "Download: " . basename($file) . "";
+				   echo  " ";
+				   
+				   echo '<a href="'.$file.'">'. basename($file) .'</a><br />';
+				
+			   }
+	         ?>
+        
+        </div>
+        <div id="success"> </div>
+     
+      </div>
+   
+
+
 @stop
