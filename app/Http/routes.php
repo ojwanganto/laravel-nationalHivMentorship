@@ -18,6 +18,7 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 Route::get('/reporting/sessions/{fromdate}/{todate}/{county}/{subcounty}/{facility}/{rtype}', 'ReportingController@getMentorshipSessions');
+Route::get('/reporting/download/{fromdate}/{todate}/{county}/{subcounty}/{facility}/{rtype}', 'ReportingController@downloadReport');
 Route::get('/facility-upload', 'SystemSetUpController@importFacilityFile');
 Route::get('/facility-process', 'SystemSetUpController@processFacilityFile');
 Route::post('facility-upload', 'SystemSetUpController@postFacilityFile');

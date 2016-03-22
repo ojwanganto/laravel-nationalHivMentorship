@@ -41,6 +41,10 @@
     $("#run").click(function (){
        getReports(); 
     });
+    
+     $("#excel").click(function (){
+       downloadReport(); 
+    });
 	$( "#from_date" ).datepicker({
 			changeMonth: true,
 			changeYear: true,
@@ -55,6 +59,29 @@
     $("#to_date").datepicker("setDate", new Date());
 
 });
+     
+function downloadReport () {
+    var from_date = $('#from_date').val();
+    var to_date = $('#to_date').val();
+    var county = $('#county').val();
+    var subcounty = $('#subcounty').val();
+    
+    var paramObj = {
+        from_date: from_date,
+        to_date: to_date,
+        county: county,
+        subcounty: subcounty
+    };
+    var rtype =3;
+    var stringParam = from_date + '/' + to_date + '/' + county + '/' + subcounty + '/0/' + rtype;
+    
+              $.get('reporting/download/'+ stringParam, function (data){
+                if (data != null) {
+                  var iframe = document.getElementById("downloadFrame");
+                  iframe .src = 'reporting/download/'+ stringParam;
+			     }
+            });	
+}
 
 function getReports () {
     var from_date = $('#from_date').val();
@@ -128,7 +155,9 @@ To  <input type="text" name="to_date"  id="to_date" size="20" />
 </select>
 
 <input type="button" id="run" name="run" value="Get Report" />
+&nbsp;&nbsp;&nbsp;<img id="excel" src="{!! asset('img/excel.png') !!}">
 </div>
+<iframe id="downloadFrame" style="display:none"></iframe>
 <br/>
 <div id='result'>
     <table id='summaryOfResults'  width='100%'>

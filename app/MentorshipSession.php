@@ -19,6 +19,14 @@ class MentorshipSession extends Model
     }
     
      /**
+     * Get the facility associated with MentorshipSession
+     */
+    public function facility()
+    {
+        return $this->belongsTo('App\Facility', 'id', 'facility');
+    }
+    
+     /**
      * Get scores associated with MentorshipSession
      */
     public function sessionScore()

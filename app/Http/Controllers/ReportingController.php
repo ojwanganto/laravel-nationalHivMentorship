@@ -191,6 +191,181 @@ class ReportingController extends Controller
        return $returnedData;
     }
     
+    /**
+    * This method downloads excel report from an array of data.
+    * Needs to be refactored so that it doeasn't copy getSessions method above
+    */
+    
+    public function downloadReport($fromdate, $todate, $county, $subcounty, $facility, $rtype ) {
+        // construct name of the file that will be downloaded
+        /**$subcounty_name = \DB::table('subcounty')->where('id', $id)->value('name');;
+        $county_name = \DB::table('county')->where('id', $id)->value('name');;
+        $facility_name = \DB::table('facility')->where('id', $id)->value('name');;
+        */
+        $reportName = 'Mentorship-';
+        $fromDate = date("Y-m-d", strtotime($fromdate));
+        $toDate   = date("Y-m-d", strtotime($todate));
+        $returnedData = '';
+        if ($rtype == 0) {
+            
+            $facility_name = \DB::table('facility')->where('id', $facility)->value('name');
+            $reportName = $reportName. $facility_name. '-'.$fromDate.'-'.$toDate;
+            
+            $returnedData = \DB::table('mentorship_session as ms')
+            ->join('mentor as mn', 'ms.mentor_id', '=', 'mn.mentor_id')
+            ->join('mentee as me', 'ms.mentee_id', '=', 'me.mentee_id')
+            ->join('person as p', 'mn.person_id', '=', 'p.person_id')
+            ->join('person as pp', 'me.person_id', '=', 'pp.person_id')
+            ->join('session_tool as st', 'ms.session_tool_id', '=', 'st.tool_id')
+            ->join('facility as f', 'ms.facility', '=', 'f.id')
+            ->select('ms.session_id', \DB::raw("concat_ws(' ', p.first_name, p.middle_name, p.last_name) as mentor"), \DB::raw("concat_ws(' ', pp.first_name, pp.middle_name, pp.last_name) as mentee"), 'ms.session_date as sessionDate', 'st.name as sessionName', 'f.name as facilityName', 'f.mfl_code as facilityMFL')
+            ->where('ms.facility', $facility)
+            ->whereBetween('ms.session_date', [$fromDate, $toDate])
+            ->get();
+
+        } 
+        
+        if ($rtype == 1) {
+            
+            $facility_name = \DB::table('facility')->where('id', $facility)->value('name');
+            $reportName = $reportName. $facility_name. '-'.$fromDate.'-'.$toDate;
+            
+            $query = "select x.facilityName, x.facilityMFL,
+            sum(if(x.sessionName='Clinical', 1,0)) as Clinical, 
+            sum(if(x.sessionName='Counseling', 1,0)) as Counseling,
+            sum(if(x.sessionName='Pharmacy', 1,0)) as Pharmacy,
+            sum(if(x.sessionName='Laboratory', 1,0)) as Laboratory,
+            sum(if(x.sessionName='Nutrition', 1,0)) as Nutrition,
+            count(*) as sessions
+            from (
+            select
+            ms.session_id,
+            concat_ws(' ', p.first_name, p.middle_name, p.last_name) as mentor,
+            concat_ws(' ', pp.first_name, pp.middle_name, pp.last_name) as mentee,
+            ms.session_date as sessionDate,
+            st.name as sessionName,
+            f.name as facilityName,
+            f.mfl_code as facilityMFL
+            from mentorship_session ms
+            inner join mentor mn on ms.mentor_id = mn.mentor_id
+            inner join mentee me on ms.mentee_id = me.mentee_id
+            inner join person p on mn.person_id = p.person_id
+            inner join person pp on me.person_id = pp.person_id
+            inner join session_tool st on ms.session_tool_id = st.tool_id
+            inner join facility f on ms.facility = f.id 
+            where ms.facility = :facility and ms.session_date between :startDate and :endDate  ) x
+            group by x.facilityName";
+         
+            $returnedData = \DB::select($query, ['facility' => $facility, 'startDate' => $fromDate, 'endDate' => $toDate] );  
+         
+        }
+       
+        if ($rtype == 2) {
+            
+            $subcounty_name = \DB::table('subcounty')->where('id', $subcounty)->value('name');
+            $reportName = $reportName. $subcounty_name. '-'.$fromDate.'-'.$toDate;
+            
+            $query = "select x.facilityName, x.facilityMFL,
+            sum(if(x.sessionName='Clinical', 1,0)) as Clinical, 
+            sum(if(x.sessionName='Counseling', 1,0)) as Counseling,
+            sum(if(x.sessionName='Pharmacy', 1,0)) as Pharmacy,
+            sum(if(x.sessionName='Laboratory', 1,0)) as Laboratory,
+            sum(if(x.sessionName='Nutrition', 1,0)) as Nutrition,
+            count(*) as sessions
+            from (
+            select
+            ms.session_id,
+            concat_ws(' ', p.first_name, p.middle_name, p.last_name) as mentor,
+            concat_ws(' ', pp.first_name, pp.middle_name, pp.last_name) as mentee,
+            ms.session_date as sessionDate,
+            st.name as sessionName,
+            f.name as facilityName,
+			f.subcounty_id,
+            f.mfl_code as facilityMFL
+            from mentorship_session ms
+            inner join mentor mn on ms.mentor_id = mn.mentor_id
+            inner join mentee me on ms.mentee_id = me.mentee_id
+            inner join person p on mn.person_id = p.person_id
+            inner join person pp on me.person_id = pp.person_id
+            inner join session_tool st on ms.session_tool_id = st.tool_id
+            inner join facility f on ms.facility = f.id 
+			where f.subcounty_id = :subcounty and ms.session_date between :startDate and :endDate  ) x
+            group by x.facilityName";
+         
+            $returnedData = \DB::select($query , ['subcounty' => $subcounty, 'startDate' => $fromDate, 'endDate' => $toDate]);  
+         
+        }
+        
+        if ($rtype == 3) {
+            
+            $county_name = \DB::table('county')->where('id', $county)->value('name');
+            $reportName = $reportName. $county_name. '-'.$fromDate.'-'.$toDate;
+            
+            $query = "select x.subcountyName, x.countyName,
+            sum(if(x.sessionName='Clinical', 1,0)) as Clinical, 
+            sum(if(x.sessionName='Counseling', 1,0)) as Counseling,
+            sum(if(x.sessionName='Pharmacy', 1,0)) as Pharmacy,
+            sum(if(x.sessionName='Laboratory', 1,0)) as Laboratory,
+            sum(if(x.sessionName='Nutrition', 1,0)) as Nutrition,
+            count(*) as sessions
+            from (
+            select
+            ms.session_id,
+            concat_ws(' ', p.first_name, p.middle_name, p.last_name) as mentor,
+            concat_ws(' ', pp.first_name, pp.middle_name, pp.last_name) as mentee,
+            ms.session_date as sessionDate,
+            st.name as sessionName,
+            f.name as facilityName,
+			f.subcounty_id,
+			sc.id scid,
+            sc.name as subcountyName,
+			c.id county,
+			c.name as countyName,
+            f.mfl_code as facilityMFL
+            from mentorship_session ms
+            inner join mentor mn on ms.mentor_id = mn.mentor_id
+            inner join mentee me on ms.mentee_id = me.mentee_id
+            inner join person p on mn.person_id = p.person_id
+            inner join person pp on me.person_id = pp.person_id
+            inner join session_tool st on ms.session_tool_id = st.tool_id
+            inner join facility f on ms.facility = f.id
+            inner join subcounty sc on f.subcounty_id = sc.id
+            inner join county c on c.id = sc.county_id
+            where c.id = :county and ms.session_date between :startDate and :endDate ) x
+            group by x.scid";
+         
+            $returnedData = \DB::select($query , ['county' => $county, 'startDate' => $fromDate, 'endDate' => $toDate]);  
+         
+        }
+        
+        $data = array();
+        foreach ($returnedData as $msession) {
+           $data[] = (array)$msession; 
+            
+        }
+        
+        
+        //----------------------------------------------------------------------------------
+        
+        \Excel::create($reportName, function($excel) use($data) {
+
+            $excel->sheet('Mentorship-sessions', function($sheet) use($data) {
+
+                $sheet->fromArray($data);
+
+            });
+
+        })->download('xls'); //store('xls', storage_path('excel/exports'), true);
+        
+       // $report_excelFilepath = storage_path('excel/exports') . "/mentorshipSessions.xls";
+
+           // return \Response::download($report_excelFilepath);
+        
+        //----------------------------------------------------------------------------------
+       
+           
+    }
+    
   
     /**
      * Show the form for editing the specified resource.

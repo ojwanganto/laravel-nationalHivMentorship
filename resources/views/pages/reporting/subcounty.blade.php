@@ -41,6 +41,10 @@
     $("#run").click(function (){
        getReports(); 
     });
+    
+    $("#excel").click(function (){
+       downloadReport(); 
+    });
 	$( "#from_date" ).datepicker({
 			changeMonth: true,
 			changeYear: true,
@@ -98,6 +102,8 @@ function getReports () {
 			if (data != null) {
 				$("#facility").empty();
                 $('#facility').append($('<option/>', {text : 'Select Facility' }));
+                
+                $('#downloadlink').html("<a href='reporting/sessions/'>");
                 var columns = ['Facility Name', 'Facility MFL', 'Clinical', 'Counseling', 'Pharmacy', 'Laboratory', 'Nutrition', 'Total Sessions'];
 				writeTable(data, columns);
 			}
@@ -105,6 +111,30 @@ function getReports () {
  
     
     //$('#result').html('Params: ' + stringParam);
+}
+     
+function downloadReport () {
+    var from_date = $('#from_date').val();
+    var to_date = $('#to_date').val();
+    var county = $('#county').val();
+    var subcounty = $('#subcounty').val();
+    
+    var paramObj = {
+        from_date: from_date,
+        to_date: to_date,
+        county: county,
+        subcounty: subcounty
+    };
+    var rtype =2;
+    var stringParam = from_date + '/' + to_date + '/' + county + '/' + subcounty + '/0/' + rtype;
+    
+            $.get('reporting/download/'+ stringParam, function (data){
+                if (data != null) {
+				  console.log('There is something. Please download it ')
+                  var iframe = document.getElementById("downloadFrame");
+                  iframe .src = 'reporting/download/'+ stringParam;
+			     }
+            });	
 }
      
 function writeTable(data, columns) {
@@ -154,7 +184,10 @@ To  <input type="text" name="to_date"  id="to_date" size="20" />
 <select id="subcounty" class="form-control input-sm" ></select>
 
 <input type="button" id="run" name="run" value="Get Report" />
+&nbsp;&nbsp;&nbsp;<img id="excel" src="{!! asset('img/excel.png') !!}"> 
+
 </div>
+<iframe id="downloadFrame" style="display:none"></iframe>
 <br/>
 <div id='result'>
     <table id='summaryOfResults'  width='100%'>
