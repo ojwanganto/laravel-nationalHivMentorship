@@ -1,5 +1,13 @@
 @extends('formmaster')
 @section('form-name', 'User Manuals')
+@section('inline-js')
+<script>
+	$('a').click(function(e) {
+    e.preventDefault();  //stop the browser from following
+    window.location.href = '../storage/exports/usermanual/*';
+});
+</script>
+@stop
 @section('main-nav')
     <li>{!!HTML::link('dash-board','Home')!!}</li>
     <li>{!!HTML::link('my-profile','My Profile')!!}</li>
@@ -48,15 +56,18 @@
 			   
 			   foreach(glob($dir) as $file) 
 				{
-				   echo "Download: " . basename($file) . "";
+				   echo "Download: " ;
 				   echo  " ";
 				   
-				   echo '<a href="'.$file.'">'. basename($file) .'</a><br />';
+				  echo '<a href="'.$file.'">'. basename($file) .'</a><br />';
 				
 			   }
+		        
 	         ?>
       </div>
    </div>
+	
+
 </div>
 
 

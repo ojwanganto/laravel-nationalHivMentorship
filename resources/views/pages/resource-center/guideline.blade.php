@@ -50,7 +50,7 @@
 			   
 			   foreach(glob($dir) as $file) 
 				{
-				   echo "Download: " . basename($file) . "";
+				   echo "Download: " ;
 				   echo  " ";
 				   
 				   echo '<a href="'.$file.'">'. basename($file) .'</a><br />';
