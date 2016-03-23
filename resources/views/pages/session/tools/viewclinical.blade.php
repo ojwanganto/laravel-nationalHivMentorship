@@ -46,9 +46,9 @@
 @stop
 @section('form-design')
 
-<form method="post" id="FSForm" action="">
+<form method="post" id="FSForm" action="../session-edit">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-<input type="hidden" name="tool_id" value="1">
+<input type="hidden" name="m_session_id" value="{{$mSessionId}}">
 
 <!-- BEGIN_ITEMS -->
 <div class="form_table">
@@ -62,29 +62,67 @@
 
 <div class="clear"></div>
 
-<div>
-    <table id="sessionList" width='80%' style="padding-left:10px">
-        <tr>
-            <td><b>Date</b></td>
-            <td><b>Session Type</b></td>
-            <td><b>Mentor</b></td>
-            <td><b>Mentee</b></td>
-            <td><b>Facility</b></td>
-        </tr>
-        <tr>
-            <td>{{date_format($sessionDate, 'Y-m-d')}}</td>
-            <td>{{$sessionTool}}</td>
-            <td>{{$mentor}}</td>
-            <td>{{$mentee}}</td>
-            <td>{{$facility}}</td>
-        </tr>
-        <tr><td colspan="5">&nbsp;</td></tr>
-    </table>
+<div id="q9" class="q required">
+<a class="item_anchor" name="ItemAnchor1"></a>
+<label class="question top_question" for="mentor">Mentor&nbsp;<b class="icon_required" style="color:#FF0000">*</b></label>
+<select id="mentor" name="mentor" class="drop_down">
+<option></option>
+@foreach ($mentors as $mentor)
+<option value="{{$mentor->mentor_id}}">{{$mentor->person->first_name}} {{$mentor->person->last_name}}</option>
+@endforeach
+</select>
 </div>
+<div id="q10" class="q required">
+<a class="item_anchor" name="ItemAnchor2"></a>
+<label class="question top_question" for="mentee">Mentee&nbsp;<b class="icon_required" style="color:#FF0000">*</b></label>
+<select id="mentee" name="mentee" class="drop_down">
+<option></option>
+@foreach ($mentees as $mentee)
+<option value="{{$mentee->mentee_id}}">{{$mentee->person->first_name}} {{$mentee->person->last_name}}</option>
+@endforeach
+</select>
+</div>
+<div id="q11" class="q required">
+<a class="item_anchor" name="ItemAnchor3"></a>
+<label class="question top_question" for="m_date">Date&nbsp;<b class="icon_required" style="color:#FF0000">*</b></label>
+<input type="text" name="m_date"  id="m_date" size="20" />
+</div>  
+<div class="clear"></div>
+ <table>
+     <tr>
+<div id="q11" class="q required">
+<a class="item_anchor" name="ItemAnchor3"></a>
+<label class="question top_question" for="subcounty">County&nbsp;<b class="icon_required" style="color:#FF0000">*</b></label>
+<select name="county" id="county" class="drop_down">
+	<option selected>Select County</option>
+            
+            @foreach($counties as $county)
+			<option value="{{ $county->id }}"> {{$county->name}}</option>
+            @endforeach
+ </select>
+</div>
+<div id="q11" class="q required">
+<a class="item_anchor" name="ItemAnchor3"></a>
+	
+<label class="question top_question" for="subcounty">Sub-County&nbsp;<b class="icon_required" style="color:#FF0000">*</b></label>
 
+<select id="subcounty" class="drop_down" name="subcounty"><option></option></select>
+</div>   
+<div id="q" class="q required">
+<a class="item_anchor" name="ItemAnchor3"></a>
+<label class="question top_question" for="m_facility">Facility&nbsp;<b class="icon_required" style="color:#FF0000">*</b></label>
+<select id="m_facility" class="drop_down" name="m_facility">
+    <option></option>
+</select>
+
+</div>   
+     </tr>
+     </table>  
+ 
 <div class="clear"></div>
 
 <div id="q4" class="q required">
+
 
 <table>
 <tr>
@@ -347,7 +385,7 @@
 <!-- END_ITEMS -->
 <input type="hidden" name="EParam" value="FzpUCZwnDno=" />
 <div class="outside_container">
-<!--<div class="buttons_reverse"><input type="submit" name="Submit" value="Submit" class="submit_button" id="FSsubmit" /></div></div>-->
+<div class="buttons_reverse"><input type="submit" name="Submit" value="Commit Changes" class="submit_button" id="FSsubmit" /></div></div>
 </form>
 
 @stop

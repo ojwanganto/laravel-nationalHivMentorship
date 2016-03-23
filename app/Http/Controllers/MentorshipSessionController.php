@@ -130,8 +130,9 @@ class MentorshipSessionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
+    public function show($id)  {
+        
+        
         $mentorshipSession = MentorshipSession::find($id);
         $sessionDate = $mentorshipSession->session_date;
         $sessionTool = $mentorshipSession->sessionTool->name;
@@ -143,6 +144,7 @@ class MentorshipSessionController extends Controller
         $previousSessGap = $mentorshipSession->previous_session_gap;
         $otherGap = $mentorshipSession->other_gap;
         $sessionObjectives = $mentorshipSession->session_objectives;
+        $mSessionId = $id;
         $menteeStrength = $mentorshipSession->mentee_strength;
         $improvementAreas = $mentorshipSession->mentee_improvement_areas;
         $comments = $mentorshipSession->session_comments;
@@ -164,6 +166,10 @@ class MentorshipSessionController extends Controller
             $sessionScore["$comm"] = $indComment;
         }
         
+        $mentors = Mentor::all();
+        $mentees = Mentee::all();
+		$counties = \DB::table('county')->get();
+        
         switch ($sessionToolId) {
             case 1:
                 $viewPage = 'pages.session.tools.viewclinical';
@@ -183,7 +189,7 @@ class MentorshipSessionController extends Controller
         }
 
         return view($viewPage, 
-                    compact('sessionDate', 'sessionTool', 'mentor', 'mentee', 'facility', 'sessionScore','selfReportedGap', 'previousSessGap', 'otherGap', 'sessionObjectives', 'menteeStrength', 'improvementAreas', 'comments','cmeTopic','cmePresenter','mdtParticipation','totalScore'));
+                    compact('mSessionId','sessionDate', 'sessionTool', 'mentor', 'mentee', 'facility', 'sessionScore','selfReportedGap', 'previousSessGap', 'otherGap', 'sessionObjectives', 'menteeStrength', 'improvementAreas', 'comments','cmeTopic','cmePresenter','mdtParticipation','totalScore','mentors','mentees','counties'));
      
     }
 
@@ -193,9 +199,66 @@ class MentorshipSessionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
+public function edit(Request $request) {
+            
+        $m_session_id = $request->m_session_id;        
+        $mSession = MentorshipSession::find($m_session_id);
+        //$mSession -> mentor_id = $request->mentor;
+        //$mSession -> mentee_id = $request->mentee;
+        //$mSession -> session_tool_id = $request->tool_id;
+        //$mSession -> session_date = date("Y-m-d", strtotime($request->m_date));
+        //$mSession -> facility = $request->m_facility;
+        $mSession -> self_reported_gap = $request->self_reported_gap;
+        $mSession -> previous_session_gap = $request->previous_session_gap;
+        $mSession -> other_gap = $request->other_gap;
+        $mSession -> session_objectives = $request->session_objectives;
+        $mSession -> mentee_strength = $request->mentee_strength;
+        $mSession -> mentee_improvement_areas = $request->mentee_improvement_areas;
+        $mSession -> session_comments = $request->session_comments;
+        $mSession -> cme_topic = $request->cme_topic;
+        $mSession -> cme_presenter = $request->cme_presenter;
+        $mSession -> mdt_participation = $request->mdt_participation;
+        $mSession -> session_score = $request->totalScore;
+        $mSession -> save();
+        $sessionTool = $mSession->session_tool_id;
+
+        switch($sessionTool) {
+            case 1: 
+                $formIndicators = FormIndicatorDefinitions::clinicalIndicators();
+            break;
+            case 2: 
+                $formIndicators = FormIndicatorDefinitions::laboratoryIndicators();
+            break;
+            case 3: 
+                $formIndicators = FormIndicatorDefinitions::counselingIndicators();
+            break;
+            case 4: 
+                $formIndicators = FormIndicatorDefinitions::nutritionIndicators();
+            break;
+            case 5: 
+                $formIndicators = FormIndicatorDefinitions::pharmacyIndicators();
+            break;
+        }
+        
+        foreach($formIndicators as $ind) {
+            
+            $indNo = explode("_", $ind)[1];
+            $indScore = $request->$ind;
+            $commentString = 'comm_'.$indNo;
+            $comment = $request->$commentString;
+
+            $indicatorScore = MentorshipSessionScore::where(function($query) use ($m_session_id,$indNo) {
+                $query->where('session_id', '=', $m_session_id)
+                      ->where('indicator_id', '=', $indNo);
+            })->first();
+           
+            $indicatorScore -> score = $indScore;
+            $indicatorScore -> comment = $comment;
+            $indicatorScore -> save();
+
+        }
+        return redirect('mentorship-session');
+        
     }
 
     /**

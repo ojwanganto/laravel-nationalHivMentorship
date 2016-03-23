@@ -45,6 +45,7 @@ Route::get('/system-setup', 'SystemSetUpController@setUp');
 Route::get('/session/{id}', 'MentorshipSessionController@show');
 Route::get('/mentorship-session', 'MentorshipSessionController@index');
 Route::post('/session-create', 'MentorshipSessionController@store');
+Route::post('/session-edit', 'MentorshipSessionController@edit');
 Route::get('/indicator-list', 'MentorshipSessionIndicatorController@index');
 Route::get('/person-create', 'PersonController@create');
 Route::post('/person-add', 'PersonController@store');
