@@ -14,20 +14,28 @@
     <h4 class="accordion-toggle" >
            <div id="taccb">
                <div id="taccbi">  &gt; </div>
-                   {!!HTML::link('#','User Manuals')!!}
+                   {!!HTML::link('files-upload','Upload Files')!!}
+           </div>
+       
+    </h4>
+   
+    <h4 class="accordion-toggle" >
+           <div id="taccb">
+               <div id="taccbi">  &gt; </div>
+                   {!!HTML::link('manual-upload','User Manuals')!!}
            </div>
        
     </h4>
     <h4 class="accordion-toggle" >
            <div id="taccb">
                <div id="taccbi">  &gt; </div>
-                   {!!HTML::link('#','NASCOP Guidelines')!!}
+                   {!!HTML::link('guideline-upload','NASCOP Guidelines')!!}
            </div>
     </h4>
     <h4 class="accordion-toggle" >
            <div id="taccb">
                <div id="taccbi">  &gt; </div>
-                   {!!HTML::link('#','Others')!!}
+                   {!!HTML::link('others-upload','Others')!!}
            </div>
     </h4>
 @stop
