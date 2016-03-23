@@ -1,5 +1,13 @@
 @extends('formmaster')
-@section('form-name', 'Resource Center')
+@section('form-name', 'User Manuals')
+@section('inline-js')
+<script>
+	$('a').click(function(e) {
+    e.preventDefault();  //stop the browser from following
+    window.location.href = '../storage/exports/usermanual/*';
+});
+</script>
+@stop
 @section('main-nav')
     <li>{!!HTML::link('dash-board','Home')!!}</li>
     <li>{!!HTML::link('my-profile','My Profile')!!}</li>
@@ -11,14 +19,13 @@
     <li class='last'>{!!HTML::link('logout','Logout')!!}</li>
 @stop
 @section('horizontal-nav')
-    <h4 class="accordion-toggle" >
+	<h4 class="accordion-toggle" >
            <div id="taccb">
                <div id="taccbi">  &gt; </div>
                    {!!HTML::link('files-upload','Upload Files')!!}
            </div>
        
     </h4>
-   
     <h4 class="accordion-toggle" >
            <div id="taccb">
                <div id="taccbi">  &gt; </div>
@@ -35,7 +42,34 @@
     <h4 class="accordion-toggle" >
            <div id="taccb">
                <div id="taccbi">  &gt; </div>
-                   {!!HTML::link('others-upload','Others')!!}
+                   {!!HTML::link('#','Others')!!}
            </div>
     </h4>
+@stop
+@section('form-design')
+
+<div class="about-section">
+   <div class="text-content">
+     <div class="span7 offset1">
+        <?php
+	 	       $dir="../storage/exports/usermanual/*";
+			   
+			   foreach(glob($dir) as $file) 
+				{
+				   echo "Download: " ;
+				   echo  " ";
+				   
+				  echo '<a href="'.$file.'">'. basename($file) .'</a><br />';
+				
+			   }
+		        
+	         ?>
+      </div>
+   </div>
+	
+
+</div>
+
+
+@stop
 @stop
