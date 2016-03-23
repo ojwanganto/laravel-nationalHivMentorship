@@ -72,7 +72,7 @@
     function validateForm () {
          var drpDownNames = ['mentor','mentee','subcounty','m_facility'];
             var txtAndTxtAreaIds = ['m_date','self_reported_gap','previous_session_gap','other_gap','session_objectives','mentee_strength','mentee_improvement_areas','session_comments'];
-            var sessionIndFieldNames = ['ind_1','ind_2','ind_3','ind_4','ind_5','ind_6','ind_7','ind_8','ind_9','ind_10','ind_11','ind_12','ind_13','ind_14',         'ind_15','ind_16','ind_17','ind_18','ind_19','ind_20','ind_21','cme_participation','mdt_participation'];
+            var sessionIndFieldNames = ['ind_1','ind_2','ind_3','ind_4','ind_22','ind_23','ind_24','ind_25','ind_26','ind_27','ind_28',         'cme_participation','mdt_participation'];
             var submit = true;
             
             for (var drpInd in drpDownNames) {
@@ -398,9 +398,8 @@ function calcscore(){
 <td><input type="radio" @if($sessionScore['ind_28']==88) checked @endif name="ind_28" class="multiple_choice" id="answer_questions-3" value="88" /></td>
 <td colspan="2"><input value="{{$sessionScore['comm_28']}}" name="comm_28" type="text" size="30"/></td>
 </tr>
-	<tr><td ><strong>Total Score</strong></td><td colspan="4"> <input name="totalScore" readonly="true" style="text-align: right; width: 75px;" type="text" value="{{$totalScore}}"></td></tr>
+<tr><td ><strong>Total Score</strong></td><td colspan="4"> <input name="totalScore" readonly="true" style="text-align: right; width: 75px;" type="text" value="{{$totalScore}}"></td></tr>
 </table>
-	
 <table>
 <tr><th colspan="4" style="text-align:left">Summary of Mentee Strengths</th></tr>
 <tr><td colspan="4"><textarea cols="70" name="mentee_strength">{{$menteeStrength}}</textarea></td></tr>
@@ -415,8 +414,7 @@ function calcscore(){
 <tr><th colspan="4" style="text-align:left">Other Comments</th></tr>
 <tr><td colspan="4"><textarea cols="70" name="session_comments">{{$comments}}</textarea></td></tr>
 </table>
-    
-  <table>
+   <table>
 <tr><th colspan="4" style="text-align:left">Participated in CME during this mentorship visit: Yes/No</th>
     <th><input type='radio' @if($cmeTopic != '') checked @endif name='cme_participation' id="cme_yes" value='1' >YES</th>
     <th><input type='radio' @if($cmeTopic == '') checked @endif name='cme_participation' id="cme_no" value='0' >NO</th></tr>
@@ -432,16 +430,15 @@ function calcscore(){
 </table> 
 </div>
 <div class="clear"></div>
+    
 <div style="position:relative;font-family:Helvetica,Arial,sans-serif;font-size:12px;line-height:36px;text-align:left;background-color:#fafafa;height:35px;margin-top:10px;overflow:hidden;">
 
 </div>
 </div>
-
 <!-- END_ITEMS -->
 <input type="hidden" name="EParam" value="FzpUCZwnDno=" />
 <div class="outside_container">
 <div class="buttons_reverse"><input type="submit" name="Submit" value="Commit Changes" class="submit_button" id="FSsubmit" /></div></div>
-
 </form>
 
 @stop
