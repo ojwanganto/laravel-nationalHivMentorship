@@ -31,6 +31,11 @@ class MentorshipSessionController extends Controller
     public function index()
     {
         $mSessions = MentorshipSession::all();
+        foreach ($mSessions as $sess) {
+            $facility = \DB::table('facility')->where('id', $sess->facility)->first();
+            $facility = $facility->mfl_code . ": ".$facility->name;
+            $sess->facility = $facility;
+        }
         return view('pages.session.sessionhome', compact('mSessions'));
     }
 
@@ -137,9 +142,10 @@ class MentorshipSessionController extends Controller
         $sessionDate = $mentorshipSession->session_date;
         $sessionTool = $mentorshipSession->sessionTool->name;
         $sessionToolId = $mentorshipSession->sessionTool->tool_id;
-        $mentor = $mentorshipSession->mentor->person->first_name ." ".$mentorshipSession->mentor->person->last_name;
-        $mentee = $mentorshipSession->mentee->person->first_name ." ".$mentorshipSession->mentee->person->last_name;
-        $facility = $mentorshipSession->facility;
+        $mentor = $mentorshipSession->mentor;//->person->first_name ." ".$mentorshipSession->mentor->person->last_name;
+        $mentee = $mentorshipSession->mentee;//->person->first_name ." ".$mentorshipSession->mentee->person->last_name;
+        $facility = \DB::table('facility')->where('id', $mentorshipSession->facility)->first();
+        $facility = $facility->mfl_code . ": ".$facility->name;
         $selfReportedGap = $mentorshipSession->self_reported_gap;
         $previousSessGap = $mentorshipSession->previous_session_gap;
         $otherGap = $mentorshipSession->other_gap;
@@ -203,11 +209,10 @@ public function edit(Request $request) {
             
         $m_session_id = $request->m_session_id;        
         $mSession = MentorshipSession::find($m_session_id);
-        //$mSession -> mentor_id = $request->mentor;
-        //$mSession -> mentee_id = $request->mentee;
-        //$mSession -> session_tool_id = $request->tool_id;
-        //$mSession -> session_date = date("Y-m-d", strtotime($request->m_date));
-        //$mSession -> facility = $request->m_facility;
+        $mSession -> mentor_id = $request->mentor;
+        $mSession -> mentee_id = $request->mentee;
+        $mSession -> session_date = date("Y-m-d", strtotime($request->m_date));
+        $mSession -> facility = $request->m_facility;
         $mSession -> self_reported_gap = $request->self_reported_gap;
         $mSession -> previous_session_gap = $request->previous_session_gap;
         $mSession -> other_gap = $request->other_gap;

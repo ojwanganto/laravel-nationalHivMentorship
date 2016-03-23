@@ -10,6 +10,135 @@
     <li>{!!HTML::link('system-admin','Admin')!!}</li>
     <li class='last'>{!!HTML::link('logout','Logout')!!}</li>
 @stop
+@section('inline-js')
+<script type="text/javascript"> 
+    $(document).ready(function(){
+      
+		$( "#m_date" ).datepicker({
+			changeMonth: true,
+			changeYear: true,
+			dateFormat: 'dd-mm-yy'
+		});
+        $("#FSForm").submit (function (){
+         return validateForm ();
+        });
+		
+		$(".multiple_choice").change(function(){
+        calcscore()
+    	}); 
+		$("#county").change(function() {
+		$.get('../facility/loadsubcat/' + $(this).val(), function(data) {
+			$("#subcounty").empty();
+            $("#subcounty").append($('<option/>', {text : 'Select Sub-County' }));
+            $("#m_facility").empty();
+            $('#m_facility').append($('<option/>', {text : 'Select Facility' }));
+			
+			if (data != null) {
+				
+				for (var i in data) {
+					var f = data[i];
+					
+						$('#subcounty').append($('<option/>', { 
+        				value: f.id,
+        				text : f.name 
+    					}));
+					}
+			}
+		});	
+		
+    });
+
+/*adding functionality for sub-county drop-down*/
+
+	$("#subcounty").change(function() {
+		$.get('../facility/loadfacility/' + $(this).val(), function(data) {
+			if (data != null) {
+				$("#m_facility").empty();
+				$('#m_facility').append($('<option/>', {text : 'Select Facility' }));
+				for (var i in data) {
+					var f = data[i];
+					
+						$('#m_facility').append($('<option/>', { 
+        				value: f.id,
+        				text : f.name 
+    					}));
+					}
+			}
+		});	
+		
+    });
+    }); 
+    function validateForm () {
+         var drpDownNames = ['mentor','mentee','subcounty','m_facility'];
+            var txtAndTxtAreaIds = ['m_date','self_reported_gap','previous_session_gap','other_gap','session_objectives','mentee_strength','mentee_improvement_areas','session_comments'];
+            var sessionIndFieldNames = ['ind_1','ind_2','ind_3','ind_4','ind_5','ind_6','ind_7','ind_8','ind_9','ind_10','ind_11','ind_12','ind_13','ind_14',         'ind_15','ind_16','ind_17','ind_18','ind_19','ind_20','ind_21','cme_participation','mdt_participation'];
+            var submit = true;
+            
+            for (var drpInd in drpDownNames) {
+                var drpName = drpDownNames[drpInd];
+                $("#"+drpName).css('border', function() {
+                return $(this).val() == '' ? '1px solid red' : '';
+                
+                if($(this).val() == '') { submit = false;}
+                
+                });
+                
+            }
+            for (var ind in sessionIndFieldNames) {
+                var indName = sessionIndFieldNames[ind];
+                if(!$('input[name='+ indName +']:checked').val()) {
+                   $('input[name='+ indName + ']').parent().css({"background-color": "red"});
+                    submit =false;
+                }
+                
+            }
+            
+            for (var txtF in txtAndTxtAreaIds) {
+                var txtFid = txtAndTxtAreaIds[txtF];
+                $("#"+txtFid).css('border', function() {
+                return $(this).val() == '' ? '1px solid red' : '';
+                
+                if($(this).val() == '') { submit = false;}
+            
+                });
+            }
+            if (!submit) {
+                $('#msg_container').html('Please fill all required fields before submitting form');
+            }
+            return submit;
+    }
+	
+    function disablefields() {
+             if (document.getElementById('cme_yes').checked == 1) { 
+                  document.getElementById('cme_topic').disabled=false; 
+                  document.getElementById('cme_presenter').disabled=false; 
+                  document.getElementById('cme_topic').value='';
+                  document.getElementById('cme_presenter').value=''; 
+             } else { 
+                  document.getElementById('cme_topic').disabled=true; 
+                  document.getElementById('cme_presenter').disabled=true; 
+                  document.getElementById('cme_topic').value='';
+                  document.getElementById('cme_presenter').value='';
+             } 
+    }
+
+function calcscore(){
+    var score = 0;
+    $(".multiple_choice:checked").each(function(){
+        if(parseInt($(this).val(),10)==88){
+            score+=0;
+        }
+        else{
+        score+=parseInt($(this).val(),10);
+        }
+    });
+    $("input[name=totalScore]").val(score)
+	
+}
+  
+</script>
+
+@stop
 @section('horizontal-nav')
     <h4 class="accordion-toggle" >
            <div id="taccb">
@@ -45,9 +174,10 @@
 @stop
 @section('form-design')
 
-<form method="post" id="FSForm" action="session-create">
+<form method="post" id="FSForm" action="../session-edit">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-<input type="hidden" name="tool_id" value="4">
+<input type="hidden" name="m_session_id" value="{{$mSessionId}}">
+
 <!-- BEGIN_ITEMS -->
 <div class="form_table">
 
@@ -55,34 +185,77 @@
 
 <div id="q7" class="q full_width">
 <a class="item_anchor" name="ItemAnchor0"></a>
-<div class="segment_header" style="width:auto;text-align:Center;background-repeat:repeat;background-color:transparent;background-image:url('/images/stock/2015/Education/Education03.jpg');background-size: cover;background-position: 50% 50%;"><h1 style="font-size:26px;font-family:'Sanchez',serif;padding:20px 1em ;background-color:rgba(0, 0, 0, 0.290196)">Nutrition</h1></div>
+<div class="segment_header" style="width:auto;text-align:Center;background-repeat:repeat;background-color:transparent;background-image:url('/images/stock/2015/Education/Education03.jpg');background-size: cover;background-position: 50% 50%;"><h1 style="font-size:26px;font-family:'Sanchez',serif;padding:20px 1em ;background-color:rgba(0, 0, 0, 0.290196)">Edit Nutrition</h1></div>
 </div>
 
 <div class="clear"></div>
 
-<div>
-    <table id="sessionList" width='80%' style="padding-left:10px">
-        <tr>
-            <td><b>Date</b></td>
-            <td><b>Session Type</b></td>
-            <td><b>Mentor</b></td>
-            <td><b>Mentee</b></td>
-            <td><b>Facility</b></td>
-        </tr>
-        <tr>
-            <td>{{date_format($sessionDate, 'Y-m-d')}}</td>
-            <td>{{$sessionTool}}</td>
-            <td>{{$mentor}}</td>
-            <td>{{$mentee}}</td>
-            <td>{{$facility}}</td>
-        </tr>
-        <tr><td colspan="5">&nbsp;</td></tr>
-    </table>
+<div id="q9" class="q required">
+<a class="item_anchor" name="ItemAnchor1"></a>
+<label class="question top_question" for="mentor">Mentor&nbsp;<b class="icon_required" style="color:#FF0000">*</b></label>
+<select id="mentor" name="mentor" class="drop_down">
+<option></option>
+@foreach ($mentors as $mentorr)
+<option  
+    value="{{$mentorr->mentor_id}}" @if($mentor->mentor_id ==$mentorr->mentor_id) selected=selected @endif >{{$mentorr->person->first_name}} {{$mentorr->person->last_name}}</option>
+@endforeach
+</select>
 </div>
+<div id="q10" class="q required">
+<a class="item_anchor" name="ItemAnchor2"></a>
+<label class="question top_question" for="mentee">Mentee&nbsp;<b class="icon_required" style="color:#FF0000">*</b></label>
+<select id="mentee" name="mentee" class="drop_down">
+<option></option>
+@foreach ($mentees as $menteee)
+<option value="{{$mentee->mentee_id}}" @if($mentee->mentee_id ==$menteee->mentee_id) selected=selected @endif >{{$menteee->person->first_name}} {{$menteee->person->last_name}}</option>
+@endforeach
+</select>
+</div>
+<div id="q11" class="q required">
+<a class="item_anchor" name="ItemAnchor3"></a>
+<label class="question top_question" for="m_date">Date&nbsp;<b class="icon_required" style="color:#FF0000">*</b></label>
+<input type="text" name="m_date"  id="m_date" size="20" value="{{date_format($sessionDate, 'Y-m-d')}}" />
+</div>  
+<div class="clear"></div>
+    <div style="font-size:18"> &nbsp;&nbsp;&nbsp; <b>Original Facility:</b> {{$facility}}
+</div> 
+<div class="clear"></div>
+ <table>
+     <tr>
+<div id="q11" class="q required">
+<a class="item_anchor" name="ItemAnchor3"></a>
+<label class="question top_question" for="subcounty">County&nbsp;<b class="icon_required" style="color:#FF0000">*</b></label>
+<select name="county" id="county" class="drop_down">
+	<option selected>Select County</option>
+            
+            @foreach($counties as $county)
+			<option value="{{ $county->id }}"> {{$county->name}}</option>
+            @endforeach
+ </select>
 
+</div>
+<div id="q11" class="q required">
+<a class="item_anchor" name="ItemAnchor3"></a>
+	
+<label class="question top_question" for="subcounty">Sub-County&nbsp;<b class="icon_required" style="color:#FF0000">*</b></label>
+
+<select id="subcounty" class="drop_down" name="subcounty"><option></option></select>
+</div>   
+<div id="q" class="q required">
+<a class="item_anchor" name="ItemAnchor3"></a>
+<label class="question top_question" for="m_facility">Facility&nbsp;<b class="icon_required" style="color:#FF0000">*</b></label>
+<select id="m_facility" class="drop_down" name="m_facility">
+    <option></option>
+</select>
+
+</div> 
+     </tr>
+     </table>  
+ 
 <div class="clear"></div>
 
 <div id="q4" class="q required">
+
 
 <table>
 <tr>
@@ -326,7 +499,7 @@
 <!-- END_ITEMS -->
 <input type="hidden" name="EParam" value="FzpUCZwnDno=" />
 <div class="outside_container">
-<!--<div class="buttons_reverse"><input type="submit" name="Submit" value="Submit" class="submit_button" id="FSsubmit" /></div></div>-->
+<div class="buttons_reverse"><input type="submit" name="Submit" value="Commit Changes" class="submit_button" id="FSsubmit" /></div></div>
 
 </form>
 
