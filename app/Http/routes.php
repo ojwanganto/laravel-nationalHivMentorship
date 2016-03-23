@@ -10,6 +10,12 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::get('/manual-upload', 'ResourceCenterController@uploadManuals');
+Route::get('/files-upload', 'ResourceCenterController@uploads');
+Route::get('/guideline-upload', 'ResourceCenterController@uploadGuideline');
+Route::get('/others-upload', 'ResourceCenterController@uploadOthers');
+Route::post('/files-upload', 'ResourceCenterController@postFile');
+
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');

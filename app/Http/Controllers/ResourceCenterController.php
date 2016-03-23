@@ -5,6 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\DataDictionary;
+use Input;
+use Validator;
+use Redirect;
+use Session;
+
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+use Illuminate\Http\Response;
 
 class ResourceCenterController extends Controller
 {
@@ -31,6 +40,31 @@ class ResourceCenterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+	 public function uploads()
+    {
+        return view('pages.resource-center.uploads');
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+	public function uploadGuideline() {
+		
+		
+        return view('pages.resource-center.guideline');
+        
+    }
+	public function uploadOthers() {
+	
+        return view('pages.resource-center.others');
+        
+    }
+	public function uploadManuals() {
+        return view('pages.resource-center.manuals');
+        
+    }
     public function create()
     {
         //
@@ -42,9 +76,45 @@ class ResourceCenterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function postFile () {
+        $file = array('guidelinefile' => Input::file('guidelinefile'));
+		$docType = Input::get('files');
+		  echo $docType;
+        $rules = array('guidelinefile' => 'required',); 
+        $validator = Validator::make($file, $rules);
+        if ($validator->fails()) {
+             return redirect('/files-upload')->withErrors([
+            'guidelinefile' => 'Please upload a valid file. Try again?',
+        ]);
+        }
+        else {
+            if (Input::file('guidelinefile')->isValid()) {
+					 if ($docType==1) {
+						$destinationPath = storage_path('exports/usermanual');// upload path
+
+					 }
+					else if ($docType==2) {
+						$destinationPath = storage_path('exports/guidelines');// upload path
+
+					 }
+					else if ($docType==3) {
+						$destinationPath = storage_path('exports/others');// upload path
+
+					 }
+					
+						$extension = Input::file('guidelinefile')->getClientOriginalExtension(); // getting image extension
+						$fileName = Input::file('guidelinefile')->getClientOriginalName();
+						Input::file('guidelinefile')->move($destinationPath, $fileName); 
+						Session::flash('success', 'File Uploaded successfully'); 
+						return redirect('/files-upload');
+					
+            }
+            else {
+                Session::flash('error', 'uploaded file is not valid');
+                return redirect('/files-upload');
+            }
+        }
+		  
     }
 
     /**
