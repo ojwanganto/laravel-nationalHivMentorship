@@ -71,7 +71,7 @@
     function validateForm () {
          var drpDownNames = ['mentor','mentee','subcounty','m_facility'];
             var txtAndTxtAreaIds = ['m_date','self_reported_gap','previous_session_gap','other_gap','session_objectives','mentee_strength','mentee_improvement_areas','session_comments'];
-            var sessionIndFieldNames = ['ind_1','ind_2','ind_3','ind_4','ind_5','ind_6','ind_7','ind_8','ind_9','ind_10','ind_11','ind_12','ind_13','ind_14',         'ind_15','ind_16','ind_17','ind_18','ind_19','ind_20','ind_21','cme_participation','mdt_participation'];
+             var sessionIndFieldNames = ['ind_1','ind_2','ind_3','ind_4','ind_29','ind_30','ind_31','ind_32','ind_33','ind_34',         'ind_35','ind_36','ind_37','ind_38','ind_39','ind_40','ind_41','ind_42','ind_43','ind_44',  'ind_45','ind_46','ind_47','ind_48','ind_49','ind_50','ind_51','ind_52','ind_53','ind_54','cme_participation','mdt_participation'];
             var submit = true;
             
             for (var drpInd in drpDownNames) {
